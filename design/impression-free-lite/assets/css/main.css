@@ -498,7 +498,7 @@ fieldset[disabled] .btn {
 #carousel-area .carousel-inner .item .banner-image{
   position: absolute;
   top:0%;
-  left:40%;
+  left:0%;
 }
 
 #carousel-area .carousel-inner .item .carousel-caption {
@@ -508,7 +508,7 @@ fieldset[disabled] .btn {
   /*opacity: 0.3;*/
 }
 #carousel-area .carousel-inner .item .carousel-caption.enter {
-  top: 80%;
+  top: 58%;
 }
 #carousel-area .carousel-inner .item .carousel-caption h2 {
   font-size: 45px;
