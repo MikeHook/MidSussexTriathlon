@@ -139,6 +139,19 @@ ol {
 fieldset[disabled] .btn {
   opacity: 1;
 }
+
+.d-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.justify-content-center {
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+}
+
 /* ==========================================================================
  Back to top
  ========================================================================== */
@@ -228,6 +241,13 @@ fieldset[disabled] .btn {
   font-weight: 400;
   line-height: 40px;
 }
+
+#roof .info-bar-time {
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 40px;
+}
+
 #roof .quick-contacts {
   float: right;
 }
