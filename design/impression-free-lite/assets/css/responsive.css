@@ -63,6 +63,14 @@
   .board .button .btn-large {
     padding: 12px 12px;
   }
+  #carousel-area .carousel-inner .item .banner-background{
+    height: 300px;
+  }
+
+  #carousel-area .carousel-inner .item .banner-image{
+    height: 300px;
+  }
+
   #carousel-area .carousel-inner .item .carousel-caption {
     top: 10%;
   }
@@ -71,6 +79,19 @@
     line-height: 36px;
     margin: 20px;
   }
+  #carousel-area .carousel-inner .item .carousel-caption.enter {
+    top: 54%;
+  }
+
+  .btn-lg {
+    font-size: 11px;
+    padding: 6px 16px;
+    font-size: 13px;
+  }
+  .board .button .btn-large {
+    padding: 12px 12px;
+  }
+
   #carousel-area .carousel-control {
     font-size: 22px;
     top: 60%;
@@ -143,9 +164,6 @@
     font-size: 14px;
     margin: 20px;
     line-height: 16px;
-  }
-  #carousel-area .carousel-inner .item .carousel-caption .btn-common {
-    display: none;
   }
   #carousel-area .carousel-control {
     font-size: 22px;

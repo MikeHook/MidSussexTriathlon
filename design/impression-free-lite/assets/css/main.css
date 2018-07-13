@@ -489,16 +489,28 @@ fieldset[disabled] .btn {
   display: block;
   z-index: 9;
 }
-#carousel-area .carousel-inner .item {
+#carousel-area .carousel-inner .item {  
   background-attachment: fixed;
   background-size: 100%;
   background-size: cover;
-  z-index: 10;
+  z-index: 10;  
+}
+
+
+#carousel-area .carousel-inner .item .banner-background{
+  /* Funky style to make the image centered and clip on the sides */
+  position: relative;
+  max-width: initial;
+  left:50%;
+  transform: translate(-50%,0);
 }
 #carousel-area .carousel-inner .item .banner-image{
+  /* Funky style to make the image centered and clip on the sides */
   position: absolute;
+  max-width: initial;
   top:0%;
-  left:0%;
+  left:50%;
+  transform: translate(-50%,0);
 }
 
 #carousel-area .carousel-inner .item .carousel-caption {
