@@ -659,58 +659,134 @@ fieldset[disabled] .btn {
     top: 29%;
   }
 }
-/* ==========================================================================
-   Custom Componet
-   ========================================================================== */
-/* ==========================================================================
-   Countdown Style Start
-   ========================================================================== */
-.countdown-timer .text {
-  padding: 10px 68px;
+
+/* Counter Start */
+
+/* 08 - COUNTER */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+#counter.section {
+  padding: 20px 0 20px 0;  
 }
-.countdown-timer .text h2 {
-  font-size: 40px;
-  line-height: 48px;
+#counter.section .container {
+  width: 100%;
 }
-.countdown-timer .text h4 {
-  color: #e91e63;
-  margin-bottom: 10px;
-  line-height: 24px;
-}
-.countdown-timer .text p {
-  font-size: 14px;
-  line-height: 30px;
-}
-.countdown-timer .btn-lg {
-  margin-top: 30px;
-}
-.time-count div {
-  float: left;
-  text-align: center;
-}
-.time-entry {
-  display: inline-block;
-  min-width: 110px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  padding: 15px 15px 20px 15px;
-  margin-right: 20px;
-  color: #777;
-  font-size: 14px;
-  line-height: 15px;
-  text-transform: uppercase;
-}
-.time-entry span {
-  font-size: 45px;
-  line-height: 45px;
-  font-weight: 700;
-  display: block;
-  color: #e91e63;
-  margin-bottom: 10px;
-}
-.time-countdown {
-  margin-top: 68px;
-}
+
+.counter-wrapper { background: #222222; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+.counter-title { display: inline-block; font-size: 28px; font-weight: 400; color: #fff; margin-right: 26px; line-height: 46px; vertical-align: top; margin-top: 2px; }
+.counters-block { display: inline-block; margin-top: 2px; margin-right: 39px; }
+.counters-entry { float: left; border-left: 1px solid #4e4e4e; width: 106px; }
+.counters-entry:last-child { border-right: 1px solid #4e4e4e; }
+.counters-count { font-size: 26px; line-height: 20px; font-weight: 800; color: #feca16; margin-bottom: 8px; }
+.counters-label { font-size: 14px; line-height: 18px; font-weight: 400; color: rgba(255, 255, 255, 0.6); }
+.counter-wrapper .c-btn { vertical-align: top; }
+.counter-wrapper.style-2 { position: absolute; bottom: 0px; left: 0px; width: 100%; z-index: 2; background: rgba(33, 33, 33, 0.2); }
+.counter-title-block { display: inline-block; vertical-align: top; margin-top: 15px; }
+.counter-wrapper.style-2 .counter-title { margin-top: 0; }
+.counter-tilt-desc { font-size: 16px; line-height: 20px; font-weight: 400; color: rgba(255, 255, 255, 0.8); text-align: left; }
+
+
+.c-btn { display: inline-block; font-weight: 700; text-align: center; text-transform: uppercase; }
+.c-btn.b-50 { font-size: 12px; line-height: 48px; padding: 0px 32px; -moz-border-radius: 5px; border-radius: 5px; }
+.c-btn.yellow { background: #feca16; color: #fff; border: 1px solid #feca16; }
+.c-btn.yellow-2 { background: transparent; color: #282c38; border: 1px solid #feca16; }
+.c-btn.green { background: #4cae51; color: #fff; border: 1px solid #4cae51; }
+.c-btn.green-2 { background: transparent; color: #4cae51; border: 1px solid #4cae51; }
+.c-btn.red { background: #F3564B; color: #fff; border: 1px solid #F3564B; }
+.c-btn.red-2 { background: transparent; color: #F3564B; border: 1px solid #F3564B; }
+.c-btn.black { background: #222222; color: #fff; border: 1px solid #222222; }
+.c-btn.black-2 { background: transparent; color: #222222; border: 1px solid #222222; }
+.c-btn.dark { background: #9d656d; color: #fff; border: 1px solid #9d656d; }
+.c-btn.dark-2 { background: transparent; color: #9d656d; border: 1px solid #9d656d; }
+.c-btn.blue { background: #4485C1; color: #fff; border: 1px solid #4485C1; }
+.c-btn.blue-2 { background: transparent; color: #4485C1; border: 1px solid #4485C1; }
+.c-btn.orange { background: #F60; color: #fff; border: 1px solid #F60; }
+.c-btn.orange-2 { background: transparent; color: #F60; border: 1px solid #F60; }
+.c-btn.purple { background: #B15CB1; color: #fff; border: 1px solid #B15CB1; }
+.c-btn.purple-2 { background: transparent; color: #B15CB1; border: 1px solid #B15CB1; }
+.c-btn.pink { background: #ec659c; color: #fff; border: 1px solid #ec659c; }
+.c-btn.pink-2 { background: transparent; color: #ec659c; border: 1px solid #ec659c; }
+.c-btn.green-light { background: #2bbab0; color: #fff; border: 1px solid #2bbab0; }
+.c-btn.green-light-2 { background: transparent; color: #2bbab0; border: 1px solid #2bbab0; }
+.c-btn.red-dark { background: #DA83A6; color: #fff; border: 1px solid #DA83A6; }
+.c-btn.red-dark-2 { background: transparent; color: #DA83A6; border: 1px solid #DA83A6; }
+.c-btn.blue-light { background: #23b0e8; color: #fff; border: 1px solid #23b0e8; }
+.c-btn.blue-light-2 { background: transparent; color: #23b0e8; border: 1px solid #23b0e8; }
+.c-btn.orchid { background: #B565A7; color: #fff; border: 1px solid #B565A7; }
+.c-btn.orchid-2 { background: transparent; color: #B565A7; border: 1px solid #B565A7; }
+.c-btn.pink-light { background: #C084DE; color: #fff; border: 1px solid #C084DE; }
+.c-btn.pink-light-2 { background: transparent; color: #C084DE; border: 1px solid #C084DE; }
+.c-btn.princeton { background: #ff9966; color: #fff; border: 1px solid #ff9966; }
+.c-btn.princeton-2 { background: transparent; color: #ff9966; border: 1px solid #ff9966; }
+.c-btn.sandy { background: #ff6666; color: #fff; border: 1px solid #ff6666; }
+.c-btn.sandy-2 { background: transparent; color: #ff6666; border: 1px solid #ff6666; }
+.c-btn.rhodamine { background: #D45AB6; color: #fff; border: 1px solid #D45AB6; }
+.c-btn.rhodamine-2 { background: transparent; color: #D45AB6; border: 1px solid #D45AB6; }
+.c-btn.grey { background: transparent; color: #222222; border: 1px solid #e4e4e4; }
+.c-btn.white { background: #fff; color: #222; border: 1px solid #fff; }
+.c-btn.transparent { color: #fff; border: 1px solid rgba(255, 255, 255, 0.5); }
+
+.c-btn.hv-black:hover { background: #000; color: #fff; border: 1px solid #000; }
+.c-btn.hv-black-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-black-t:hover { background: transparent; color: #000; }
+.c-btn.hv-yellow:hover { background: #feca16; color: #fff; border: 1px solid #feca16; }
+.c-btn.hv-yellow-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-yellow-t:hover { background: transparent; color: #feca16; }
+.c-btn.hv-green:hover { background: #4cae51; color: #fff; border: 1px solid #4cae51; }
+.c-btn.hv-green-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-green-t:hover { background: transparent; color: #4cae51; }
+.c-btn.hv-red:hover { background: #F3564B; color: #fff; border: 1px solid #F3564B; }
+.c-btn.hv-red-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-red-t:hover { background: transparent; color: #F3564B; }
+.c-btn.hv-white:hover { background: #fff; color: #222; }
+.c-btn.hv-white-o:hover { background: transparent; color: #fff; border: 1px solid #fff; }
+.c-btn.hv-dark:hover { background: #9d656d; color: #fff; border-color: #9d656d; }
+.c-btn.hv-dark-o:hover { background: transparent; color: #9d656d; border-color: #9d656d; }
+.c-btn.hv-dark-t:hover { background: transparent; color: #9d656d; border-color: #9d656d; }
+.c-btn.hv-blue:hover { background: #4485C1; color: #fff; border: 1px solid #4485C1; }
+.c-btn.hv-blue-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-blue-t:hover { background: transparent; color: #4485C1; }
+.c-btn.hv-orange:hover { background: #F60; color: #fff; border: 1px solid #F60; }
+.c-btn.hv-orange-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-orange-t:hover { background: transparent; color: #F60; }
+.c-btn.hv-purple:hover { background: #B15CB1; color: #fff; border: 1px solid #B15CB1; }
+.c-btn.hv-purple-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-purple-t:hover { background: transparent; color: #B15CB1; }
+.c-btn.hv-pink:hover { background: #ec659c; color: #fff; border: 1px solid #ec659c; }
+.c-btn.hv-pink-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-pink-t:hover { background: transparent; color: #ec659c; }
+.c-btn.hv-green-light:hover { background: #2bbab0; color: #fff; border: 1px solid #2bbab0; }
+.c-btn.hv-green-light-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-green-light-t:hover { background: transparent; color: #2bbab0; }
+.c-btn.hv-red-dark:hover { background: #DA83A6; color: #fff; border: 1px solid #DA83A6; }
+.c-btn.hv-red-dark-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-red-dark-t:hover { background: transparent; color: #DA83A6; }
+.c-btn.hv-blue-light:hover { background: #23b0e8; color: #fff; border: 1px solid #23b0e8; }
+.c-btn.hv-blue-light-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-blue-light-t:hover { background: transparent; color: #23b0e8; }
+.c-btn.hv-orchid:hover { background: #B565A7; color: #fff; border: 1px solid #B565A7; }
+.c-btn.hv-orchid-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-orchid-t:hover { background: transparent; color: #B565A7; }
+.c-btn.hv-pink-light:hover { background: #C084DE; color: #fff; border: 1px solid #C084DE; }
+.c-btn.hv-pink-light-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-pink-light-t:hover { background: transparent; color: #C084DE; }
+.c-btn.hv-princeton:hover { background: #ff9966; color: #fff; border: 1px solid #ff9966; }
+.c-btn.hv-princeton-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-princeton-t:hover { background: transparent; color: #ff9966; }
+.c-btn.hv-sandy:hover { background: #ff6666; color: #fff; border: 1px solid #ff6666; }
+.c-btn.hv-sandy-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-sandy-t:hover { background: transparent; color: #ff6666; }
+.c-btn.hv-rhodamine:hover { background: #D45AB6; color: #fff; border: 1px solid #D45AB6; }
+.c-btn.hv-rhodamine-o:hover { background: transparent; color: #fff; }
+.c-btn.hv-rhodamine-t:hover { background: transparent; color: #D45AB6; }
+.ClassyCountdown-wrapper > div { display: inline-block; position: relative; width: 80px; height: 81px; margin: 10px; }
+.ClassyCountdown-wrapper .ClassyCountdown-value { width: 100%; position: absolute; top: 50%; text-align: center; left: 0; display: block; }
+.ClassyCountdown-value div { font-size: 24px; font-weight: 800; color: #fff; }
+.ClassyCountdown-value span { font-size: 12px !important; font-weight: 400; color: rgba(255, 255, 255, 0.8); }
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* Counter End */
+
+
 /* ==========================================================================
    Event location
    ========================================================================== */
