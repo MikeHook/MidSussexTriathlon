@@ -791,10 +791,22 @@ fieldset[disabled] .btn {
    Event location
    ========================================================================== */
 #event {
-  background: url(../img/background/bg-1.jpg);
+  background: url(../img/background/tri_icons_background.png);
   background-size: cover;
   position: relative;
 }
+#event h2 a {
+  color: #000;
+}
+
+#event.section {
+  padding: 30px 0;
+}
+
+#event .btn-common {
+  color: #000;  
+}
+
 #event .tab-block {
   width: 100%;
   text-align: center;
@@ -830,6 +842,9 @@ fieldset[disabled] .btn {
   font-weight: 400;
   letter-spacing: 1px;
   margin-bottom: 22px;
+}
+#event .content-text h3 a {
+  color: #000;
 }
 #event .content-text p {
   color: #ADADAD;
