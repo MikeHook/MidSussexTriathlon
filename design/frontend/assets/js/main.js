@@ -18,26 +18,30 @@ var now = new Date();
 var secondsTilRace = (raceDate.getTime() - now.getTime()) / 1000;
 var bgColor = "#000";
 var fgColor = "#f3dd02";
-$('#countdown-container').ClassyCountdown({
-  end: $.now() + secondsTilRace,
-  labels: true,
-  style: {
-    element: "",
-    textResponsive: .5,
-    days: {
-      gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
-    },
-    hours: {
-      gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
-    },
-    minutes: {
-      gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
-    },
-    seconds: {
-      gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
-    },
-  }
-});
+
+var countdownContainer = $('#countdown-container');
+if (countdownContainer.length) {
+  countdownContainer.ClassyCountdown({
+    end: $.now() + secondsTilRace,
+    labels: true,
+    style: {
+      element: "",
+      textResponsive: .5,
+      days: {
+        gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
+      },
+      hours: {
+        gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
+      },
+      minutes: {
+        gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
+      },
+      seconds: {
+        gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
+      },
+    }
+  });
+}
 
 /* ==========================================================================
    WOW Scroll Spy
