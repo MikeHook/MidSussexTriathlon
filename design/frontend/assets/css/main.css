@@ -5,7 +5,15 @@
 /* ==========================================================================
    Global Styles
    ========================================================================== */
-body {
+   @font-face {
+    font-family: 'SignPainter-HouseScript';   
+    src:url('../fonts/SignPainter-HouseScript.ttf') format('truetype') ;
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+   body {
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -65,10 +73,10 @@ ol {
 }
 .section-title {
   color: #2d2d2d;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'SignPainter-HouseScript';
   text-align: center;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 50pt;
   padding: 15px 0px;
   margin-bottom: 0;
   margin-top: 0;
@@ -202,9 +210,11 @@ fieldset[disabled] .btn {
   bottom: 10px;
 }
 .page-header .page-title {
+  font-family: 'SignPainter-HouseScript';
+  text-transform: none;
   text-align: left;
   color: #fff;
-  font-size: 40px;
+  font-size: 36pt;
   padding: 15px 0;
   margin-bottom: 10px !important;
 }
@@ -1578,14 +1588,27 @@ h1 {
   #entry .entry-form {
     background: #fff;
     padding: 57px 40px;
-    margin: 40px 0px 200px;
-    max-height: 627px;
+    margin: 40px 0 40px 0;
+  
   }
+
+  #entry {
+    padding-bottom: 40px;
+  }
+
+  #entry .row.match-my-cols {
+    overflow: hidden; 
+  }
+
+  #entry .row.match-my-cols [class*="col-"]{
+      margin-bottom: -99999px;
+      padding-bottom: 99999px;
+  }
+
   #entry .information {
     background: #777777;
     padding: 65px 30px;
     margin-top: 40px;
-    max-height: 627px;
   }
   #entry .information .title-medium {
     color: #ffffff !important;
@@ -1621,7 +1644,9 @@ h1 {
     margin-left: 5px;
   }
   
-  #entry input {
+  #entry input[type=text],
+  #entry input[type=email], 
+  #entry input[type=time] {
     display: block;
     width: 100%;
     padding: 0;
@@ -1638,10 +1663,51 @@ h1 {
     font-weight: 400;
     padding-top: 15px;
   }
+
+  #entry .checkbox-inline,
+  #entry .radio-inline {
+    position: relative;
+    padding-top: 23px;
+  }
+
+  #entry .radio-inline input[type=radio] {
+    position: relative;
+    padding-top: 20px;
+    /*
+    display: block;
+
+    height: 100%;
+    padding-top: 15px;
+    */
+
+
+  }
+
+  #entry select {
+    display: block;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    position: absolute;
+    background: transparent;
+    height: 100%;
+    font-size: 1em;
+    font-family: inherit;
+    font-weight: 400;
+    padding-top: 15px;
+  }
+  #entry select:focus {
+    outline: none;
+  }
+
+
   #entry .title-header {
     display: inline-block;
     width: 100%;
-    margin-bottom: 68px;
   }
   #entry .title-header .title-medium {
     font-size: 22px;
@@ -1688,6 +1754,15 @@ h1 {
     font-size: 16px;
     color: #e91e63;
   }
+  #entry .label-line-time .label  {
+    top: 0px;
+    font-size: 16px;
+  }
+  #entry .label-line-radio .label  {
+    top: 0px;
+    font-size: 16px;
+  }
+
   #entry .span {
     position: absolute;
     width: 100%;
@@ -1706,6 +1781,11 @@ h1 {
     position: relative;
     height: 50px;
     margin: 0px 0 30px;
+  }
+  #entry .label-line-radio {
+    position: relative;
+    height: 50px;
+    margin: 10px 0 30px;
   }
   #entry .transition {
     -webkit-transition: .5s;

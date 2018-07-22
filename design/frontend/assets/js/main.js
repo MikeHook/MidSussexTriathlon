@@ -73,6 +73,14 @@ $('.input').blur(function () {
   }
 });
 
+$('.select').blur(function () {
+  if ($(this).val()) {
+    $(this).parent('.label-line').addClass('active checked');
+  } else {
+    $(this).parent('.label-line').removeClass('active checked');
+  }
+});
+
 $('.label-line').click(function () {
   $(this).addClass('active');
   if ($('.label-line').hasClass('checked')) { }

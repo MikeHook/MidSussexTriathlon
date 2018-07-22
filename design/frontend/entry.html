@@ -249,56 +249,193 @@
     <!-- Start Contact Us Section -->
     <section id="entry">
       <div class="container">
-        <div class="row wow fadeInDown" data-wow-delay="0.3s">
+        <div class="row match-my-cols wow fadeInDown" data-wow-delay="0.3s">
           <div class="col-md-8 col-sm-7 entry-form">
             <form role="form" id="entryForm" data-toggle="validator">
               <div class="title-header">
-                <h3 class="title-medium pull-left">Send us a message</h3>
+                <h3 class="title-medium pull-left">Enter the race here</h3>
                 <div class="icon pull-right">
-                  <i class="icon-envelope"></i>
+                  <i class="icon-target"></i>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="title-medium pull-left">Your details</h5>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="label-line">
                     <span class="span"></span>
-                    <label class="label transition">Name</label>
-                    <input type="text" class="input" id="name" required data-error="Please enter your name">
+                    <label class="label transition">First name*</label>
+                    <input type="text" class="input" id="firstName" required>
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="label-line">
                     <span class="span"></span>
-                    <label class="label transition">Email</label>
-                    <input type="email" class="input" id="email" required data-error="Please enter your email">
+                    <label class="label transition">Last name*</label>
+                    <input type="text" class="input" id="lastName" required>
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
-                <div class="col-md-12">
-                  <div class="label-line textarea">
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="label-line">
                     <span class="span"></span>
-                    <label class="label transition">Message</label>
-                    <textarea id="message" class="input" required data-error="Write your message"></textarea>
+                    <label class="label transition">Date of birth*</label>
+                    <input type="text" class="input" id="dob" required>
                     <div class="help-block with-errors"></div>
                   </div>
-                  <button type="submit" id="form-submit" class="btn btn-common">Send
-                    <i class="icon-paper-plane" aria-hidden="true"></i>
+                </div>
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Gender*</label>
+                    <select class="input" id="gender" name="gender" required>
+                      <option value=""></option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="title-medium pull-left">Contact information</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Address line 1*</label>
+                    <input type="text" class="input" id="address1" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Address line 2</label>
+                    <input type="text" class="input" id="address2">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Town / City*</label>
+                    <input type="text" class="input" id="city" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">County</label>
+                    <input type="text" class="input" id="county">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Phone number</label>
+                    <input type="text" class="input" id="phone">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Email*</label>
+                    <input type="email" class="input" id="email" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="title-medium pull-left">Event details</h5>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="label-line label-line-radio">
+                    <span class="span"></span>
+                    <label class="label transition">Race type*</label>
+                    <label class="radio-inline">
+                      <input type="radio" name="raceType" id="raceType1" value="Full Triathlon"> Full Triathlon
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="raceType" id="raceType2" value="Aquabike"> Aquabike
+                    </label>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="label-line label-line-time">
+                    <span class="span"></span>
+                    <label class="label transition">Swim Time*</label>
+                    <input type="time" class="input" id="swimTime">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">BTF Number</label>
+                    <input type="text" class="input" id="bftNumber">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Club name</label>
+                    <input type="text" class="input" id="clubName">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> I have read and agree to the race terms and conditions.
+                    </label>
+                  </div>
+                  <button type="submit" id="form-submit" class="btn btn-common">Continue
+                    <i class="icon-like" aria-hidden="true"></i>
                   </button>
                   <div id="msgSubmit" class="h3 text-center hidden"></div>
                   <div class="clearfix"></div>
                 </div>
               </div>
+
             </form>
           </div>
           <div class="col-md-4 col-sm-5 information">
 
             <div class="contact-datails">
               <div class="icon">
-                <i class="fa fa-bolt"></i>
+                <i class="icon-hourglass"></i>
               </div>
               <div class="info">
-                <span class="detail">Places left: 123</span>
+                <h5>Places left</h5>
+                <h3>350</h3>
               </div>
             </div>
 
@@ -330,9 +467,11 @@
             </div>
           </div>
         </div>
+
       </div>
-    </section>
-    <!-- End Contact Us Section  -->
+  </div>
+  </section>
+  <!-- End Contact Us Section  -->
 
 
 

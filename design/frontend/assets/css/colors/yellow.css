@@ -117,6 +117,21 @@ a:hover{
 .pricing-table .table-icon i{
     background: rgba(255, 193, 7, 0.07);
   }
+/* Entry */
+#entry .title-header .icon i{
+  color: #FFC107;
+}
+#entry .label-line.active .label{
+   color: #FFC107;
+}
+#entry .label-line.active .span:before{
+  background: #FFC107;
+}
+#entry .span:before{
+  background: #FFC107;
+}
+
+
 /* Contact */
 #contact .title-header .icon i{
   color: #FFC107;
