@@ -1581,15 +1581,34 @@ h1 {
 /* ==========================================================================
    Entry Form 
    ========================================================================== */
-   .main-content {
-    background: url(../img/background/contact-bg.jpg) center;
-    background-size: cover;
+  #entry .entry-left-col {
+    padding: 0;
   }
+
+  #entry .title-header {
+    margin-top: 40px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+  #entry .title-header .title-medium {
+    font-size: 22px;
+    color: #2d2d2d;
+    font-weight: 700;
+    margin: 15px 0 15px 0;
+  }
+  #entry .title-header .icon {
+    margin-top: 10px;
+  }
+  #entry .title-header .icon i {
+    color: #e91e63;
+    font-size: 48px;
+  }
+
   #entry .entry-form {
     background: #fff;
-    padding: 57px 40px;
-    margin: 40px 0 40px 0;
-  
+    padding: 30px 40px;
+    margin: 0;
   }
 
   #entry {
@@ -1614,10 +1633,20 @@ h1 {
     color: #ffffff !important;
     margin-left: 24px;
   }
-  #entry .information .contact-datails {
+  #entry .information .info-container {
     margin: 15px 0px 48px;
   }
-  #entry .information .contact-datails .icon {
+  #entry .information .info-container h5 {
+    color: #fff;
+    text-align: center;
+  }
+
+  #entry .information .info-container h3 {
+    color: #fff;
+    text-align: center;
+  }
+
+  #entry .information .info-container .icon {
     float: left;
     font-size: 38px;
     width: 48px;
@@ -1626,11 +1655,18 @@ h1 {
     line-height: 32px;
     border-radius: 50%;
     color: #fff;
+    padding-top: 10px;
   }
-  #entry .information .contact-datails .info {
-    margin-left: 60px;
+
+  #entry .information .info-container p {
+    color: #fff;
+    margin-left: 70px;
   }
-  #entry .information .contact-datails .info span.detail {
+
+  #entry .information .info-container .info {
+    margin-left: 0;
+  }
+  #entry .information .info-container .info span.detail {
     font-size: 16px;
     display: block;
     font-weight: 500;
@@ -1704,23 +1740,6 @@ h1 {
     outline: none;
   }
 
-
-  #entry .title-header {
-    display: inline-block;
-    width: 100%;
-  }
-  #entry .title-header .title-medium {
-    font-size: 22px;
-    color: #2d2d2d;
-    font-weight: 700;
-  }
-  #entry .title-header .icon {
-    margin-top: 10px;
-  }
-  #entry .title-header .icon i {
-    color: #e91e63;
-    font-size: 48px;
-  }
   #entry input:focus,
   #entry textarea:focus {
     outline: none;
@@ -1819,6 +1838,10 @@ h1 {
     text-align: center;
     display: block;
     margin-top: -38px;
+  }
+
+  #entry .buttons {
+    text-align: center;
   }
 /* 
  Entry Form end

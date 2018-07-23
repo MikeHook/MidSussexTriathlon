@@ -118,6 +118,9 @@ a:hover{
     background: rgba(255, 193, 7, 0.07);
   }
 /* Entry */
+#entry .title-header {
+  background-color:rgba(255, 193, 7, 0.7);
+}
 #entry .title-header .icon i{
   color: #FFC107;
 }
@@ -131,6 +134,9 @@ a:hover{
   background: #FFC107;
 }
 
+#entry .information .info-container .icon {
+  color:  #FFC107;
+}
 
 /* Contact */
 #contact .title-header .icon i{
