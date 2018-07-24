@@ -1,0 +1,12 @@
+
+Gettin' the design over the line!
+- Homepage banner
+- Venue map
+- Course maps
+- Competitor listing
+- Contact us design
+- Sponsors
+- Standard page template
+- Top nav
+- Gallery (Embedded flickr?)
+
