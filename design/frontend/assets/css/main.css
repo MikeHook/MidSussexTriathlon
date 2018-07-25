@@ -1854,17 +1854,18 @@ h1 {
   background: url(../img/background/contact-bg.jpg) center;
   background-size: cover;
 }
+
 #contact .contact-form {
   background: #fff;
-  padding: 57px 40px;
-  margin: -254px 0px 200px;
-  max-height: 627px;
+  padding: 30px 40px;
+  margin: 0;
 }
+
 #contact .information {
   background: #777777;
   padding: 65px 30px;
-  margin-top: -254px;
-  max-height: 627px;
+  margin-top: 40px;
+
 }
 #contact .information .title-medium {
   color: #ffffff !important;

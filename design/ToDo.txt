@@ -6,7 +6,6 @@ Gettin' the design over the line!
 - Competitor listing
 - Contact us design
 - Sponsors
-- Standard page template
-- Top nav
-- Gallery (Embedded flickr?)
+- Finalise Top nav
+- Gallery? (Embedded flickr?)
 
