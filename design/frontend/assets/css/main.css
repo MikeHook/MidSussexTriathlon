@@ -1581,6 +1581,12 @@ h1 {
 /* ==========================================================================
    Entry Form 
    ========================================================================== */
+
+   .entry-main-content {
+    background: url(../img/background/entry-tri-bg.jpg) center;
+    background-size: cover;
+  }
+
   #entry .entry-left-col {
     padding: 0;
   }
@@ -1850,8 +1856,8 @@ h1 {
 /* ==========================================================================
    Contact Forem 
    ========================================================================== */
-.main-content {
-  background: url(../img/background/contact-bg.jpg) center;
+.contact-main-content {
+  background: url(../img/background/contact-tri-bg.jpg) center;
   background-size: cover;
 }
 
