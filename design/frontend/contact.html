@@ -321,6 +321,22 @@
                     <textarea id="message" class="input" required data-error="Write your message"></textarea>
                     <div class="help-block with-errors"></div>
                   </div>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Send To*</label>
+                    <select class="input" id="recipient" name="recipient" required>
+                      <option value=""></option>
+                      <option value="jo">Jo Fleming (Race Director)</option>
+                      <option value="emma">Emma Smith (Sponsorship)</option>
+                      <option value="roger">Roger Smith (Press)</option>
+                    </select>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 button-container">
                   <button type="submit" id="form-submit" class="btn btn-common">Send
                     <i class="icon-paper-plane" aria-hidden="true"></i>
                   </button>
@@ -331,33 +347,40 @@
             </form>
           </div>
           <div class="col-md-4 col-sm-5 information">
-            <div class="title-header">
-              <h3 class="title-medium">Contact Information</h3>
-            </div>
-            <div class="contact-datails">
+            <div class="info-container">
               <div class="icon">
-                <i class="fa fa-map-marker"></i>
+                <i class="fa fa-bullhorn"></i>
               </div>
               <div class="info">
-                <span class="detail">Race Officials Steve McMenamin - Race Director Steve McMenamin - Entries Emma Smith - Sponsorship Roger Smith
-                  - Publicity
-                </span>
-              </div>
-            </div>
-            <div class="contact-datails">
-              <div class="icon">
-                <i class="fa fa-facebook"></i>
-              </div>
-              <div class="info">
-                <span class="detail">Facebook Community page</span>
+                <h3>Race Officials</h3>
+                <p>Jo Fleming - Race Director / Entries
+                  <br/> Emma Smith - Sponsorship
+                  <br/>Roger Smith - Publicity
+                </p>
               </div>
             </div>
             <div class="contact-datails">
               <div class="icon">
-                <i class="fa fa-twitter"></i>
+                <a class="social facebook" href="https://www.facebook.com/MidSussexTriathlonRace/" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
               </div>
               <div class="info">
-                <span class="detail">Follow us on Twitter</span>
+                <a class="social facebook" href="https://www.facebook.com/MidSussexTriathlonRace/" target="_blank">
+                  <span class="detail">Facebook Community page</span>
+                </a>
+              </div>
+            </div>
+            <div class="contact-datails">
+              <div class="icon">
+                <a class="social twitter" href="https://twitter.com/midsussextri" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </div>
+              <div class="info">
+                <a class="social twitter" href="https://twitter.com/midsussextri" target="_blank">
+                  <span class="detail">Follow us on Twitter</span>
+                </a>
               </div>
             </div>
           </div>

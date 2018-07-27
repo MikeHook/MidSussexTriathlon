@@ -1884,6 +1884,48 @@ h1 {
   color: #ffffff !important;
   margin-left: 24px;
 }
+#contact .information .info-container {
+  margin: 15px 0px 48px;
+}
+#contact .information .info-container h5 {
+  color: #fff;
+  text-align: center;
+}
+
+#contact .information .info-container h3 {
+  color: #fff;
+  text-align: center;
+}
+
+#contact .information .info-container .icon {
+  float: left;
+  font-size: 38px;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 50%;
+  color: #fff;
+  padding-top: 10px;
+}
+
+#contact .information .info-container p {
+  color: #fff;
+  margin-left: 70px;
+  text-align: center;
+}
+
+#contact .information .info-container .info {
+  margin-left: 0;
+}
+#contact .information .info-container .info span.detail {
+  font-size: 16px;
+  display: block;
+  font-weight: 500;
+  color: #fff;
+}
+
+
 #contact .information .contact-datails {
   margin: 15px 0px 48px;
 }
@@ -1892,6 +1934,7 @@ h1 {
   font-size: 38px;
   width: 48px;
   height: 48px;
+  margin-top: -5px;
   text-align: center;
   line-height: 32px;
   border-radius: 50%;
@@ -1905,40 +1948,41 @@ h1 {
   display: block;
   font-weight: 500;
   color: #fff;
+  text-align: center;
 }
+
+#contact .button-container {
+  text-align: center;
+}
+
 #contact button {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 #contact button i {
   font-size: 20px;
   margin-left: 5px;
 }
 #contact .social {
-  margin: 110px 0 22px;
+
   font-size: 30px;
   color: #fff;
-  margin-right: 30px;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-#contact .social a .fa-twitter:hover {
+#contact a.social.twitter:hover,
+#contact .info a.social.twitter:hover span.detail {
   color: #00aced;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-#contact .social a .fa-google-plus:hover {
-  color: #E91E63;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-#contact .social a .fa-linkedin:hover {
-  color: #007bb6;
+
+#contact a.social.facebook:hover,
+#contact .info a.social.facebook:hover span.detail {
+  color: #3B5998;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
@@ -1961,6 +2005,28 @@ h1 {
   font-weight: 400;
   padding-top: 15px;
 }
+
+#contact select {
+  display: block;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  position: absolute;
+  background: transparent;
+  height: 100%;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: 400;
+  padding-top: 15px;
+}
+#contact select:focus {
+  outline: none;
+}
+
 #contact .title-header {
   display: inline-block;
   width: 100%;
@@ -1987,7 +2053,7 @@ h1 {
 }
 #contact textarea {
   width: 100%;
-  height: 180px;
+  height: 160px;
   border: none;
   resize: none;
   background: transparent;
@@ -2039,7 +2105,7 @@ h1 {
   transition-timing-function: cubic-bezier(0.4, 0, 0.5, 1);
 }
 #contact .label-line.textarea {
-  height: 180px;
+  height: 160px;
 }
 #contact .span:before {
   content: "";
