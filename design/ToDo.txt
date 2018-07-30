@@ -1,10 +1,10 @@
 
+
+
 Gettin' the design over the line!
-- Homepage banner
-- Venue map
-- Course maps
-- Competitor listing
-- Contact us design
+
+- Course details / maps 
+- Competitor listing (Entrys so far, race numbers & time slots)
 - Sponsors
 - Finalise Top nav
 - Gallery? (Embedded flickr?)

@@ -26,10 +26,11 @@
   <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
   <!-- Owl carousel -->
   <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/jquery.classycountdown.css">
 
   <!-- Color CSS Styles  -->
   <link rel="stylesheet" type="text/css" href="assets/css/colors/yellow.css" media="screen" />
+
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -84,7 +85,7 @@
 
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active">
+              <li>
                 <a href="index.html">Home</a>
               </li>
               <li class="dropdown">
@@ -103,7 +104,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="dropdown">
+              <li class="active" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Race Info
                   <span class="caret"></span>
                 </a>
@@ -111,7 +112,7 @@
                   <li>
                     <a href="venue.html">Venue</a>
                   </li>
-                  <li>
+                  <li class="active">
                     <a href="course-details.html">Course Details</a>
                   </li>
                   <li>
@@ -264,209 +265,197 @@
   </header>
   <!-- Header Area wrapper End -->
 
-  <!-- Main Slider Section Start -->
-  <div id="carousel-area">
-    <div id="carousel-slider" class="carousel slide" data-ride="carousel">
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="banner-background" src="assets/img/slider/FinishBanner3-1920x600.jpg" alt="">
-          <img class="banner-image" src="assets/img/slider/WebsiteBanner-1920x600.png" alt="">
-          <div class="carousel-caption enter">
-
-            <!--
-            <h2 class="wow fadeInRight" data-wow-delay="300ms">The Mid Sussex Triathlon &amp; Aquabike
-              <br> "It's not just a race it's a great experience."</h2>
-            -->
-            <div class="buttons wow fadeInDown" data-wow-delay="0.2s">
-              <a class="btn btn-lg btn-common" href="#">Enter Now</a>
-            </div>
-          </div>
-        </div>
-        <!--
-        <div class="item">
-          <img src="assets/img/slider/triathlon-end.jpg" alt="">
-          <div class="carousel-caption">
-            <h2 class="wow fadeInUp" data-wow-delay="300ms">See feedback from previous entrants
-              <br>"the best organised and friendliest event of all the local races"</h2>
-            <div class="buttons">
-              <a class="btn btn-lg btn-common wow fadeInLeft" data-wow-delay="300ms" href="#">Read feedback</a>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="assets/img/slider/triathlon-end.jpg" alt="">
-          <div class="carousel-caption">
-            <h2 class="wow fadeInDown" data-wow-delay="300ms">Race details
-              <br> Find out more about the event itself</h2>
-            <div class="wow fadeInUp" data-wow-delay="300ms">
-              <a class="btn btn-lg btn-common" href="#">Read race details</a>
-            </div>
-          </div>
-        </div>
-        -->
+  <!-- Page Header Start -->
+  <div class="page-header">
+    <div class="container">
+      <div class="page-header-inner">
+        <ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li class="page">Course details</li>
+        </ol>
+        <h1 class="page-title wow fadeInRight" data-wow-delay="300ms">
+          Course details
+        </h1>
       </div>
-
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-slider" role="button" data-slide="prev">
-        <span class="icon-arrow-left" aria-hidden="true"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel-slider" role="button" data-slide="next">
-        <span class="icon-arrow-right" aria-hidden="true"></span>
-      </a>
     </div>
   </div>
-  <!-- Main Slider Section End -->
-
-
-  <!-- Counter Section Start -->
-  <section id="counter" class="section">
-    <div class="counter-wrapper clearfix">
-      <div class="container">
-        <div class="counter-title-block">
-          <h4 class="counter-title">Time Left To Event:</h4>
-          <div class="counter-tilt-desc">Enter now before time runs out!</div>
-        </div>
-        <div class="counters-block clearfix">
-          <div id="countdown-container">
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Counter Section End -->
-
-  <!-- Testimonials Section Start -->
-  <section id="testimonials" class="section">
+  <!-- Page Header End-->
+  <section id="course-details" class="section">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Testimonials</h2>
-          <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Not sure what the race is all about? Our previous competitors love it and many come back year on year,
-            <br> Check out our testimonials!</p>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <h3>"The best organised and friendliest event of all the local races"</h2>
-              <p>Tim, 2018 finisher</p>
-          </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <h3>"A thoroughly well-organised event... to attract first-timers and experienced triathletes in equal measure"</h3>
-            <p>Chris, 2018 finisher</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <h3>"It's not just a race it's a great experience... the club [are] doing what they love and encouraging others to
-              love it too."</h3>
-            <p>Paul, 2018 finisher</p>
-          </div>
+          <h4 class="wow fadeInUp" data-wow-delay="0s">Please familiarize yourself with the course details before the event.</h4>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Testimonials Section End -->
-
-  <!-- Call to action Section -->
-  <section id="event" class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h2 class="wow animated slideInRight" data-wow-delay=".4s">
-            <a rel="nofollow" href="pricing.html">The best value Triathlon in the South East. Bar none!</a>
-          </h2>
-          <a rel="nofollow" href="pricing.html" class="wow animated fadeInUp btn btn-common mt-50" data-wow-delay=".6s">
-            <i class="fa fa-shopping-cart"></i> Enter now!
-            <div class="ripple-container"></div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Call to action Section End -->
-
-
-  <!-- Sponsors Section Start -->
-  <section id="sponsors" class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Our Sponsors</h2>
-          <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. A
-            <br> enean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
-            <a href="#">
-              <img src="assets/img/sponsors/logo-01.png" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.2s">
-            <a href="#">
-              <img src="assets/img/sponsors/logo-02.png" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.3s">
-            <a href="#">
-              <img src="assets/img/sponsors/logo-03.png" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.4s">
-            <a href="#">
-              <img src="assets/img/sponsors/logo-04.png" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Sponsors Section End -->
-
-  <!-- Copyright Start -->
-  <section id="copyright">
-    <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <p class="copyright-text text-center">
-            <a rel="nofollow" href="https://midsussextriclub.com">
-              © Mid Sussex Tri Club
-            </a>
-          </p>
+          <h3>Swim (400m pool)</h3>
+          <p>Held in the competition 25m 8-lane pool. It will be a 'zig-zag' swim keeping to the left of the lanes, swim two
+            lengths then change down a lane and so on till you run out of lanes (total 400m). It would be worth practising
+            diving under the rope when you turn around as this will be much quicker than stopping and ducting under it. Please
+            note that you can either swim to the end of the lane or directly to the exit ladder.</p>
+          <p>The first swimmer will start at 7.00am. Competitors will be put in the water in number order (staring at number
+            1, slowest to fastest) based on estimated swim times. At the end of the swim, exit through the double doors taking
+            care as the surface may be slippery.</p>
+          <p>Please read the Swim Etiquette notes *LINK TO SWIM EtIQUETTE PAGE*</p>
         </div>
         <div class="col-md-6">
-          <p class="copyright-text text-center">
-            <a rel="nofollow" href="https://www.burgesshill.gov.uk/Summerfestival">
-              Part of the Burgess Hill Summer Festival
+          <div class="gallery-item">
+            <a href="#">
+              <img src="assets/img/routes/mst_swim_map.gif" alt="">
             </a>
-          </p>
+            <div class="overlay">
+              <div class="icons">
+                <a class="preview lightbox" href="assets/img/routes/mst_swim_map.gif">
+                  <i class="icon-eye"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- Copyright End -->
+
+
+  <!-- Gallery Section Start -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="col-md-12">
+        <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Our Gallery</h2>
+      </div>
+      <div class="gallery-wrap wow fadeInDown">
+        <div class="col-md-4 col-sm-4 col-xs-12 gellery-pn">
+          <div class="gallery-item">
+            <a href="#">
+              <img src="assets/img/gallery/img-1.jpg" alt="">
+            </a>
+            <div class="overlay">
+              <div class="icons">
+                <a class="preview lightbox" href="assets/img/gallery/img-1.jpg">
+                  <i class="icon-eye"></i>
+                </a>
+                <a class="link" href="gallery.html">
+                  <i class="icon-link"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <a href="#">
+              <img src="assets/img/gallery/img-2.jpg" alt="">
+            </a>
+            <div class="overlay">
+              <div class="icons">
+                <a class="preview lightbox" href="assets/img/gallery/img-2.jpg">
+                  <i class="icon-eye"></i>
+                </a>
+                <a class="link" href="gallery.html">
+                  <i class="icon-link"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <a href="#">
+              <img src="assets/img/gallery/img-3.jpg" alt="">
+            </a>
+            <div class="overlay">
+              <div class="icons">
+                <a class="preview lightbox" href="assets/img/gallery/lagre-3.jpg">
+                  <i class="icon-eye"></i>
+                </a>
+                <a class="link" href="gallery.html">
+                  <i class="icon-link"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 gellery-pn">
+          <div class="gallery-item">
+            <a href="#">
+              <img src="assets/img/gallery/img-4.jpg" alt="">
+            </a>
+            <div class="overlay">
+              <div class="icons">
+                <a class="preview lightbox" href="assets/img/gallery/img-4.jpg">
+                  <i class="icon-eye"></i>
+                </a>
+                <a class="link" href="gallery.html">
+                  <i class="icon-link"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <a href="#">
+              <img src="assets/img/gallery/img-5.jpg" alt="">
+            </a>
+            <div class="overlay">
+              <div class="icons">
+                <a class="preview lightbox" href="assets/img/gallery/img-5.jpg">
+                  <i class="icon-eye"></i>
+                </a>
+                <a class="link" href="gallery.html">
+                  <i class="icon-link"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 gellery-pn">
+          <div class="gallery-item">
+            <a href="#">
+              <img src="assets/img/gallery/img-6.jpg" alt="">
+            </a>
+            <div class="overlay">
+              <div class="icons">
+                <a class="preview lightbox" href="assets/img/gallery/img-6.jpg">
+                  <i class="icon-eye"></i>
+                </a>
+                <a class="link" href="gallery.html">
+                  <i class="icon-link"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <a href="#">
+              <img src="assets/img/gallery/img-7.jpg" alt="">
+            </a>
+            <div class="overlay">
+              <div class="icons">
+                <a class="preview lightbox" href="assets/img/gallery/img-7.jpg">
+                  <i class="icon-eye"></i>
+                </a>
+                <a class="link" href="gallery.html">
+                  <i class="icon-link"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Gallery Section End -->
+
 
   <!-- Go to Top Link -->
-  <a href="#" class="back-to-top">
+  <a href="#header-wrap" class="back-to-top">
     <i class="icon-arrow-up"></i>
   </a>
-
 
 
   <!-- jQuery Load -->
   <script src="assets/js/jquery.min.js"></script>
   <!-- Bootstrap JS -->
   <script src="assets/js/bootstrap.min.js"></script>
+  <!-- Countdown Js -->
+  <script src="assets/js/jquery.countdown.min.js"></script>
   <!-- Smooth scroll JS -->
   <script src="assets/js/smooth-scroll.js"></script>
   <!-- Wow Scroll -->
@@ -480,11 +469,6 @@
   <!-- Contact Form Scripts -->
   <script src="assets/js/form-validator.min.js"></script>
   <script src="assets/js/contact-form-script.js"></script>
-
-  <!-- Flip clock-->
-  <script src="assets/js/jquery.knob.js"></script>
-  <script src="assets/js/jquery.throttle.js"></script>
-  <script src="assets/js/jquery.classycountdown.min.js"></script>
 
   <!-- All Js plugin -->
   <script src="assets/js/main.js"></script>
