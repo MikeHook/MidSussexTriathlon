@@ -56,16 +56,17 @@ a:focus {
   outline: none;
   text-decoration: none;
 }
-ul {
+
+header ul {
   margin: 0;
   padding: 0;
 }
-ul li {
+header ul li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-ol {
+header ol {
   list-style: none;
 }
 .section {
@@ -1099,7 +1100,11 @@ fieldset[disabled] .btn {
    Course Details Style
    ========================================================================== */
 #course-details .gallery-item img {
-  width: initial;
+  /* width: initial; */
+}
+
+#course-details .gallery-item .icons i {
+  margin: 0;
 }
 
 
