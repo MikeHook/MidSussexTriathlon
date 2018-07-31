@@ -323,6 +323,7 @@ fieldset[disabled] .btn {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
+
 .navbar-default .navbar-nav li a {
   color: rgba(255, 255, 255, 0.75);
   font-size: 14px;
@@ -398,15 +399,21 @@ fieldset[disabled] .btn {
   left: -20px;
   right: 0;
   top: 78px;
-  width: 170px;
+  width: 220px;
   border-color: #e91e63;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
+.navbar-event .dropdown .dropdown-menu > li {
+  line-height: 30px;
+}
+
 .navbar-event .dropdown .dropdown-menu > li > a {
   color: #222222;
-  padding: 2px 20px;
+  padding: 10px 20px;
   border-radius: 0;
   margin: 0;
+  line-height: 25px;
+  white-space: initial;
   text-transform: none;
   -webkit-transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
   -moz-transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
