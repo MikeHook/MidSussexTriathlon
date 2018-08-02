@@ -27,6 +27,8 @@
   <!-- Owl carousel -->
   <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
 
+  <!-- Color CSS Styles  -->
+  <link rel="stylesheet" type="text/css" href="assets/css/colors/yellow.css" media="screen" />
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -147,10 +149,13 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="#">Results</a>
+                    <a href="tabular.html">Results</a>
                   </li>
                   <li>
                     <a href="testimonials.html">Feedback</a>
+                  </li>
+                  <li>
+                    <a href="gallery.html">Gallery</a>
                   </li>
                 </ul>
               </li>
@@ -227,10 +232,13 @@
             <a href="#">Apres Race</a>
             <ul class="dropdown">
               <li>
-                <a href="#">Results</a>
+                <a href="tabular.html">Results</a>
               </li>
               <li>
                 <a href="testimonials.html">Feedback</a>
+              </li>
+              <li>
+                <a href="gallery.html">Gallery</a>
               </li>
             </ul>
           </li>
@@ -268,217 +276,18 @@
   </div>
   <!-- Page Header End-->
 
-  <!-- Gallery Section Start -->
-  <section id="gallery" class="section">
+  <section id="flickr-gallery" class="section">
     <div class="container">
       <div class="col-md-12">
         <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Our Gallery</h2>
       </div>
-      <div class="gallery-wrap wow fadeInDown">
-        <div class="col-md-4 col-sm-4 col-xs-12 gellery-pn">
-          <div class="gallery-item">
-            <a href="#">
-              <img src="assets/img/gallery/img-1.jpg" alt="">
-            </a>
-            <div class="overlay">
-              <div class="icons">
-                <a class="preview lightbox" href="assets/img/gallery/img-1.jpg">
-                  <i class="icon-eye"></i>
-                </a>
-                <a class="link" href="gallery.html">
-                  <i class="icon-link"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <a href="#">
-              <img src="assets/img/gallery/img-2.jpg" alt="">
-            </a>
-            <div class="overlay">
-              <div class="icons">
-                <a class="preview lightbox" href="assets/img/gallery/img-2.jpg">
-                  <i class="icon-eye"></i>
-                </a>
-                <a class="link" href="gallery.html">
-                  <i class="icon-link"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <a href="#">
-              <img src="assets/img/gallery/img-3.jpg" alt="">
-            </a>
-            <div class="overlay">
-              <div class="icons">
-                <a class="preview lightbox" href="assets/img/gallery/lagre-3.jpg">
-                  <i class="icon-eye"></i>
-                </a>
-                <a class="link" href="gallery.html">
-                  <i class="icon-link"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12 gellery-pn">
-          <div class="gallery-item">
-            <a href="#">
-              <img src="assets/img/gallery/img-4.jpg" alt="">
-            </a>
-            <div class="overlay">
-              <div class="icons">
-                <a class="preview lightbox" href="assets/img/gallery/img-4.jpg">
-                  <i class="icon-eye"></i>
-                </a>
-                <a class="link" href="gallery.html">
-                  <i class="icon-link"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <a href="#">
-              <img src="assets/img/gallery/img-5.jpg" alt="">
-            </a>
-            <div class="overlay">
-              <div class="icons">
-                <a class="preview lightbox" href="assets/img/gallery/img-5.jpg">
-                  <i class="icon-eye"></i>
-                </a>
-                <a class="link" href="gallery.html">
-                  <i class="icon-link"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12 gellery-pn">
-          <div class="gallery-item">
-            <a href="#">
-              <img src="assets/img/gallery/img-6.jpg" alt="">
-            </a>
-            <div class="overlay">
-              <div class="icons">
-                <a class="preview lightbox" href="assets/img/gallery/img-6.jpg">
-                  <i class="icon-eye"></i>
-                </a>
-                <a class="link" href="gallery.html">
-                  <i class="icon-link"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <a href="#">
-              <img src="assets/img/gallery/img-7.jpg" alt="">
-            </a>
-            <div class="overlay">
-              <div class="icons">
-                <a class="preview lightbox" href="assets/img/gallery/img-7.jpg">
-                  <i class="icon-eye"></i>
-                </a>
-                <a class="link" href="gallery.html">
-                  <i class="icon-link"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="flickrembed_54"></div>
+      <script src='https://flickrembed.com/embed_v2.js.rand.php?container=flickrembed_54&source=flickr&layout=responsive&input=72157645312614552&sort=0&by=album&theme=tiles_justified&scale=fill&limit=50&skin=default&autoplay=true'></script>
+      <script type="text/javascript">function showpics() { var a = $("#box").val(); $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=" + a + "&tagmode=any&format=json&jsoncallback=?", function (a) { $("#images").hide().html(a).fadeIn("fast"), $.each(a.items, function (a, e) { $("<img/>").attr("src", e.media.m).appendTo("#images") }) }) }</script>
+      <small style="display: block; text-align: center; margin: 0 auto;">Powered by
+        <a href="https://flickrembed.com">flickr embed</a>.</small>
     </div>
   </section>
-  <!-- Gallery Section End -->
-
-  <!-- Intro Section Start -->
-  <section id="intro" class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-8 col-xs-12">
-          <div class="content-text">
-            <h2>ARE YOU READY TO MANAGE YOUR OWN EVENTS?</h2>
-            <p class="text">All of our virtual professionals are highly experienced in the areas in which they work and have been through
-              a thorough recruitment process.</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12 text-right">
-          <a href="#" class="btn-cta btn btn-common">
-            <i class="icon-control-play"></i> Sign Up Today</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Intro Section End -->
-
-  <!-- Footer Section Start -->
-  <footer class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-3 col-xs-12">
-          <h3>
-            <img src="assets/img/footer-logo.png" alt="">
-          </h3>
-          <p>
-            If you think you have the passion, attitude and capability to join us the next big software company s so that we can get
-            the convers.
-          </p>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-12">
-          <h3>Support</h3>
-          <ul>
-            <li>
-              <a href="#">Support</a>
-            </li>
-            <li>
-              <a href="#">Docs</a>
-            </li>
-            <li>
-              <a href="#">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-12">
-          <h3>Learn More</h3>
-          <ul>
-            <li>
-              <a href="#">How it Works</a>
-            </li>
-            <li>
-              <a href="#">Blog</a>
-            </li>
-            <li>
-              <a href="#">Log In</a>
-            </li>
-            <li>
-              <a href="#">Sign Up</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-12">
-          <h3>Quick Link</h3>
-          <ul>
-            <li>
-              <a href="#">Schedule</a>
-            </li>
-            <li>
-              <a href="#">Gallery</a>
-            </li>
-            <li>
-              <a href="#">Team</a>
-            </li>
-            <li>
-              <a href="#">Blog</a>
-            </li>
-            <li>
-              <a href="#">Pricing</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Footer Section End -->
 
   <!-- Copytight Start -->
   <section id="copyright">
