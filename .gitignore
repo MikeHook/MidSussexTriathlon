@@ -362,3 +362,5 @@ ASALocalRun/
 # Ignore umbraco backoffice files. These get copied on build.
 **/[Uu]mbraco/
 **/[Uu]mbraco_client/
+
+**/media/
