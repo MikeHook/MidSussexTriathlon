@@ -363,4 +363,5 @@ ASALocalRun/
 **/[Uu]mbraco/
 **/[Uu]mbraco_client/
 
-**/media/
+**/media/*
+!**/Media/Web.config
