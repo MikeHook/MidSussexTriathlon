@@ -1,9 +1,7 @@
 #Use this command to run the script
 #&("D:\dev\MidSussexTriathlon\deploymentScripts\beforePackaging.ps1")
 
-Write-Host 'Running before packaging script'
-
-Invoke-Item '.\deploymentScripts\nugetRestore.cmd'
+Write-Host 'Running before build script'
 
 #$root = 'D:\Temp'
 #$root = 'D:\dev\MidSussexTriathlon\build\MidSussexTriathlon.Web'
@@ -31,4 +29,4 @@ if ($env:umbracoUseSSL)
 
 [System.IO.File]::WriteAllLines($configPath, $webconfig)
 
-Write-Host 'Finished before packaging script'
+Write-Host 'Finished before build script'
