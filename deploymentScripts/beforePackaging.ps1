@@ -3,8 +3,10 @@
 
 Write-Host 'Running before packaging script'
 
+Invoke-Item '.\deploymentScripts\nugetRestore.cmd'
+
 #$root = 'D:\Temp'
-#$root = 'C:\projects\mstc-f3l95\website'
+#$root = 'D:\dev\MidSussexTriathlon\build\MidSussexTriathlon.Web'
 $root =  $env:APPVEYOR_BUILD_FOLDER + '\build\MidSussexTriathlon.Web'
 Write-Host $root
 
