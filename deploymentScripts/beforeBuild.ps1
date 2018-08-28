@@ -26,6 +26,14 @@ if ($env:umbracoUseSSL)
 {
     $webconfig = ReplaceAppSetting $webconfig "umbracoUseSSL" $env:umbracoUseSSL
 }
+if ($env:adyenMerchantAccount)
+{
+    $webconfig = ReplaceAppSetting $webconfig "adyenMerchantAccount" $env:adyenMerchantAccount
+}
+if ($env:adyenApiKey)
+{
+    $webconfig = ReplaceAppSetting $webconfig "adyenApiKey" $env:adyenApiKey
+}
 
 [System.IO.File]::WriteAllLines($configPath, $webconfig)
 
