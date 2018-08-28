@@ -1,0 +1,12 @@
+﻿@model MidSussexTriathlon.Web.Models.EntryModel
+
+@using (Html.BeginUmbracoForm("Index", "Entry"))
+{
+    <div>
+        @Html.TextBoxFor(m => m.Name)
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.Email)
+    </div>
+    <input type="submit" name="Submit" value="Submit" />
+}

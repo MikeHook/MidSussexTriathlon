@@ -282,8 +282,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Models\EntryModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\PaymentSessionResponse.cs" />
+    <Compile Include="Models\PaymentSessionRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -328,6 +332,8 @@
     <Content Include="Views\Partials\Contact.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Contact.cshtml" />
+    <Content Include="Views\Partials\Entry.cshtml" />
+    <Content Include="Views\Entry.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
