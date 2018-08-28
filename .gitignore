@@ -365,3 +365,4 @@ ASALocalRun/
 
 **/media/*
 !**/Media/Web.config
+/build/MidSussexTriathlon.Web/App_Data/Models/
