@@ -519,6 +519,11 @@ fieldset[disabled] .btn {
     background: #e91e63;
     color: #fff;
   }
+
+    .slicknav_parent a.active {
+        background: #fff;
+        color: #FFC107;
+    }
 }
 /* ==========================================================================
    Carousel Main Slider

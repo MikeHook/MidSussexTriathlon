@@ -75,10 +75,11 @@
         @using Umbraco.Web;
         @{
             var site = Model.Content.Site();
-            var selection = site.Children.Where(x => x.IsVisible());
+            var selection = site.Children.Where(x => x.IsVisible() && x.GetPropertyValue<bool>("hideInNavigation") == false);
         }
         <div class="navigation-menu">
             <nav class="navbar navbar-default navbar-event">
+                <!-- Standard Menu Start -->
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header col-md-2">
@@ -100,15 +101,72 @@
                             </li>
                             @foreach (var item in selection)
                             {
-                                <li class="@(item.IsAncestorOrSelf(Model.Content) ? "active" : "")">
-                                    <a href="@item.Url">@item.Name</a>
-                                </li>
+                                if (item.DocumentTypeAlias == "siteSection")
+                                {
+                                    <li class="dropdown @(item.IsAncestorOrSelf(Model.Content) ? "active" : "")">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            @item.Name
+                                            <span class="caret"></span>
+                                        </a>
+                                        @{ var subSelection = item.Children.Where(x => x.IsVisible() && x.GetPropertyValue<bool>("hideInNavigation") == false); }
+                                        <ul class="dropdown-menu">
+                                            @foreach (var subItem in subSelection)
+                                            {
+                                                <li>
+                                                    <a href="@subItem.Url">@subItem.Name</a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                else
+                                {
+
+                                    <li class="@(item.IsAncestorOrSelf(Model.Content) ? "active" : "")">
+                                        <a href="@item.Url">@item.Name</a>
+                                    </li>
+                                }
                             }
                         </ul>
                     </div>
                     <!-- /navbar-collapse -->
                 </div>
-                <!-- /container -->
+                <!-- Standard Menu End -->
+
+                <!-- Mobile Menu Start -->
+                <ul class="wpb-mobile-menu">
+                    <li class="@Html.Raw(Model.Content.Id == site.Id ? "active" : "")">
+                        <a href="@site.Url">@site.Name</a>
+                    </li>
+                    @foreach (var item in selection)
+                    {
+                        if (item.DocumentTypeAlias == "siteSection")
+                        {
+                            <li class="dropdown">
+                                <a class="@(item.IsAncestorOrSelf(Model.Content) ? "active" : "")" href="#">
+                                    @item.Name                                
+                                </a>
+                                @{ var subSelection = item.Children.Where(x => x.IsVisible() && x.GetPropertyValue<bool>("hideInNavigation") == false); }
+                                <ul class="dropdown">
+                                    @foreach (var subItem in subSelection)
+                                    {
+                                        <li class="@(item.IsAncestorOrSelf(Model.Content) ? "active" : "")">
+                                            <a href="@subItem.Url">@subItem.Name</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+
+                            <li class="@(item.IsAncestorOrSelf(Model.Content) ? "active" : "")">
+                                <a href="@item.Url">@item.Name</a>
+                            </li>
+                        }
+                    } 
+                </ul>
+                <!-- Mobile Menu End -->
 
 
             </nav>

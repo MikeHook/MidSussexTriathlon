@@ -124,7 +124,7 @@ $("#post-carousel").owlCarousel({
 $('.wpb-mobile-menu').slicknav({
   prependTo: '.navbar-header',
   parentTag: 'span',
-  allowParentLinks: true,
+  allowParentLinks: false,
   duplicate: false,
   label: '',
   closedSymbol: '<i class="fa fa-angle-right"></i>',
