@@ -2297,7 +2297,7 @@ footer ul li a {
    Intro Section Start
    ========================================================================== */
 #intro {
-  background: url(../img/background/header-bg.jpg);
+  /*background: url(../img/background/header-bg.jpg); */
   background-size: cover;
   position: relative;
 }
