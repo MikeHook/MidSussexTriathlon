@@ -5,72 +5,78 @@
     Layout = "Master.cshtml";
 }
 
-   <h1>This is the entry page, fo shiz!</h1>
+@section Head {
 
-    
-    @*@{
-        Html.RenderPartial("~/Views/Partials/Entry.cshtml", new EntryModel());
-    }*@
+}
 
-    <div id="paymentForm"></div>
+@{ Html.RenderPartial("~/Views/Partials/PageHeader.cshtml");}
 
-    <script type="text/javascript">
-        $(document).ready(function () {
+<h1>This is the entry page, fo shiz!</h1>
 
-            function handleNewSessionSuccess(paymentSession) {            
-                var configurationObject = {
-                    context: 'test'
-                };
-                var checkout = chckt.checkout(paymentSession, '#paymentForm', configurationObject);         
+
+<div id="paymentForm"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        function handleNewSessionSuccess(paymentSession) {
+            var configurationObject = {
+                context: 'test'
+            };
+            var checkout = chckt.checkout(paymentSession, '#paymentForm', configurationObject);
+        };
+
+        $.ajax({
+            url: 'umbraco/api/payment/newsession',
+            // data: paymentData,
+            method: 'POST',// jQuery > 1.9
+            type: 'POST', //jQuery < 1.9
+            success: handleNewSessionSuccess,
+            error: function () {
+                if (window.console && console.log) {
+                    console.log("error");
+                    console.log('### adyenCheckout::error:: args=', arguments);
+                }
+            }
+        });
+
+        function handleProcessSuccess(successResponse) {
+            console.log("SUCCESS");
+            $("#paymentForm").html(successResponse.authResponse);
+        };
+
+        chckt.hooks.beforeComplete = function (node, paymentData) {
+            // `node` is a reference to the Checkout container HTML node.
+            // `paymentData` is the result of the payment. Includes the `payload` variable,
+            // which you should submit to the server for the Checkout API /paymentsResult call.
+            var resultRequest = {
+                payload: paymentData.payload,
+                resultCode: paymentData.resultCode,
+                resultText: paymentData.resultText
             };
 
             $.ajax({
-                url: 'umbraco/api/payment/newsession',
-                // data: paymentData,
+                url: 'umbraco/api/payment/processresult',
+                data: resultRequest,
                 method: 'POST',// jQuery > 1.9
                 type: 'POST', //jQuery < 1.9
-                success: handleNewSessionSuccess,
+                success: handleProcessSuccess,
                 error: function () {
                     if (window.console && console.log) {
                         console.log("error");
                         console.log('### adyenCheckout::error:: args=', arguments);
                     }
                 }
-            }); 
-
-            function handleProcessSuccess(successResponse) {
-                console.log("SUCCESS");
-                $("#paymentForm").html(successResponse.authResponse);
-            };           
-
-            chckt.hooks.beforeComplete = function (node, paymentData) {
-                // `node` is a reference to the Checkout container HTML node.
-                // `paymentData` is the result of the payment. Includes the `payload` variable,
-                // which you should submit to the server for the Checkout API /paymentsResult call.
-                var resultRequest = {
-                    payload: paymentData.payload,
-                    resultCode: paymentData.resultCode,
-                    resultText: paymentData.resultText
-                };
-
-                $.ajax({
-                    url: 'umbraco/api/payment/processresult',
-                    data: resultRequest,
-                    method: 'POST',// jQuery > 1.9
-                    type: 'POST', //jQuery < 1.9
-                    success: handleProcessSuccess,
-                    error: function () {
-                        if (window.console && console.log) {
-                            console.log("error");
-                            console.log('### adyenCheckout::error:: args=', arguments);
-                        }
-                    }
-                });
-                return false; // Indicates that you want to replace the default handling.
-            };
+            });
+            return false; // Indicates that you want to replace the default handling.
+        };
 
 
-        });
-    </script>
+    });
+</script>
+
+@section Foot {
+
+}
 
 

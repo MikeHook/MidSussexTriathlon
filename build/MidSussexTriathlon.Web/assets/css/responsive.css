@@ -70,20 +70,20 @@
     height: 300px;
   }
 
-  #carousel-area .carousel-inner .item .banner-image{
-    height: 300px;
-  }
-
-  #carousel-area .carousel-inner .item .carousel-caption {
+  #carousel-area .carousel-caption {
     top: 10%;
   }
-  #carousel-area .carousel-inner .item .carousel-caption h2 {
+  #carousel-area .carousel-caption h2 {
     font-size: 20px;
     line-height: 36px;
     margin: 20px;
   }
-  #carousel-area .carousel-inner .item .carousel-caption.enter {
+  #carousel-area .carousel-caption.enter {
     top: 54%;
+  }
+
+  #carousel-area .banner-image {
+    height: 300px;
   }
 
   .btn-lg {

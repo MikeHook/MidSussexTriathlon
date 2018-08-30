@@ -1,0 +1,34 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+<!-- Page Header Start -->
+@using Umbraco.Web;
+@{
+    var currentPage = Model.Content;
+    var ancestors = currentPage.Ancestors();
+}
+<div class="page-header">
+    <div class="container">
+        <div class="page-header-inner">
+            <ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">
+                @foreach (var item in ancestors.Reverse())
+                {
+                    <li>
+                        @if (item.DocumentTypeAlias == "siteSection")
+                        {
+                            @item.Name
+                        }
+                        else
+                        {
+                            <a href="@item.Url">@item.Name</a>
+
+                        }
+                    </li>
+                }
+                <li class="page">@currentPage.Name</li>
+            </ol>
+            <h1 class="page-title wow fadeInRight" data-wow-delay="300ms">
+                @currentPage.Name
+            </h1>
+        </div>
+    </div>
+</div>
+<!-- Page Header End-->

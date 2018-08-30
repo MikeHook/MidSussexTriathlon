@@ -5,11 +5,11 @@
     Layout = "Master.cshtml";
 }
 
+@{ Html.RenderPartial("~/Views/Partials/PageHeader.cshtml");}
 
+<h1>This is the contact page, yo!</h1>
 
-    <h1>This is the contact page, yo!</h1>
-
-    @{
-        Html.RenderPartial("~/Views/Partials/Contact.cshtml", new ContactModel());
-    }
+@{
+    Html.RenderPartial("~/Views/Partials/Contact.cshtml", new ContactModel());
+}
 

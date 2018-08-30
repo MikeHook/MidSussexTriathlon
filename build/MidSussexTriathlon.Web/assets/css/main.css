@@ -560,32 +560,24 @@ fieldset[disabled] .btn {
   left:50%;
   transform: translate(-50%,0);
 }
-#carousel-area .carousel-inner .item .banner-image{
-  /* Funky style to make the image centered and clip on the sides */
-  position: absolute;
-  max-width: initial;
-  top:0%;
-  left:50%;
-  transform: translate(-50%,0);
-}
 
-#carousel-area .carousel-inner .item .carousel-caption {
+#carousel-area .carousel-caption {
   top: 22%;
   right: 10%;
   left: 10%;
   /*opacity: 0.3;*/
 }
-#carousel-area .carousel-inner .item .carousel-caption.enter {
+#carousel-area .carousel-caption.enter {
   top: 58%;
 }
-#carousel-area .carousel-inner .item .carousel-caption h2 {
+#carousel-area .carousel-caption h2 {
   font-size: 45px;
   font-weight: 500;
   line-height: 60px;
   color: #000;
   margin: 40px;
 }
-#carousel-area .carousel-inner .item .carousel-caption .btn {
+#carousel-area .carousel-caption .btn {
   margin: 0 15px;
 }
 #carousel-area .carousel-control {
@@ -609,23 +601,34 @@ fieldset[disabled] .btn {
 #carousel-area:hover .carousel-control {
   display: block;
 }
-/* ==========================================================================
+
+#carousel-area .banner-image {
+    z-index: 10;
+    /* Funky styles to make the image centered and clip on the sides */
+    position: absolute;
+    max-width: initial;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+    /* ==========================================================================
    Rev Scroll Button
    ========================================================================== */
-.rev-scroll-btn {
-  position: relative;
-  display: inline-block;
-  left: 0;
-  right: 0;
-  text-align: center;
-  cursor: pointer;
-  width: 35px;
-  height: 55px;
-  box-sizing: border-box;
-  border: 3px solid #fff;
-  border-radius: 23px;
-  margin-top: 80px;
-}
+    .rev-scroll-btn {
+        position: relative;
+        display: inline-block;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+        width: 35px;
+        height: 55px;
+        box-sizing: border-box;
+        border: 3px solid #fff;
+        border-radius: 23px;
+        margin-top: 80px;
+    }
 .rev-scroll-btn span {
   position: absolute;
   display: block;
