@@ -10,37 +10,41 @@ $(".dropdown").hover(
   }
 );
 
-/* ==========================================================================
-   countdown timer
-   ========================================================================== */
-var raceDate = new Date(2019, 5, 9);
-var now = new Date();
-var secondsTilRace = (raceDate.getTime() - now.getTime()) / 1000;
-var bgColor = "#000";
-var fgColor = "#f3dd02";
+function initCountdownTimer(year, month, day) {
 
-var countdownContainer = $('#countdown-container');
-if (countdownContainer.length) {
-  countdownContainer.ClassyCountdown({
-    end: $.now() + secondsTilRace,
-    labels: true,
-    style: {
-      element: "",
-      textResponsive: .5,
-      days: {
-        gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
-      },
-      hours: {
-        gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
-      },
-      minutes: {
-        gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
-      },
-      seconds: {
-        gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
-      },
-    }
-  });
+	/* ==========================================================================
+	   countdown timer
+	   ========================================================================== */
+	var raceDate = new Date(year, month-1, day);
+	var now = new Date();
+	var secondsTilRace = (raceDate.getTime() - now.getTime()) / 1000;
+	var bgColor = "#000";
+	var fgColor = "#f3dd02";
+
+	var countdownContainer = $('#countdown-container');
+	if (countdownContainer.length) {
+		countdownContainer.ClassyCountdown({
+			end: $.now() + secondsTilRace,
+			labels: true,
+			style: {
+				element: "",
+				textResponsive: .5,
+				days: {
+					gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
+				},
+				hours: {
+					gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
+				},
+				minutes: {
+					gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
+				},
+				seconds: {
+					gauge: { thickness: .05, bgColor: bgColor, fgColor: fgColor },
+				},
+			}
+		});
+	}
+
 }
 
 /* ==========================================================================

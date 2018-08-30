@@ -294,9 +294,11 @@
     <Content Include="assets\img\routes\transition-aerialview.jpg" />
     <Content Include="assets\img\slider\FinishBanner2-1920x600.jpg" />
     <Content Include="assets\img\slider\FinishBanner3-1920x600.jpg" />
+    <Content Include="assets\img\slider\triathlon-bike1920x600.jpg" />
     <Content Include="assets\img\slider\triathlon-biketransition.jpg" />
     <Content Include="assets\img\slider\triathlon-biketransition1920x600.jpg" />
     <Content Include="assets\img\slider\triathlon-end.jpg" />
+    <Content Include="assets\img\slider\triathlon-swim1920x600.jpg" />
     <Content Include="assets\img\slider\WebsiteBanner-1.png" />
     <Content Include="assets\img\slider\WebsiteBanner-1920x600.png" />
     <Content Include="assets\img\slider\WebsiteBanner-2.png" />
@@ -435,6 +437,8 @@
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\GenericContent.cshtml" />
     <Content Include="Views\SiteSection.cshtml" />
+    <Content Include="Views\Partials\PageHeader.cshtml" />
+    <Content Include="Views\Venue.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

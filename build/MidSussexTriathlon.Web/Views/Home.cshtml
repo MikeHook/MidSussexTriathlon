@@ -2,6 +2,7 @@
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
     Layout = "Master.cshtml";
+    var home = Model.Content;
 }
 
 <!-- Main Slider Section Start -->
@@ -11,10 +12,10 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img class="banner-background" src="/assets/img/slider/FinishBanner3-1920x600.jpg" alt="">    
+                <img class="banner-background" src="/assets/img/slider/FinishBanner3-1920x600.jpg" alt="">
             </div>
             <div class="item">
-                <img class="banner-background" src="/assets/img/slider/triathlon-swim1920x600.jpg" alt="">             
+                <img class="banner-background" src="/assets/img/slider/triathlon-swim1920x600.jpg" alt="">
             </div>
             <div class="item">
                 <img class="banner-background" src="/assets/img/slider/triathlon-bike1920x600.jpg" alt="">
@@ -68,8 +69,9 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="wow fadeInUp" data-wow-delay="0.1s">
                     <h3>
-                        "The best organised and friendliest event of all the local races"</h3>
-                        <p>Tim, 2018 finisher</p>
+                        "The best organised and friendliest event of all the local races"
+                    </h3>
+                    <p>Tim, 2018 finisher</p>
                 </div>
             </div>
 
@@ -98,7 +100,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <h2 class="wow animated slideInRight" data-wow-delay=".4s">
-                    The best value Triathlon in the South East. Bar none!
+                    The best value triathlon in the South East. Bar none!
                 </h2>
                 <a rel="nofollow" href="/enter-race" class="wow animated fadeInUp btn btn-inverse mt-50" data-wow-delay=".6s">
                     <i class="fa fa-check-circle"></i> Enter now!
@@ -154,3 +156,15 @@
     </div>
 </section>
 <!-- Sponsors Section End -->
+
+@section Foot {
+    <script type="text/javascript">
+        var year = @home.RaceDate.Year;
+        var month = @home.RaceDate.Month;
+        var day = @home.RaceDate.Day;
+
+        $(document).ready(function () {
+            initCountdownTimer(year, month, day);
+        });
+    </script>
+}

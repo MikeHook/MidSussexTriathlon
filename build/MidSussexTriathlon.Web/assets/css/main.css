@@ -266,6 +266,10 @@ fieldset[disabled] .btn {
   line-height: 40px;
 }
 
+#roof .info-bar-address a {
+    color: #fff;
+}
+
 #roof .info-bar-time {
   font-size: 14px;
   font-weight: 900;

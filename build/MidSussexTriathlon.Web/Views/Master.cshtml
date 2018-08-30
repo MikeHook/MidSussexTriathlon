@@ -1,7 +1,10 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = null;
+    var home = (Home)Model.Content.Site();
 }
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,22 +56,13 @@
     <header id="header-wrap">
         <!-- Roof area Starts -->
         <div id="roof" class="hidden-xs">
-            <div class="container">
-                <div class="col-md-6 col-sm-6">
-                    <div class="info-bar-address">
-                        <i class="icon-location-pin"></i> The Triangle, Burgess Hill, RH15 8WA
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                    <!-- Quick Contacts Starts -->
+            <div class="container">       
+                <div class="col-md-12 col-sm-12">
                     <div class="quick-contacts">
                         <span>
-                            <i class="icon-envelope"></i>
-                            <a href="#">info@midsussextriathlon.com</a>
+                            @home.RaceDate.ToString("dd MMMM yyyy") @@ <a href="@(home.VenuePage != null ? home.VenuePage.Url : "")">The Triangle, Burgess Hill, RH15 8WA <i class="icon-location-pin"></i></a>
                         </span>
-                    </div>
-                    <!-- Quick Contacts End -->
+                    </div>  
                 </div>
             </div>
         </div>
