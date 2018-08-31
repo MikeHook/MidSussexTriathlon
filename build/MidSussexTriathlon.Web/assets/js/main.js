@@ -69,7 +69,7 @@ $('.lightbox').nivoLightbox({
    Contact From
    ========================================================================== */
 
-$('.input').blur(function () {
+$('#contactForm .input').blur(function () {
   if ($(this).val()) {
     $(this).parent('.label-line').addClass('active checked');
   } else {
@@ -77,7 +77,7 @@ $('.input').blur(function () {
   }
 });
 
-$('.select').blur(function () {
+$('#contactForm .select').blur(function () {
   if ($(this).val()) {
     $(this).parent('.label-line').addClass('active checked');
   } else {
@@ -85,7 +85,7 @@ $('.select').blur(function () {
   }
 });
 
-$('.label-line').click(function () {
+$('#contactForm .label-line').click(function () {
   $(this).addClass('active');
   if ($('.label-line').hasClass('checked')) { }
   else {

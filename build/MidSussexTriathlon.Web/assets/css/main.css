@@ -159,7 +159,11 @@ header ol {
 .btn.disabled,
 .btn[disabled],
 fieldset[disabled] .btn {
-  opacity: 1;
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
 }
 
 .d-flex {
@@ -1766,14 +1770,6 @@ h1 {
   #entry .radio-inline input[type=radio] {
     position: relative;
     padding-top: 20px;
-    /*
-    display: block;
-
-    height: 100%;
-    padding-top: 15px;
-    */
-
-
   }
 
   #entry select {
@@ -2186,11 +2182,20 @@ h1 {
   display: block;
   margin-top: -38px;
 }
+
+div.label-line-radio div.help-block.with-errors,
+div.checkbox-field div.help-block.with-errors {
+    padding-top: 0;
+}
+
+div.help-block.with-errors {
+    padding-top: 55px;
+}
 /* ==========================================================================
    Footer Start
    ========================================================================== */
 footer img {
-  margin-top: -8px;
+    margin-top: -8px;
 }
 footer h3 {
   font-size: 14px;

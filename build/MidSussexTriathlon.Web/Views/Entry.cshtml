@@ -6,78 +6,266 @@
 }
 
 @section Head {
-
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap-datepicker3.min.css">
 }
 
 @{ Html.RenderPartial("~/Views/Partials/PageHeader.cshtml");}
 
-<h1>This is the entry page, fo shiz!</h1>
+<!-- Main content Start -->
+<div class="entry-main-content">
+    <section id="entry">
+        <div class="container">
+            <div class="row match-my-cols wow fadeInDown" data-wow-delay="0.3s">
+                <div class="col-md-8 col-sm-7 entry-left-col">
+                    <div class="title-header">
+                        <h3 class="title-medium">Enter the Mid Sussex Triathlon on Sunday 9th June 2019</h3>
+                    </div>
+                    <div>
+                        <form role="form" id="entryForm" data-toggle="validator" class="entry-form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="title-medium pull-left">Your details</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">First name*</label>
+                                        <input type="text" class="input" id="firstName" required data-error="Please enter first name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Last name*</label>
+                                        <input type="text" class="input" id="lastName" required data-error="Please enter last name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Date of birth*</label>
+                                        <input type="text" class="input" id="dob" required data-error="Please enter date of birth">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Gender*</label>
+                                        <select class="input" id="gender" name="gender" required  data-error="Please select gender">
+                                            <option value=""></option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="title-medium pull-left">Contact information</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Address line 1*</label>
+                                        <input type="text" class="input" id="address1" required  data-error="Please enter address line 1">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Address line 2</label>
+                                        <input type="text" class="input" id="address2">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Town / City*</label>
+                                        <input type="text" class="input" id="city" required  data-error="Please enter town / city">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">County</label>
+                                        <input type="text" class="input" id="county">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Phone number</label>
+                                        <input type="text" class="input" id="phone">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Email*</label>
+                                        <input type="email" class="input" id="email" required  data-error="Please enter email address in correct format">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="title-medium pull-left">Event details</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-line label-line-radio">
+                                        <span class="span"></span>
+                                        <label class="label transition">Race type*</label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="raceType" id="raceType1" value="Full Triathlon" required> Full Triathlon
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="raceType" id="raceType2" value="Aquabike" required> Aquabike
+                                        </label>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-line label-line-time">
+                                        <span class="span"></span>
+                                        <label class="label transition">Swim Time* (4-20 minutes)</label>
+                                        <input type="time" class="input" id="swimTime" min="04:00" max="20:00" required  data-error="Please enter swim time">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">BTF Number</label>
+                                        <input type="text" class="input" id="bftNumber">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Club name</label>
+                                        <input type="text" class="input" id="clubName">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group checkbox-field">
+                                        <a href="/terms" target="_blank">Terms and Conditions</a>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="" required> I have read and agree to the race terms and conditions.*
+                                            </label>
+                                        </div>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <p>
+                                        Confidentiality is important to us. The personal information you provide will remain confidential
+                                        and will not be sold or distributed beyond our control.
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="buttons">
+                                        <button type="submit" id="form-submit" class="btn btn-common">
+                                            Continue
+                                            <i class="icon-check" aria-hidden="true"></i>
+                                        </button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-5 information">
+
+                    <div class="info-container">
+                        <div class="icon">
+                            <i class="icon-hourglass"></i>
+                        </div>
+                        <div class="info">
+                            <h5>Places left</h5>
+                            <h3>!!!!350!!!!</h3>
+                        </div>
+                    </div>
+
+                    <div class="info-container">
+                        <div class="icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <div class="info">
+                            <h5>BTF Members</h5>
+                            <h3>£37</h3>
+                        </div>
+                    </div>
+
+                    <div class="info-container">
+                        <div class="icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="info">
+                            <h5>Non BTF Members</h5>
+                            <h3>£40</h3>
+                        </div>
+                    </div>
+                    <div class="info-container">
+                        <div class="icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="info">
+                            <h5>Impairments / Special request</h5>
+                            <p>
+                                We are a fully inclusive club and will try our best to make sure you have the best race possible. If
+                                you have any impairments or a special request please
+                                <a href="/contact">get in touch with us</a> letting us know your needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+<!-- Main content End -->
 
 
 <div id="paymentForm"></div>
 
 @section Foot {
+    <script type="text/javascript" src="~/assets/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/form-validator.min.js"></script>
     <script type="text/javascript" src="https://checkoutshopper-test.adyen.com/checkoutshopper/assets/js/sdk/checkoutSDK.1.3.2.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            function handleNewSessionSuccess(paymentSession) {
-                var configurationObject = {
-                    context: 'test'
-                };
-                var checkout = chckt.checkout(paymentSession, '#paymentForm', configurationObject);
-            };
-
-            $.ajax({
-                url: '/umbraco/api/payment/newsession',
-                // data: paymentData,
-                method: 'POST',// jQuery > 1.9
-                type: 'POST', //jQuery < 1.9
-                success: handleNewSessionSuccess,
-                error: function () {
-                    if (window.console && console.log) {
-                        console.log("error");
-                        console.log('### adyenCheckout::error:: args=', arguments);
-                    }
-                }
-            });
-
-            function handleProcessSuccess(successResponse) {
-                console.log("SUCCESS");
-                $("#paymentForm").html(successResponse.authResponse);
-            };
-
-            chckt.hooks.beforeComplete = function (node, paymentData) {
-                // `node` is a reference to the Checkout container HTML node.
-                // `paymentData` is the result of the payment. Includes the `payload` variable,
-                // which you should submit to the server for the Checkout API /paymentsResult call.
-                var resultRequest = {
-                    payload: paymentData.payload,
-                    resultCode: paymentData.resultCode,
-                    resultText: paymentData.resultText
-                };
-
-                $.ajax({
-                    url: '/umbraco/api/payment/processresult',
-                    data: resultRequest,
-                    method: 'POST',// jQuery > 1.9
-                    type: 'POST', //jQuery < 1.9
-                    success: handleProcessSuccess,
-                    error: function () {
-                        if (window.console && console.log) {
-                            console.log("error");
-                            console.log('### adyenCheckout::error:: args=', arguments);
-                        }
-                    }
-                });
-                return false; // Indicates that you want to replace the default handling.
-            };
-
-
-        });
-    </script>
-
+    <script type="text/javascript" src="~/assets/js/entry.js"></script>
 }
 
 
