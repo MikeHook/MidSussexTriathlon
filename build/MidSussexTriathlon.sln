@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MidSussexTriathlon.Web", "MidSussexTriathlon.Web\MidSussexTriathlon.Web.csproj", "{3DC67D84-37F1-4B29-B35B-680A862BC126}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MidSussexTriathlon.Core", "MidSussexTriathlon.Core\MidSussexTriathlon.Core.csproj", "{F397A23E-8BFB-40CD-BD69-8CC257872C6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3DC67D84-37F1-4B29-B35B-680A862BC126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DC67D84-37F1-4B29-B35B-680A862BC126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DC67D84-37F1-4B29-B35B-680A862BC126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F397A23E-8BFB-40CD-BD69-8CC257872C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F397A23E-8BFB-40CD-BD69-8CC257872C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F397A23E-8BFB-40CD-BD69-8CC257872C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F397A23E-8BFB-40CD-BD69-8CC257872C6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

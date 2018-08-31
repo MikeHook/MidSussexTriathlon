@@ -25,7 +25,7 @@
 	$("#entryForm").validator().on("submit", function (event) {
 		if (!event.isDefaultPrevented()) {	
 			event.preventDefault();
-			submitForm();
+			submitEntry();
 		}
 	});
 
@@ -49,11 +49,30 @@
 
 	function submitEntry() {
 
+		var entryModel = {
+			firstName: $("#firstName").val(),
+			lastName: $("#lastName").val(),
+			dateOfBirthString: $("#dob").val(),
+			gender: $("#gender").val(),
+			addressLine1: $("#address1").val(),
+			addressLine2: $("#address2").val(),
+			addressLine2: $("#address2").val(),
+			city: $("#city").val(),
+			county: $("#county").val(),
+			phoneNumber: $("#phone").val(),
+			email: $("#email").val(),
+			raceType: $("input[name='raceType']:checked").val(),
+			swimTime: $("#swimTime").val(),
+			btfNumber: $("#btfNumber").val(),
+			clubName: $("#clubName").val(),
+			termsAccepted: $("#terms").val(),
+		};
+
 		console.log("Entry submitted!");
 
 		$.ajax({
-			url: '/umbraco/api/payment/newsession',
-			// data: paymentData,
+			url: '/umbraco/api/entry/new',
+			data: entryModel,
 			method: 'POST',// jQuery > 1.9
 			type: 'POST', //jQuery < 1.9
 			success: function (paymentSession) {
@@ -83,7 +102,7 @@
 		};
 
 		$.ajax({
-			url: '/umbraco/api/payment/processresult',
+			url: '/umbraco/api/entry/ConfirmPayment',
 			data: resultRequest,
 			method: 'POST',// jQuery > 1.9
 			type: 'POST', //jQuery < 1.9

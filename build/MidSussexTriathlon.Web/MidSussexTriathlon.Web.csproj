@@ -268,6 +268,7 @@
     <Content Include="assets\css\colors\red.css" />
     <Content Include="assets\css\colors\yellow.css" />
     <Content Include="assets\css\custom-components.css" />
+    <Content Include="assets\css\bootstrap-datepicker3.min.css" />
     <Content Include="assets\css\global.css" />
     <Content Include="assets\css\jquery.classycountdown.css" />
     <Content Include="assets\css\main.css" />
@@ -322,9 +323,11 @@
     <Content Include="assets\img\sponsors\waitrose.gif" />
     <Content Include="assets\img\sponsors\WisdomSportsLogo.png" />
     <Content Include="assets\img\tri-logo-200.png" />
+    <Content Include="assets\js\bootstrap-datepicker.min.js" />
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\color-switcher.js" />
     <Content Include="assets\js\contact-form-script.js" />
+    <Content Include="assets\js\entry.js" />
     <Content Include="assets\js\form-validator.min.js" />
     <Content Include="assets\js\initializers.js" />
     <Content Include="assets\js\jquery.classycountdown.min.js" />
@@ -365,10 +368,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\PaymentController.cs" />
-    <Compile Include="Models\EntryModel.cs" />
+    <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\Payment\PaymentSessionResponse.cs" />
     <Compile Include="Models\Payment\PaymentSessionRequest.cs" />
@@ -453,6 +454,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Contact\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MidSussexTriathlon.Core\MidSussexTriathlon.Core.csproj">
+      <Project>{f397a23e-8bfb-40cd-bd69-8cc257872c6e}</Project>
+      <Name>MidSussexTriathlon.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -50,7 +50,7 @@
                                     <div class="form-group label-line">
                                         <span class="span"></span>
                                         <label class="label transition">Date of birth*</label>
-                                        <input type="text" class="input" id="dob" required data-error="Please enter date of birth">
+                                        <input type="text" class="input" id="dob" required data-error="Please enter date of birth" data-date-format="dd/mm/yyyy">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -60,8 +60,8 @@
                                         <label class="label transition">Gender*</label>
                                         <select class="input" id="gender" name="gender" required  data-error="Please select gender">
                                             <option value=""></option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
                                         </select>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -149,7 +149,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group label-line label-line-time">
                                         <span class="span"></span>
-                                        <label class="label transition">Swim Time* (4-20 minutes)</label>
+                                        <label class="label transition">Swim time* (4-20 minutes)</label>
                                         <input type="time" class="input" id="swimTime" min="04:00" max="20:00" required  data-error="Please enter swim time">
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -160,7 +160,7 @@
                                     <div class="form-group label-line">
                                         <span class="span"></span>
                                         <label class="label transition">BTF Number</label>
-                                        <input type="text" class="input" id="bftNumber">
+                                        <input type="text" class="input" id="btfNumber">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -179,7 +179,7 @@
                                         <a href="/terms" target="_blank">Terms and Conditions</a>
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="" required> I have read and agree to the race terms and conditions.*
+                                                <input id="terms" type="checkbox" value="true" required> I have read and agree to the race terms and conditions.*
                                             </label>
                                         </div>
                                         <div class="help-block with-errors"></div>
