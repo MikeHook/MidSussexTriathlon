@@ -21,14 +21,6 @@
 		onFieldFocus(this);
 	});
 
-
-	$("#entryForm").validator().on("submit", function (event) {
-		if (!event.isDefaultPrevented()) {	
-			event.preventDefault();
-			submitEntry();
-		}
-	});
-
 	function onFieldFocus(field) {		
 		var labelLine = $(field).parent('.label-line');
 		labelLine.addClass('active');
@@ -46,8 +38,7 @@
 		}
 	}
 
-
-	function submitEntry() {
+	function submitEntry(tokenId) {
 
 		var entryModel = {
 			firstName: $("#firstName").val(),
@@ -66,9 +57,10 @@
 			btfNumber: $("#btfNumber").val(),
 			clubName: $("#clubName").val(),
 			termsAccepted: $("#terms").val(),
+			tokenId: tokenId
 		};
 
-		console.log("Entry submitted!");
+
 
 		$.ajax({
 			url: '/umbraco/api/entry/new',
@@ -76,10 +68,7 @@
 			method: 'POST',// jQuery > 1.9
 			type: 'POST', //jQuery < 1.9
 			success: function (paymentSession) {
-				var configurationObject = {
-					context: 'test'
-				};
-				var checkout = chckt.checkout(paymentSession, '#paymentForm', configurationObject);
+				console.log("Entry submitted!");
 			},
 			error: function () {
 				if (window.console && console.log) {
@@ -91,34 +80,37 @@
 
 	};
 
-	chckt.hooks.beforeComplete = function (node, paymentData) {
-		// `node` is a reference to the Checkout container HTML node.
-		// `paymentData` is the result of the payment. Includes the `payload` variable,
-		// which you should submit to the server for the Checkout API /paymentsResult call.
-		var resultRequest = {
-			payload: paymentData.payload,
-			resultCode: paymentData.resultCode,
-			resultText: paymentData.resultText
-		};
+	var handler = null;
 
-		$.ajax({
-			url: '/umbraco/api/entry/ConfirmPayment',
-			data: resultRequest,
-			method: 'POST',// jQuery > 1.9
-			type: 'POST', //jQuery < 1.9
-			success: function (successResponse) {
-				console.log("SUCCESS");
-				$("#paymentForm").html(successResponse.authResponse);
-			},
-			error: function () {
-				if (window.console && console.log) {
-					console.log("error");
-					console.log('### adyenCheckout::error:: args=', arguments);
+	$("#entryForm").validator().on("submit", function (event) {
+		if (!event.isDefaultPrevented()) {
+			event.preventDefault();
+			handler = StripeCheckout.configure({
+				key: 'pk_test_RgoNa0w9TSeIGQrz0lJaU3Is',
+				image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+				zipCode: true,
+				allowRememberMe: false,
+				email: $("#email").val(),
+				locale: 'auto',
+				token: function (token) {
+					// You can access the token ID with `token.id`.
+					// Get the token ID to your server-side code for use.
+					submitEntry(token.id);
 				}
-			}
-		});
-		return false; // Indicates that you want to replace the default handling.
-	};
+			});
 
+			handler.open({
+				name: 'Mid Sussex Triathlon',
+				description: '2 widgets',
+				currency: 'gbp',
+				amount: 2000,				
+			});
+		}
+	});
+
+	// Close Checkout on page navigation:
+	window.addEventListener('popstate', function () {
+		handler.close();
+	});	
 
 });
