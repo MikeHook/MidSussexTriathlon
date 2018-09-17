@@ -23,7 +23,7 @@ namespace MidSussexTriathlon.Web.Controllers
         // POST: api/Entry/New
         public async Task<string> New(Entry entry)
         {
-            entry.OrderReference = Guid.NewGuid().ToString();
+            _entryRepository.Create(entry);
 
             string apiKey = ConfigurationManager.AppSettings["stripeApiKey"];
             StripeConfiguration.SetApiKey(apiKey);
@@ -37,8 +37,12 @@ namespace MidSussexTriathlon.Web.Controllers
             };
             var service = new StripeChargeService();
             StripeCharge charge = service.Create(options);
+            entry.OrderReference = charge.Id;
+            entry.Paid = charge.Paid;
 
-            _entryRepository.Create(entry);
+            //TODO - Update entry in the DB
+            //_entryRepository.Create(entry);
+
 
             return "";
         }

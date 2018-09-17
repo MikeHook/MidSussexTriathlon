@@ -68,6 +68,24 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Phone number</label>
+                                        <input type="text" class="input" id="phone">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Email*</label>
+                                        <input type="email" class="input" id="email" required data-error="Please enter email address in correct format">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-12">
                                     <h5 class="title-medium pull-left">Contact information</h5>
                                 </div>
@@ -109,20 +127,11 @@
                                 </div>
                             </div>
                             <div class="row">
-
                                 <div class="col-md-6">
                                     <div class="form-group label-line">
                                         <span class="span"></span>
-                                        <label class="label transition">Phone number</label>
-                                        <input type="text" class="input" id="phone">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Email*</label>
-                                        <input type="email" class="input" id="email" required data-error="Please enter email address in correct format">
+                                        <label class="label transition">Postcode*</label>
+                                        <input type="text" class="input" id="postcode" required data-error="Please enter postcode">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -175,6 +184,21 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
+                                    <h5 class="title-medium pull-left">Credit or debit card</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">                          
+                                    <div id="card-element">
+                                        <!-- A Stripe Element will be inserted here. -->
+                                    </div>
+
+                                    <!-- Used to display Element errors. -->
+                                    <div id="card-errors" role="alert" class="payment-errors"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
                                     <div class="form-group checkbox-field">
                                         <a href="/terms" target="_blank">Terms and Conditions</a>
                                         <div class="checkbox">
@@ -186,7 +210,7 @@
                                     </div>
                                     <p>
                                         Confidentiality is important to us. The personal information you provide will remain confidential
-                                        and will not be sold or distributed beyond our control.
+                                        and will not be sold or distributed beyond our control. Your payment details are securely sent directly to our PCI compliant payment provider.
                                     </p>
 
                                 </div>
@@ -264,7 +288,6 @@
 @section Foot {
     <script type="text/javascript" src="~/assets/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="~/assets/js/form-validator.min.js"></script>
-    <script src="https://checkout.stripe.com/checkout.js"></script>
     <script type="text/javascript" src="~/assets/js/entry.js"></script>
 }
 

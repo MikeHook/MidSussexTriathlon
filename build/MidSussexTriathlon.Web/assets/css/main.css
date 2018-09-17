@@ -2191,6 +2191,11 @@ div.checkbox-field div.help-block.with-errors {
 div.help-block.with-errors {
     padding-top: 55px;
 }
+
+div.payment-errors {
+    padding: 10px 0 10px 0;
+    color: #a94442;
+}
 /* ==========================================================================
    Footer Start
    ========================================================================== */

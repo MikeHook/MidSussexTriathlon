@@ -34,6 +34,7 @@ namespace MidSussexTriathlon.Core.Data
            ,[AddressLine2]
            ,[City]
            ,[County]
+           ,[Postcode]
            ,[PhoneNumber]
            ,[Email]
            ,[RaceType]
@@ -41,6 +42,7 @@ namespace MidSussexTriathlon.Core.Data
            ,[BtfNumber]
            ,[ClubName]
            ,[TermsAccepted]
+           ,[Paid]
            ,[OrderReference])
      VALUES
            (@FirstName
@@ -51,6 +53,7 @@ namespace MidSussexTriathlon.Core.Data
            ,@AddressLine2
            ,@City
            ,@County
+           ,@Postcode
            ,@PhoneNumber
            ,@Email
            ,@RaceType
@@ -58,6 +61,7 @@ namespace MidSussexTriathlon.Core.Data
            ,@BtfNumber
            ,@ClubName
            ,@TermsAccepted
+           ,@Paid
            ,@OrderReference)";
 
             using (IDbConnection connection = _dataConnection.SqlConnection)

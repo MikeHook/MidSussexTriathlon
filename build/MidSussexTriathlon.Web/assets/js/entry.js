@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿$(document).ready(function () {	
 
 	$('#dob').datepicker({})
 		.on('changeDate', function (e) {
@@ -46,10 +46,10 @@
 			dateOfBirthString: $("#dob").val(),
 			gender: $("#gender").val(),
 			addressLine1: $("#address1").val(),
-			addressLine2: $("#address2").val(),
-			addressLine2: $("#address2").val(),
+			addressLine2: $("#address2").val(),		
 			city: $("#city").val(),
 			county: $("#county").val(),
+			postcode: $("#postcode").val(),
 			phoneNumber: $("#phone").val(),
 			email: $("#email").val(),
 			raceType: $("input[name='raceType']:checked").val(),
@@ -80,37 +80,60 @@
 
 	};
 
-	var handler = null;
+	//TODO - Move public key into config
+	var stripe = Stripe('pk_test_RgoNa0w9TSeIGQrz0lJaU3Is');
+	var elements = stripe.elements();
+
+	// Custom styling can be passed to options when creating an Element.
+	var style = {
+		base: {
+			// Add your base input styles here. For example:
+			fontSize: '1em',
+			color: "rgb(119, 119, 119)",
+		}
+	};
+
+	// Create an instance of the card Element.
+	var card = elements.create('card', { style: style, hidePostalCode: true });
+
+	// Add an instance of the card Element into the `card-element` <div>.
+	card.mount('#card-element');
+
+	card.addEventListener('change', function (event) {
+		var displayError = document.getElementById('card-errors');
+		if (event.error) {
+			displayError.textContent = event.error.message;
+		} else {
+			displayError.textContent = '';
+		}
+	});
 
 	$("#entryForm").validator().on("submit", function (event) {
 		if (!event.isDefaultPrevented()) {
 			event.preventDefault();
-			handler = StripeCheckout.configure({
-				key: 'pk_test_RgoNa0w9TSeIGQrz0lJaU3Is',
-				image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-				zipCode: true,
-				allowRememberMe: false,
-				email: $("#email").val(),
-				locale: 'auto',
-				token: function (token) {
-					// You can access the token ID with `token.id`.
-					// Get the token ID to your server-side code for use.
-					submitEntry(token.id);
-				}
-			});
 
-			handler.open({
-				name: 'Mid Sussex Triathlon',
-				description: '2 widgets',
+			var tokenData = {
+				name: $("#email").val(),
 				currency: 'gbp',
-				amount: 2000,				
-			});
+				address_line1: $("#address1").val(),
+				address_line2: $("#address2").val(),
+				address_city: $("#city").val(),
+				address_state: $("#county").val(),
+				address_zip: $("#postcode").val(),
+				address_country: 'UK'
+			};
+
+			stripe.createToken(card, tokenData).then(function (result) {
+				if (result.error) {
+					// Inform the customer that there was an error.
+					var errorElement = document.getElementById('card-errors');
+					errorElement.textContent = result.error.message;
+				} else {
+					// Send the token to your server.
+					submitEntry(result.token.id);
+				}
+			});			
 		}
 	});
-
-	// Close Checkout on page navigation:
-	window.addEventListener('popstate', function () {
-		handler.close();
-	});	
 
 });

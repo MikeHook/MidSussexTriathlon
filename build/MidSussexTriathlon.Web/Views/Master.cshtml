@@ -56,13 +56,13 @@
     <header id="header-wrap">
         <!-- Roof area Starts -->
         <div id="roof" class="hidden-xs">
-            <div class="container">       
+            <div class="container">
                 <div class="col-md-12 col-sm-12">
                     <div class="quick-contacts">
                         <span>
                             @home.RaceDate.ToString("dd MMMM yyyy") @@ <a href="@(home.VenuePage != null ? home.VenuePage.Url : "")">The Triangle, Burgess Hill, RH15 8WA <i class="icon-location-pin"></i></a>
                         </span>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,6 +224,9 @@
 
     <!-- All Js plugin -->
     <script src="/assets/js/main.js"></script>
+
+    <!-- Stripe payment library, should be included on every page -->
+    <script src="https://js.stripe.com/v3/"></script>
 
     @RenderSection("Foot", false)
 
