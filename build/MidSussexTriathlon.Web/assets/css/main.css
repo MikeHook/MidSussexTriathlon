@@ -1642,12 +1642,13 @@ h1 {
     background-size: cover;
   }
 
-  #entry .entry-left-col {
+#entry .entry-left-col {
+    margin-top: 40px;
     padding: 0;
-  }
+    background: #fff;
+}
 
   #entry .title-header {
-    margin-top: 40px;
     display: inline-block;
     width: 100%;
     text-align: center;

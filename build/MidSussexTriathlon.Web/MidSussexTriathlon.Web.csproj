@@ -376,10 +376,6 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Models\ContactModel.cs" />
-    <Compile Include="Models\Payment\PaymentSessionResponse.cs" />
-    <Compile Include="Models\Payment\PaymentSessionRequest.cs" />
-    <Compile Include="Models\Payment\VerifyPaymentResponse.cs" />
-    <Compile Include="Models\Payment\VerifyPaymentRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

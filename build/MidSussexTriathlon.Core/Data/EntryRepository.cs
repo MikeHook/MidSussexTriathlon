@@ -11,7 +11,8 @@ namespace MidSussexTriathlon.Core.Data
 {
     public interface IEntryRepository
     {
-        void Create(Entry entry);
+        Entry Create(Entry entry);
+        void Update(Entry entry);
     }
 
     public class EntryRepository : IEntryRepository
@@ -23,9 +24,9 @@ namespace MidSussexTriathlon.Core.Data
             _dataConnection = dataConnection;
         }
 
-        public void Create(Entry entry)
+        public Entry Create(Entry entry)
         {
-            string query = @"INSERT INTO [dbo].[Entry]
+            string query = @"INSERT INTO [dbo].[Entry]            
            ([FirstName]
            ,[LastName]
            ,[DateOfBirth]
@@ -44,7 +45,8 @@ namespace MidSussexTriathlon.Core.Data
            ,[TermsAccepted]
            ,[Paid]
            ,[OrderReference])
-     VALUES
+        OUTPUT Inserted.Id
+        VALUES
            (@FirstName
            ,@LastName
            ,@DateOfBirth
@@ -63,6 +65,37 @@ namespace MidSussexTriathlon.Core.Data
            ,@TermsAccepted
            ,@Paid
            ,@OrderReference)";
+
+            using (IDbConnection connection = _dataConnection.SqlConnection)
+            {
+                entry.Id = connection.Query<int>(query, entry).Single();
+            }
+
+            return entry;
+        }
+
+        public void Update(Entry entry)
+        {
+            string query = @"   UPDATE [dbo].[Entry]
+                                SET [FirstName] = @FirstName
+                                    ,[LastName] = @LastName
+                                    ,[DateOfBirth] = @DateOfBirth
+                                    ,[Gender] = @Gender
+                                    ,[AddressLine1] = @AddressLine1
+                                    ,[AddressLine2] = @AddressLine2
+                                    ,[City] = @City
+                                    ,[County] = @County
+                                    ,[Postcode] = @Postcode
+                                    ,[PhoneNumber] = @PhoneNumber
+                                    ,[Email] = @Email
+                                    ,[RaceType] = @RaceType
+                                    ,[SwimTime] = @SwimTime
+                                    ,[BtfNumber] = @BtfNumber
+                                    ,[ClubName] = @ClubName
+                                    ,[TermsAccepted] = @TermsAccepted
+                                    ,[Paid] = @Paid
+                                    ,[OrderReference] = @OrderReference
+                                WHERE Id = @Id";
 
             using (IDbConnection connection = _dataConnection.SqlConnection)
             {

@@ -17,7 +17,7 @@ CREATE TABLE [dbo].[Entry](
 	[ClubName] varchar(255) NULL,
 	[TermsAccepted] bit Not Null,
 	[Paid] bit Not Null,
-	[OrderReference] varchar(255) Not NULL
+	[OrderReference] varchar(255) NULL
  CONSTRAINT [PK_Entry] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

@@ -15,219 +15,241 @@
 <div class="entry-main-content">
     <section id="entry">
         <div class="container">
-            <div class="row match-my-cols wow fadeInDown" data-wow-delay="0.3s">
+            <div class="row match-my-cols">
                 <div class="col-md-8 col-sm-7 entry-left-col">
-                    <div class="title-header">
-                        <h3 class="title-medium">Enter the Mid Sussex Triathlon on Sunday 9th June 2019</h3>
-                    </div>
-                    <div>
-                        <form role="form" id="entryForm" data-toggle="validator" class="entry-form">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h5 class="title-medium pull-left">Your details</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">First name*</label>
-                                        <input type="text" class="input" id="firstName" required data-error="Please enter first name">
-                                        <div class="help-block with-errors"></div>
+                    <div id="entry-container">
+                        <div class="title-header">
+                            <h3 class="title-medium">Enter the Mid Sussex Triathlon on Sunday 9th June 2019</h3>
+                        </div>
+                        <div>
+                            <form role="form" id="entryForm" data-toggle="validator" class="entry-form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="title-medium pull-left">Your details</h5>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Last name*</label>
-                                        <input type="text" class="input" id="lastName" required data-error="Please enter last name">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Date of birth*</label>
-                                        <input type="text" class="input" id="dob" required data-error="Please enter date of birth" data-date-format="dd/mm/yyyy">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Gender*</label>
-                                        <select class="input" id="gender" name="gender" required data-error="Please select gender">
-                                            <option value=""></option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                        </select>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Phone number</label>
-                                        <input type="text" class="input" id="phone">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Email*</label>
-                                        <input type="email" class="input" id="email" required data-error="Please enter email address in correct format">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h5 class="title-medium pull-left">Contact information</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Address line 1*</label>
-                                        <input type="text" class="input" id="address1" required data-error="Please enter address line 1">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Address line 2</label>
-                                        <input type="text" class="input" id="address2">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Town / City*</label>
-                                        <input type="text" class="input" id="city" required data-error="Please enter town / city">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">County</label>
-                                        <input type="text" class="input" id="county">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Postcode*</label>
-                                        <input type="text" class="input" id="postcode" required data-error="Please enter postcode">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h5 class="title-medium pull-left">Event details</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group label-line label-line-radio">
-                                        <span class="span"></span>
-                                        <label class="label transition">Race type*</label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="raceType" id="raceType1" value="Full Triathlon" required> Full Triathlon
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="raceType" id="raceType2" value="Aquabike" required> Aquabike
-                                        </label>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group label-line label-line-time">
-                                        <span class="span"></span>
-                                        <label class="label transition">Swim time* (4-20 minutes)</label>
-                                        <input type="time" class="input" id="swimTime" min="04:00" max="20:00" required data-error="Please enter swim time">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">BTF Number</label>
-                                        <input type="text" class="input" id="btfNumber">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group label-line">
-                                        <span class="span"></span>
-                                        <label class="label transition">Club name</label>
-                                        <input type="text" class="input" id="clubName">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h5 class="title-medium pull-left">Credit or debit card</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">                          
-                                    <div id="card-element">
-                                        <!-- A Stripe Element will be inserted here. -->
-                                    </div>
-
-                                    <!-- Used to display Element errors. -->
-                                    <div id="card-errors" role="alert" class="payment-errors"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group checkbox-field">
-                                        <a href="/terms" target="_blank">Terms and Conditions</a>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input id="terms" type="checkbox" value="true" required> I have read and agree to the race terms and conditions.*
-                                            </label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">First name*</label>
+                                            <input type="text" class="input" id="firstName" required data-error="Please enter first name">
+                                            <div class="help-block with-errors"></div>
                                         </div>
-                                        <div class="help-block with-errors"></div>
                                     </div>
-                                    <p>
-                                        Confidentiality is important to us. The personal information you provide will remain confidential
-                                        and will not be sold or distributed beyond our control. Your payment details are securely sent directly to our PCI compliant payment provider.
-                                    </p>
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Last name*</label>
+                                            <input type="text" class="input" id="lastName" required data-error="Please enter last name">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Date of birth*</label>
+                                            <input type="text" class="input" id="dob" required data-error="Please enter date of birth" data-date-format="dd/mm/yyyy">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Gender*</label>
+                                            <select class="input" id="gender" name="gender" required data-error="Please select gender">
+                                                <option value=""></option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Phone number</label>
+                                            <input type="text" class="input" id="phone">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Email*</label>
+                                            <input type="email" class="input" id="email" required data-error="Please enter email address in correct format">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="title-medium pull-left">Contact information</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Address line 1*</label>
+                                            <input type="text" class="input" id="address1" required data-error="Please enter address line 1">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Address line 2</label>
+                                            <input type="text" class="input" id="address2">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Town / City*</label>
+                                            <input type="text" class="input" id="city" required data-error="Please enter town / city">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">County</label>
+                                            <input type="text" class="input" id="county">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Postcode*</label>
+                                            <input type="text" class="input" id="postcode" required data-error="Please enter postcode">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="title-medium pull-left">Event details</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line label-line-radio">
+                                            <span class="span"></span>
+                                            <label class="label transition">Race type*</label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="raceType" id="raceType1" value="Full Triathlon" required> Full Triathlon
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="raceType" id="raceType2" value="Aquabike" required> Aquabike
+                                            </label>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line label-line-time">
+                                            <span class="span"></span>
+                                            <label class="label transition">Swim time* (4-20 minutes)</label>
+                                            <input type="time" class="input" id="swimTime" min="04:00" max="20:00" required data-error="Please enter swim time">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">BTF Number</label>
+                                            <input type="text" class="input" id="btfNumber">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Club name</label>
+                                            <input type="text" class="input" id="clubName">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="title-medium pull-left">Credit or debit card</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">                          
+                                        <div id="card-element">
+                                            <!-- A Stripe Element will be inserted here. -->
+                                        </div>
 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="buttons">
-                                        <button type="submit" id="form-submit" class="btn btn-common">
-                                            Continue
-                                            <i class="icon-check" aria-hidden="true"></i>
-                                        </button>
-                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                        <div class="clearfix"></div>
+                                        <!-- Used to display Element errors. -->
+                                        <div id="card-errors" role="alert" class="payment-errors"></div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group checkbox-field">
+                                            <a href="/terms" target="_blank">Terms and Conditions</a>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="terms" type="checkbox" value="true" required> I have read and agree to the race terms and conditions.*
+                                                </label>
+                                            </div>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <p>
+                                            Confidentiality is important to us. The personal information you provide will remain confidential
+                                            and will not be sold or distributed beyond our control. Your payment details are securely sent directly to our PCI compliant payment provider.
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="buttons">
+                                            <button type="submit" id="form-submit" class="btn btn-common">
+                                                Continue
+                                                <i class="icon-check" aria-hidden="true"></i>
+                                            </button>
+                                            <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="entry-confirmed" class="hidden">
+                        <div class="title-header">
+                            <h3 class="title-medium">Mid Sussex Triathlon entry complete</h3>
+                        </div>
+                        <div>
+                            <form class="entry-form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="title-medium pull-left">You have entered the Mid Sussex Triathlon!</h5>       
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p>**TODO - Move this content into the CMS**</p>
+                                        <p>You will receive an email to confirm your entry and further comms closer to the event. <br /> All entries are also listed on the entries so far page.</p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-5 information">

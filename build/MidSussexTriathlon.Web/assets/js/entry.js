@@ -24,8 +24,7 @@
 	function onFieldFocus(field) {		
 		var labelLine = $(field).parent('.label-line');
 		labelLine.addClass('active');
-		if (labelLine.hasClass('checked')) { }
-		else {
+		if (!labelLine.hasClass('checked')) {
 			labelLine.removeClass('checked');
 		}
 	}
@@ -60,21 +59,25 @@
 			tokenId: tokenId
 		};
 
-
-
 		$.ajax({
 			url: '/umbraco/api/entry/new',
 			data: entryModel,
 			method: 'POST',// jQuery > 1.9
 			type: 'POST', //jQuery < 1.9
-			success: function (paymentSession) {
-				console.log("Entry submitted!");
+			success: function (response) {
+				if (response !== '') {
+					console.log("Payment error!");
+					var displayError = document.getElementById('card-errors');
+					displayError.textContent = response;
+				} else {
+					$('#entry-container').addClass('hidden');
+					$('#entry-confirmed').removeClass('hidden');
+				}
+
 			},
 			error: function () {
-				if (window.console && console.log) {
-					console.log("error");
-					console.log('### adyenCheckout::error:: args=', arguments);
-				}
+				var displayError = document.getElementById('card-errors');
+				displayError.innerHTML = 'Sorry, there has been a problem processing your order. Please <a href="/contact">get in touch</a> with us.';
 			}
 		});
 
