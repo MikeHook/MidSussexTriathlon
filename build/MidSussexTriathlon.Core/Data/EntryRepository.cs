@@ -13,6 +13,7 @@ namespace MidSussexTriathlon.Core.Data
     {
         Entry Create(Entry entry);
         void Update(Entry entry);
+        int Entered();
     }
 
     public class EntryRepository : IEntryRepository
@@ -43,7 +44,7 @@ namespace MidSussexTriathlon.Core.Data
            ,[BtfNumber]
            ,[ClubName]
            ,[TermsAccepted]
-           ,[Paid]
+           ,[Paid]            
            ,[OrderReference])
         OUTPUT Inserted.Id
         VALUES
@@ -94,12 +95,22 @@ namespace MidSussexTriathlon.Core.Data
                                     ,[ClubName] = @ClubName
                                     ,[TermsAccepted] = @TermsAccepted
                                     ,[Paid] = @Paid
+                                    ,[PaymentFailureMessage] = @PaymentFailureMessage
                                     ,[OrderReference] = @OrderReference
                                 WHERE Id = @Id";
 
             using (IDbConnection connection = _dataConnection.SqlConnection)
             {
                 connection.Execute(query, entry);
+            }
+        }
+
+        public int Entered()
+        {
+            string query = @"Select Count(Id) FROM [MidSussexTriathlonCms].[dbo].[Entry] Where Paid = 1";     
+            using (IDbConnection connection = _dataConnection.SqlConnection)
+            {
+                return connection.Query<int>(query).Single();
             }
         }
     }

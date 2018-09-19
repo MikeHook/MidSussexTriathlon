@@ -17,6 +17,7 @@ CREATE TABLE [dbo].[Entry](
 	[ClubName] varchar(255) NULL,
 	[TermsAccepted] bit Not Null,
 	[Paid] bit Not Null,
+	[PaymentFailureMessage] varchar(1024) NULL,
 	[OrderReference] varchar(255) NULL
  CONSTRAINT [PK_Entry] PRIMARY KEY CLUSTERED 
 (

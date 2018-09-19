@@ -2,7 +2,10 @@
 using MidSussexTriathlon.Core.Domain;
 using Stripe;
 using System.Configuration;
+using System.Linq;
 using Umbraco.Web.WebApi;
+using Umbraco.Web.PublishedContentModels;
+using System.Web.Http;
 
 namespace MidSussexTriathlon.Web.Controllers
 {
@@ -15,19 +18,43 @@ namespace MidSussexTriathlon.Web.Controllers
             _entryRepository = new EntryRepository(new DataConnection());
         }
 
-        // POST: api/entry/new
+        // GET: /umbraco/api/entry/placesleft
+        [HttpGet]
+        public int PlacesLeft()
+        {
+            var entryPage = Umbraco.TypedContentAtRoot().First().Children.FirstOrDefault(c => c.DocumentTypeAlias == "entry");
+            int totalPlaces = 350;
+            if (entryPage != null)
+            {
+                totalPlaces = (int)entryPage.GetProperty("totalPlaces").Value;
+            }
+
+            int entered = _entryRepository.Entered();
+
+            return totalPlaces - entered;
+        }
+
+        // POST: /umbraco/api/entry/new
+        [HttpPost]
         public string New(Entry entry)
         {
             entry.Paid = false;
             entry = _entryRepository.Create(entry);
 
-            string apiKey = ConfigurationManager.AppSettings["stripeApiKey"];
+            string apiKey = ConfigurationManager.AppSettings["stripeSecretKey"];
             StripeConfiguration.SetApiKey(apiKey);
+
+            int cost = 4000;
+            var entryPage = Umbraco.TypedContentAtRoot().First().Children.FirstOrDefault(c => c.DocumentTypeAlias == "entry");
+            if (entryPage != null) {
+                var btfCost = (decimal)entryPage?.GetProperty("bTFCost")?.Value;
+                var nonBtfCost = (decimal)entryPage?.GetProperty("nonBTFCost")?.Value;
+                cost = string.IsNullOrEmpty(entry.BtfNumber) ? (int)(nonBtfCost * 100) : (int)(btfCost * 100);
+            }
 
             var options = new StripeChargeCreateOptions
             {
-                //TODO - Move costs into CMS
-                Amount = string.IsNullOrEmpty(entry.BtfNumber) ? 4000 : 3700,
+                Amount = cost,
                 Currency = "gbp",
                 SourceTokenOrExistingSourceId = entry.TokenId,
                 ReceiptEmail = entry.Email,
@@ -39,7 +66,8 @@ namespace MidSussexTriathlon.Web.Controllers
 
             if (!entry.Paid)
             {
-                //TODO - log failures into DB
+                entry.PaymentFailureMessage = charge.FailureMessage;
+                _entryRepository.Update(entry);
                 return charge.FailureMessage;
             }
        

@@ -1,8 +1,9 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Entry>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
-@using MidSussexTriathlon.Web.Models
+@using System.Configuration;
 @{
     Layout = "Master.cshtml";
+    var entry = Model.Content;
 }
 
 @section Head {
@@ -189,7 +190,8 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">                          
+                                    <div class="col-md-12">
+
                                         <div id="card-element">
                                             <!-- A Stripe Element will be inserted here. -->
                                         </div>
@@ -220,7 +222,7 @@
                                     <div class="col-md-12">
                                         <div class="buttons">
                                             <button type="submit" id="form-submit" class="btn btn-common">
-                                                Continue
+                                                Enter now
                                                 <i class="icon-check" aria-hidden="true"></i>
                                             </button>
                                             <div id="msgSubmit" class="h3 text-center hidden"></div>
@@ -239,13 +241,12 @@
                             <form class="entry-form">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h5 class="title-medium pull-left">You have entered the Mid Sussex Triathlon!</h5>       
+                                        <h5 class="title-medium pull-left">You have entered the Mid Sussex Triathlon!</h5>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p>**TODO - Move this content into the CMS**</p>
-                                        <p>You will receive an email to confirm your entry and further comms closer to the event. <br /> All entries are also listed on the entries so far page.</p>
+                                        @entry.EntryConfirmedText                                   
                                     </div>
                                 </div>
                             </form>
@@ -260,7 +261,7 @@
                         </div>
                         <div class="info">
                             <h5>Places left</h5>
-                            <h3>!!!!350!!!!</h3>
+                            <h3 id="placesLeft"></h3>
                         </div>
                     </div>
 
@@ -270,7 +271,7 @@
                         </div>
                         <div class="info">
                             <h5>BTF Members</h5>
-                            <h3>£37</h3>
+                            <h3>£@Umbraco.Field("bTFCost")</h3>
                         </div>
                     </div>
 
@@ -280,7 +281,7 @@
                         </div>
                         <div class="info">
                             <h5>Non BTF Members</h5>
-                            <h3>£40</h3>
+                            <h3>£@Umbraco.Field("nonBTFCost")</h3>
                         </div>
                     </div>
                     <div class="info-container">
@@ -289,11 +290,7 @@
                         </div>
                         <div class="info">
                             <h5>Impairments / Special request</h5>
-                            <p>
-                                We are a fully inclusive club and will try our best to make sure you have the best race possible. If
-                                you have any impairments or a special request please
-                                <a href="/contact">get in touch with us</a> letting us know your needs.
-                            </p>
+                            @entry.ImpairmentsText                          
                         </div>
                     </div>
                 </div>
@@ -304,13 +301,18 @@
 </div>
 <!-- Main content End -->
 
-
-<div id="paymentForm"></div>
-
 @section Foot {
     <script type="text/javascript" src="~/assets/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="~/assets/js/form-validator.min.js"></script>
     <script type="text/javascript" src="~/assets/js/entry.js"></script>
+
+    <script type="text/javascript">
+        var pkStripe = '@ConfigurationManager.AppSettings["stripePublicKey"]';
+
+        $(document).ready(function () {
+            initStripe(pkStripe);
+        });
+    </script>
 }
 
 
