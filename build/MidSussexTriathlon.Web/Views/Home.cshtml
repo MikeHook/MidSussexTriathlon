@@ -61,33 +61,31 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Testimonials</h2>
-                <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">
-                    Not sure what the race is all about? Our previous competitors love it and many come back year on year,
-                    <br> Check out our testimonials!
-                </p>
+                <div class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">
+                    @home.TestimonialsIntro
+                </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="wow fadeInUp" data-wow-delay="0.1s">
                     <h3>
-                        "The best organised and friendliest event of all the local races"
+                        "@home.Testimonial1"
                     </h3>
-                    <p>Tim, 2018 finisher</p>
+                    <p>@home.Testimonial1Author</p>
                 </div>
             </div>
 
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <h3>"A thoroughly well-organised event... to attract first-timers and experienced triathletes in equal measure"</h3>
-                    <p>Chris, 2018 finisher</p>
+                    <h3>"@home.Testimonial2"</h3>
+                    <p>@home.Testimonial2Author</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="wow fadeInUp" data-wow-delay="0.1s">
                     <h3>
-                        "It's not just a race it's a great experience... the club [are] doing what they love and encouraging others to
-                        love it too."
+                        "@home.Testimonial3"
                     </h3>
-                    <p>Paul, 2018 finisher</p>
+                    <p>@home.Testimonial3Author</p>
                 </div>
             </div>
         </div>
@@ -100,7 +98,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <h2 class="wow animated slideInRight" data-wow-delay=".4s">
-                    The best value triathlon in the South East. Bar none!
+                    @home.EntryCallToActionText
                 </h2>
                 <a rel="nofollow" href="/enter-race" class="wow animated fadeInUp btn btn-inverse mt-50" data-wow-delay=".6s">
                     <i class="fa fa-check-circle"></i> Enter now!
@@ -119,38 +117,51 @@
                 <h2 class="section-title wow fadeInUp" data-wow-delay="0s">
                     Our Sponsors
                 </h2>
-                <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">
-                    Can highlight any particularly good sponsors here, the rest are listed on the
-                    <a href="sponsors.html">sponsors page</a>.
-                </p>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
-                    <a href="#">
-                        <img src="assets/img/sponsors/ChiaCompanyLogo.png" alt="">
-                    </a>
+                <div class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">
+                    @home.SponsorsIntro
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.2s">
-                    <a href="#">
-                        <img src="assets/img/sponsors/Dinnages.png" alt="">
-                    </a>
-                </div>
+                @if (home.Sponsor1Link.Any())
+                {
+                    <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
+
+                        <a href="@home.Sponsor1Link.First().Link" target="_blank">
+                            <img src="@home.Sponsor1Logo.Url" alt="@home.Sponsor1Logo.GetPropertyValue("alt")">
+                        </a>
+                    </div>
+                }
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.3s">
-                    <a href="#">
-                        <img src="assets/img/sponsors/HASSOCKS EYECARE CENTER LOGO_500x200.jpg" alt="">
-                    </a>
-                </div>
+                @if (home.Sponsor2Link.Any())
+                {
+                    <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.2s">
+                        <a href="@home.Sponsor2Link.First().Link" target="_blank">
+                            <img src="@home.Sponsor2Logo.Url" alt="@home.Sponsor2Logo.GetPropertyValue("alt")">
+                        </a>
+                    </div>
+                }
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.4s">
-                    <a href="#">
-                        <img src="assets/img/sponsors/Hurst-College.jpg" alt="">
-                    </a>
-                </div>
+                @if (home.Sponsor3Link.Any())
+                {
+                    <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.3s">
+                        <a href="@home.Sponsor3Link.First().Link" target="_blank">
+                            <img src="@home.Sponsor3Logo.Url" alt="@home.Sponsor3Logo.GetPropertyValue("alt")">
+                        </a>
+                    </div>
+                }
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                @if (home.Sponsor4Link.Any())
+                {
+                    <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.4s">
+                        <a href="@home.Sponsor4Link.First().Link" target="_blank">
+                            <img src="@home.Sponsor4Logo.Url" alt="@home.Sponsor4Logo.GetPropertyValue("alt")">
+                        </a>
+                    </div>
+                }
             </div>
         </div>
     </div>
