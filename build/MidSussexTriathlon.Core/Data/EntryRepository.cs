@@ -107,7 +107,7 @@ namespace MidSussexTriathlon.Core.Data
 
         public int Entered()
         {
-            string query = @"Select Count(Id) FROM [MidSussexTriathlonCms].[dbo].[Entry] Where Paid = 1";     
+            string query = @"Select Count(Id) FROM [dbo].[Entry] Where Paid = 1";     
             using (IDbConnection connection = _dataConnection.SqlConnection)
             {
                 return connection.Query<int>(query).Single();
