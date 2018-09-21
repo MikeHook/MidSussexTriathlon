@@ -26,13 +26,13 @@ if ($env:umbracoUseSSL)
 {
     $webconfig = ReplaceAppSetting $webconfig "umbracoUseSSL" $env:umbracoUseSSL
 }
-if ($env:adyenMerchantAccount)
+if ($env:stripePublicKey)
 {
-    $webconfig = ReplaceAppSetting $webconfig "adyenMerchantAccount" $env:adyenMerchantAccount
+    $webconfig = ReplaceAppSetting $webconfig "stripePublicKey" $env:stripePublicKey
 }
-if ($env:adyenApiKey)
+if ($env:stripeSecretKey)
 {
-    $webconfig = ReplaceAppSetting $webconfig "adyenApiKey" $env:adyenApiKey
+    $webconfig = ReplaceAppSetting $webconfig "stripeSecretKey" $env:stripeSecretKey
 }
 
 [System.IO.File]::WriteAllLines($configPath, $webconfig)
