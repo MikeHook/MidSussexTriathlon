@@ -4,7 +4,6 @@ using Stripe;
 using System.Configuration;
 using System.Linq;
 using Umbraco.Web.WebApi;
-using Umbraco.Web.PublishedContentModels;
 using System.Web.Http;
 
 namespace MidSussexTriathlon.Web.Controllers
