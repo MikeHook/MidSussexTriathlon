@@ -66,6 +66,9 @@
     <Reference Include="controls, Version=1.0.6750.39773, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.11.1\lib\net45\controls.dll</HintPath>
     </Reference>
+    <Reference Include="Diplo.TraceLogViewer, Version=2.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DiploTraceLogViewer.2.4.1\lib\net45\Diplo.TraceLogViewer.dll</HintPath>
+    </Reference>
     <Reference Include="Examine, Version=0.1.89.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Examine.0.1.89\lib\net45\Examine.dll</HintPath>
     </Reference>
@@ -258,6 +261,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\detail.html" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Controller.js" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Detail.Controller.js" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Resources.js" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\edit.html" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\pagination.html" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\plugins\smart-table.min.js" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog3.css" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\readme.txt" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -419,6 +431,7 @@
     <Content Include="assets\fonts\line-icons\Simple-Line-Icons.woff2" />
     <Content Include="assets\fonts\SignPainter-HouseScript.ttf" />
     <Content Include="assets\img\slider\.DS_Store" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
