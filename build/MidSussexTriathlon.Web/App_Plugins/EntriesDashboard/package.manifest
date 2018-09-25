@@ -1,0 +1,9 @@
+﻿{
+  javascript: [
+    "~/App_Plugins/EntriesDashboard/entry.resource.js",
+    "~/App_Plugins/EntriesDashboard/entriesDashboardController.js",
+  ],
+  css: [
+    "~/App_Plugins/EntriesDashboard/entriesDashboard.css"
+  ]
+}

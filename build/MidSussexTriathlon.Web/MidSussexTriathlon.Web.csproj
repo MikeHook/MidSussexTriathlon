@@ -261,6 +261,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\EntriesDashboard\entry.resource.js" />
+    <Content Include="App_Plugins\EntriesDashboard\entriesDashboard.css" />
+    <Content Include="App_Plugins\EntriesDashboard\EntriesDashboard.html" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\detail.html" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Controller.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Detail.Controller.js" />
@@ -270,6 +273,7 @@
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\plugins\smart-table.min.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog3.css" />
     <Content Include="App_Plugins\DiploTraceLogViewer\readme.txt" />
+    <Content Include="App_Plugins\EntriesDashboard\entriesDashboardController.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -386,6 +390,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\EntryUmbracoController.cs" />
     <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -436,6 +441,7 @@
     <Content Include="assets\fonts\SignPainter-HouseScript.ttf" />
     <Content Include="assets\img\slider\.DS_Store" />
     <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
+    <Content Include="App_Plugins\EntriesDashboard\package.manifest" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />

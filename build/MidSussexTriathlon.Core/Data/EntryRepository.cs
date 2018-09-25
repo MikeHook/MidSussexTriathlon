@@ -13,6 +13,7 @@ namespace MidSussexTriathlon.Core.Data
     {
         Entry Create(Entry entry);
         void Update(Entry entry);
+        IEnumerable<Entry> GetAll();
         int Entered();
     }
 
@@ -105,8 +106,41 @@ namespace MidSussexTriathlon.Core.Data
             }
         }
 
+        public IEnumerable<Entry> GetAll()
+        {
+            string query = @"SELECT [Id]
+                                      ,[FirstName]
+                                      ,[LastName]
+                                      ,[DateOfBirth]
+                                      ,[Gender]
+                                      ,[PhoneNumber]
+                                      ,[Email]
+                                      ,[AddressLine1]
+                                      ,[AddressLine2]
+                                      ,[City]
+                                      ,[County]
+                                      ,[Postcode]
+                                      ,[RaceType]
+                                      ,[SwimTime]
+                                      ,[BtfNumber]
+                                      ,[ClubName]
+                                      ,[TermsAccepted]
+                                      ,[Paid]
+                                      ,[PaymentFailureMessage]
+                                      ,[OrderReference]
+                                  FROM [dbo].[Entry]";
+
+            using (IDbConnection connection = _dataConnection.SqlConnection)
+            {
+                return connection.Query<Entry>(query);
+            }
+        }
+
         public int Entered()
         {
+            // get the database
+
+
             string query = @"Select Count(Id) FROM [dbo].[Entry] Where Paid = 1";     
             using (IDbConnection connection = _dataConnection.SqlConnection)
             {

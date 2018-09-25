@@ -12,8 +12,8 @@ namespace MidSussexTriathlon.Core.Domain
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Name => $"{FirstName} {LastName}";
-        public string DateOfBirthString { get; set; }
-        public DateTime DateOfBirth => DateTime.ParseExact(DateOfBirthString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        public string DateOfBirthString { get; set; }   
+        public DateTime DateOfBirth { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Gender { get; set; }

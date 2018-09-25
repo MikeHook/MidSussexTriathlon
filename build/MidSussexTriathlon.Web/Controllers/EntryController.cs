@@ -5,6 +5,8 @@ using System.Configuration;
 using System.Linq;
 using Umbraco.Web.WebApi;
 using System.Web.Http;
+using System;
+using System.Globalization;
 
 namespace MidSussexTriathlon.Web.Controllers
 {
@@ -38,6 +40,7 @@ namespace MidSussexTriathlon.Web.Controllers
         public string New(Entry entry)
         {
             entry.Paid = false;
+            entry.DateOfBirth = DateTime.ParseExact(entry.DateOfBirthString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             entry = _entryRepository.Create(entry);
 
             string apiKey = ConfigurationManager.AppSettings["stripeSecretKey"];

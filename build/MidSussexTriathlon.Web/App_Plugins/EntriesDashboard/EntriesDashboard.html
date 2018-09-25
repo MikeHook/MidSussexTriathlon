@@ -1,0 +1,10 @@
+﻿<div class="welcome-dashboard" ng-controller="EntriesDashboardController as vm">
+    <h1>Hello {{vm.UserName}}</h1>
+    <p>We hope you find the experience of editing your content with Umbraco enjoyable and delightful. <br/> 
+    If you discover any problems with the site please report them to the support team at <a href="mailto:support@midsussextriclub.com">support@midsussextriclub.com</a></p>
+
+    <h2>Race entries</h2>
+    <ul>
+        <li ng-repeat="entry in vm.Entries">{{entry.FirstName}} {{entry.DateOfBirth  | date:'dd/MM/yyyy'}}</li>
+    </ul>
+</div>
