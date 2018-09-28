@@ -163,6 +163,7 @@ fieldset[disabled] .btn {
     filter: alpha(opacity=65);
     -webkit-box-shadow: none;
     box-shadow: none;
+    background-color: #999;
     opacity: .65;
 }
 
@@ -260,13 +261,12 @@ fieldset[disabled] .btn {
    Roof Section Start
    ========================================================================== */
 #roof {
-  color: #fff;
-  font-size: 14px;
-  background: #e91e63;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    background: #e91e63;
 }
 #roof .info-bar-address {
-  font-size: 14px;
-  font-weight: 400;
   line-height: 40px;
 }
 
@@ -275,13 +275,11 @@ fieldset[disabled] .btn {
 }
 
 #roof .info-bar-time {
-  font-size: 14px;
-  font-weight: 900;
   line-height: 40px;
 }
 
 #roof .quick-contacts {
-  float: right;
+    float: right;
 }
 #roof .quick-contacts span {
   margin-right: 10px;

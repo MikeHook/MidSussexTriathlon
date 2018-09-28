@@ -170,7 +170,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
                                             <span class="span"></span>
-                                            <label class="label transition">BTF Number</label>
+                                            <label class="label transition">BTF Number (required for BTF discount)</label>
                                             <input type="text" class="input" id="btfNumber">
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -222,8 +222,7 @@
                                     <div class="col-md-12">
                                         <div class="buttons">
                                             <button type="submit" id="form-submit" class="btn btn-common">
-                                                Complete entry
-                                                <i class="icon-check" aria-hidden="true"></i>
+                                                Complete entry at <span id="cost"></span>                                    
                                             </button>
                                             <div id="msgSubmit" class="h3 text-center hidden"></div>
                                             <div class="clearfix"></div>
@@ -271,7 +270,7 @@
                         </div>
                         <div class="info">
                             <h5>BTF Members</h5>
-                            <h3>£@Umbraco.Field("bTFCost")</h3>
+                            <h3 id="btfCost">£@Umbraco.Field("bTFCost")</h3>
                         </div>
                     </div>
 
@@ -281,7 +280,7 @@
                         </div>
                         <div class="info">
                             <h5>Non BTF Members</h5>
-                            <h3>£@Umbraco.Field("nonBTFCost")</h3>
+                            <h3 id="nonBtfCost">£@Umbraco.Field("nonBTFCost")</h3>
                         </div>
                     </div>
                     <div class="info-container">

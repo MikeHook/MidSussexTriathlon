@@ -15,6 +15,11 @@ function onFieldBlur(field) {
 	}
 }
 
+function btfChanged() {
+	var costSpan = document.getElementById('cost');
+	costSpan.textContent = $("#btfNumber").val().length > 0 ? $("#btfCost")[0].innerHTML : $("#nonBtfCost")[0].innerHTML;	
+}
+
 function submitEntry(tokenId) {
 
 	var entryModel = {
@@ -138,6 +143,12 @@ $(document).ready(function () {
 	$('#entryForm .select').focus(function () {
 		onFieldFocus(this);
 	});
+
+	$("#btfNumber").on("change keyup paste", function () {
+		btfChanged();
+	})
+
+	btfChanged();
 
 	$.ajax({
 		url: '/umbraco/api/entry/placesleft',

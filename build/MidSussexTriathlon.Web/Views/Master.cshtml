@@ -57,10 +57,15 @@
         <!-- Roof area Starts -->
         <div id="roof" class="hidden-xs">
             <div class="container">
-                <div class="col-md-12 col-sm-12">
+                <div class="col-md-6 col-sm-6">
+                    <div class="info-bar-address">
+                        @home.RaceDate.ToString("dddd dd MMMM yyyy")
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
                     <div class="quick-contacts">
                         <span>
-                            @home.RaceDate.ToString("dd MMMM yyyy") @@ <a href="@(home.VenuePage != null ? home.VenuePage.Url : "")">The Triangle, Burgess Hill, RH15 8WA <i class="icon-location-pin"></i></a>
+                             <a href="@(home.VenuePage != null ? home.VenuePage.Url : "")">The Triangle, Burgess Hill, RH15 8WA <i class="icon-location-pin"></i></a>
                         </span>
                     </div>
                 </div>
