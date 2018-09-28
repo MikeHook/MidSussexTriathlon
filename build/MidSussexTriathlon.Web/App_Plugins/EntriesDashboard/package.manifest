@@ -4,6 +4,7 @@
     "~/App_Plugins/EntriesDashboard/entriesDashboardController.js",
   ],
   css: [
-    "~/App_Plugins/EntriesDashboard/entriesDashboard.css"
+    "~/App_Plugins/EntriesDashboard/entriesDashboard.css",
+    "~/assets/css/bootstrap.min.css"
   ]
 }
