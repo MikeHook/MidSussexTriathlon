@@ -7,16 +7,19 @@ using Umbraco.Web.WebApi;
 using System.Web.Http;
 using System;
 using System.Globalization;
+using MidSussexTriathlon.Core.Services;
 
 namespace MidSussexTriathlon.Web.Controllers
 {
     public class EntryController : UmbracoApiController
     {
         IEntryRepository _entryRepository;
+        IEmailService _emailService;
 
         public EntryController()
         {
             _entryRepository = new EntryRepository(new DataConnection());
+            _emailService = new EmailService();
         }
 
         // GET: /umbraco/api/entry/placesleft
@@ -74,6 +77,7 @@ namespace MidSussexTriathlon.Web.Controllers
             }
        
             _entryRepository.Update(entry);
+            _emailService.SendConfirmationEmail(entry);
             return "";
         }  
     }

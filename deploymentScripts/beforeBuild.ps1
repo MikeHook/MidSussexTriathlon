@@ -34,6 +34,15 @@ if ($env:stripeSecretKey)
 {
     $webconfig = ReplaceAppSetting $webconfig "stripeSecretKey" $env:stripeSecretKey
 }
+if ($env:emailUserName)
+{
+    $webconfig = ReplaceAppSetting $webconfig "emailUserName" $env:emailUserName
+}
+if ($env:emailPassword)
+{
+    $webconfig = ReplaceAppSetting $webconfig "emailPassword" $env:emailPassword
+}
+
 
 [System.IO.File]::WriteAllLines($configPath, $webconfig)
 
