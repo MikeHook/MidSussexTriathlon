@@ -5,6 +5,6 @@
   ],
   css: [
     "~/App_Plugins/EntriesDashboard/entriesDashboard.css",
-    "~/assets/css/bootstrap.min.css"
+    "~/App_Plugins/EntriesDashboard/bootstrap.css"
   ]
 }
