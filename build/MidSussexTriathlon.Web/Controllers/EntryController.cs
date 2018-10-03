@@ -8,6 +8,7 @@ using System.Web.Http;
 using System;
 using System.Globalization;
 using MidSussexTriathlon.Core.Services;
+using System.Web;
 
 namespace MidSussexTriathlon.Web.Controllers
 {
@@ -77,7 +78,11 @@ namespace MidSussexTriathlon.Web.Controllers
             }
        
             _entryRepository.Update(entry);
-            _emailService.SendConfirmationEmail(entry);
+
+            var subject = (string)entryPage?.GetProperty("confirmationEmailSubject")?.Value;
+            var body = entryPage?.GetProperty("confirmationEmailBody")?.Value as HtmlString;
+            _emailService.SendConfirmationEmail(entry, subject, body.ToHtmlString());
+            _emailService.SendAdminConfirmationEmail(entry);
             return "";
         }  
     }

@@ -11,43 +11,47 @@ namespace MidSussexTriathlon.Core.Services
 {
     public interface IEmailService
     {
-        void SendConfirmationEmail(Entry entry);
+        void SendConfirmationEmail(Entry entry, string subject, string body);
+        void SendAdminConfirmationEmail(Entry entry);
     }
 
     public class EmailService : IEmailService
     {
-        public void SendConfirmationEmail(Entry entry)
-        {
-            string subject = "Mid Sussex Triathlon - Entry Received";
-            string content = "<p>Congratulations! You are now registered for the Mid Sussex Triathlon/Aquabike. " +
-                 "Your entry will only be confirmed on the website when we have received your payment " +
-                 "and your name has been entered into the '<a href='http://www.midsussextriclub.com/the-mid-sussex-triathlon/enter-race/entries-so-far.aspx'>Entries so far</a>' list. " +
-                 "Please allow up to 48 hours for this. Please familiarise yourself with the <a href='http://www.midsussextriclub.com/the-mid-sussex-triathlon/race-info/race-instructions.aspx'>race instructions</a>.</p>" +
-                 "<p>We do not post anything out so you will pick your number up at registration on the Saturday from 17:00 until 18:30 " +
-                 "or on race day before 06:45 when registration closes.</p>" +
-                 "<p>We are unable to run the course familiarisation day this year due to Wineham Lane being closed  until 25th May 2018.</p>" +                
-                 "<p>Thanks</p>" +
-                 "<p>Steve Mac<br/>Event Director</p>";
+        bool TestMode => bool.Parse(ConfigurationManager.AppSettings["emailTestMode"]);
 
-            SendEmail(entry.Email, "support@midsussextriathlon.com", subject, content);
+        public void SendConfirmationEmail(Entry entry, string subject, string body)
+        {
+            string fromAddress = ConfigurationManager.AppSettings["entryEmailUserName"];
+            string password = ConfigurationManager.AppSettings["entryEmailPassword"];
+            string toAddress = TestMode ? ConfigurationManager.AppSettings["emailTestAddress"] : entry.Email;
+
+            SendEmail(toAddress, fromAddress, password, subject, body);
         }
 
-        private void SendEmail(string toAddress, string fromAddress, string subject, string htmlContent)
+        public void SendAdminConfirmationEmail(Entry entry)
         {
-            MailMessage objMail = new MailMessage();
+            string subject = "Mid Sussex Triathlon - New Entry";
+            string content = $"<p>{entry.FirstName} {entry.LastName} has entered the event.</p><p>" +
+                            $"<a href='https://midsussextriathlon.com/umbraco' target='_blank'>Check all entries in the Mid Sussex Triathlon CMS.</a></p>"; ;
 
-            objMail.To.Add(toAddress);
-            objMail.From = new MailAddress(fromAddress);
-            objMail.Subject = subject;
-            objMail.IsBodyHtml = true;
-            objMail.Body = htmlContent;
+            string fromAddress = ConfigurationManager.AppSettings["emailUserName"];
+            string password = ConfigurationManager.AppSettings["emailPassword"];
+            string toAddress = TestMode ? ConfigurationManager.AppSettings["emailTestAddress"] : ConfigurationManager.AppSettings["entryEmailUserName"];           
 
-            string emailUserName = ConfigurationManager.AppSettings["emailUserName"];
-            if (string.IsNullOrWhiteSpace(emailUserName) == false)
-            {
-                var smtpClient = new ZohoSmtpClient();
-                smtpClient.Send(objMail);
-            }
+            SendEmail(toAddress, fromAddress, password, subject, content);
+        }
+
+        private void SendEmail(string toAddress, string fromAddress, string password, string subject, string htmlContent)
+        { 
+            var message = new MailMessage();
+            message.To.Add(toAddress);
+            message.From = new MailAddress(fromAddress, "Mid Sussex Triathlon");
+            message.Subject = subject;
+            message.IsBodyHtml = true;
+            message.Body = htmlContent;
+
+            var smtpClient = new ZohoSmtpClient(fromAddress, password);
+            smtpClient.Send(message);            
         }
 
     }

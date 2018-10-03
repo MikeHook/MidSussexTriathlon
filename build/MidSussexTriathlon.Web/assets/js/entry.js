@@ -22,6 +22,19 @@ function btfChanged() {
 
 function submitEntry(tokenId) {
 
+	$loaderData = {
+		// autoCheck: $('#autoCheck').is(':checked') ? 32 : false,
+		size: 32,  //指定菊花大小
+		bgColor: '#FFF',   //背景颜色
+		bgOpacity: '0.5',    //背景透明度
+		// fontColor: $('#fontColor').val(),  //文字颜色
+		title: 'Please wait...', //文字
+		// isOnly: !$('#isOnly').is(':checked')
+		imgUrl: '/assets/img/loading32x32.gif'
+	};
+
+	$.loader.open($loaderData);   
+
 	var entryModel = {
 		firstName: $("#firstName").val(),
 		lastName: $("#lastName").val(),
@@ -48,6 +61,7 @@ function submitEntry(tokenId) {
 		method: 'POST',// jQuery > 1.9
 		type: 'POST', //jQuery < 1.9
 		success: function (response) {
+			$.loader.close(true); 
 			if (response !== '') {
 				console.log("Payment error!");
 				var displayError = document.getElementById('card-errors');
@@ -59,6 +73,7 @@ function submitEntry(tokenId) {
 
 		},
 		error: function () {
+			$.loader.close(true); 
 			var displayError = document.getElementById('card-errors');
 			displayError.innerHTML = 'Sorry, there has been a problem processing your order. Please <a href="/contact">get in touch</a> with us.';
 		}
@@ -146,7 +161,7 @@ $(document).ready(function () {
 
 	$("#btfNumber").on("change keyup paste", function () {
 		btfChanged();
-	})
+	});
 
 	btfChanged();
 
