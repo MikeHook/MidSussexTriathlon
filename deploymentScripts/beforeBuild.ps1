@@ -34,6 +34,14 @@ if ($env:stripeSecretKey)
 {
     $webconfig = ReplaceAppSetting $webconfig "stripeSecretKey" $env:stripeSecretKey
 }
+if ($env:emailTestMode)
+{
+    $webconfig = ReplaceAppSetting $webconfig "emailTestMode" $env:emailTestMode
+}
+if ($env:emailTestAddress)
+{
+    $webconfig = ReplaceAppSetting $webconfig "emailTestAddress" $env:emailTestAddress
+}
 if ($env:emailUserName)
 {
     $webconfig = ReplaceAppSetting $webconfig "emailUserName" $env:emailUserName
@@ -41,6 +49,14 @@ if ($env:emailUserName)
 if ($env:emailPassword)
 {
     $webconfig = ReplaceAppSetting $webconfig "emailPassword" $env:emailPassword
+}
+if ($env:entryEmailUserName)
+{
+    $webconfig = ReplaceAppSetting $webconfig "entryEmailUserName" $env:entryEmailUserName
+}
+if ($env:entryEmailPassword)
+{
+    $webconfig = ReplaceAppSetting $webconfig "entryEmailPassword" $env:entryEmailPassword
 }
 
 
