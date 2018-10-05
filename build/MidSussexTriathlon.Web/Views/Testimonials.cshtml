@@ -1,0 +1,42 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Testimonials>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "Master.cshtml";
+    var testimonials = Model.Content;
+}
+
+@{ Html.RenderPartial("~/Views/Partials/PageHeader.cshtml");}
+
+<!-- Testimonials Section Start -->
+<section id="team" class="section gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="wow fadeInUp animated" data-wow-delay="0s">@testimonials.Heading</h3>
+                <br />
+                <h4>@testimonials.SubHeading</h4>
+            </div>
+            @{
+                var items = testimonials.TestimonialsList.Cast<Testimonial>();
+
+                foreach (var item in items)
+                {
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="single-member wow fadeInRight animated" data-wow-delay="0.2s">
+                            <div class="team-header">
+                                <h3>@item.Title</h3>
+                                <h5>@item.Subtitle</h5>
+                            </div>
+                            <div class="team-desc">
+                                @item.Quote
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+
+        </div>
+    </div>
+</section>
+<!-- Testimonials Section End -->
