@@ -2,6 +2,24 @@
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
     Layout = "Master.cshtml";
+    var content = Model.Content;
 }
 
 @Html.Partial("~/Views/Partials/PageHeader.cshtml")
+
+<!-- About Section Start -->
+<section id="about" class="section-small">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="wow fadeInUp" data-wow-delay="0s">@content.Heading</h3>
+                <br />
+                <h4 class="wow fadeInUp" data-wow-delay="0s">@content.SubHeading</h4>
+                <div class="main-content">
+                    @content.MainContent
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section End -->

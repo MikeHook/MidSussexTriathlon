@@ -8,11 +8,11 @@
 @{ Html.RenderPartial("~/Views/Partials/PageHeader.cshtml");}
 
 <!-- Sponsors Section Start -->
-<section id="sponsors" class="section">
+<section id="sponsors" class="section-small">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="section-title wow fadeInUp" data-wow-delay="0s">@sponsors.Heading</h2>
+                <h3 class="wow fadeInUp" data-wow-delay="0s">@sponsors.Heading</h3>
             </div>
             @foreach (var logoItem in sponsors.Logos.Take(8).Cast<Sponsor>())
             {

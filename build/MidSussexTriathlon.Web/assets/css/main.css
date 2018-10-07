@@ -91,11 +91,16 @@ header ol {
   text-align: center;
   padding-bottom: 30px;
 }
+
+.main-content {
+    padding-top: 20px;
+}
+
 .small-title {
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 0;
 }
 .btn {
   padding: 10px 40px;
@@ -211,7 +216,7 @@ fieldset[disabled] .btn {
   background: url(../img/background/tri_icons_background.png);
   background-size: cover;
   background-position: 0px -10px, 50% 50%;
-  min-height: 140px;
+  min-height: 120px;
 }
 .page-header:before {
   background: rgba(34, 34, 34, 0.3);
@@ -234,8 +239,8 @@ fieldset[disabled] .btn {
   text-align: left;
   color: #fff;
   font-size: 36pt;
-  padding: 15px 0;
-  margin-bottom: 10px !important;
+  padding: 10px 0;
+  margin: 0;
 }
 .page-header .breadcrumb {
   margin: 0;
