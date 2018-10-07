@@ -467,6 +467,8 @@
     <Content Include="Views\SiteSection.cshtml" />
     <Content Include="Views\Partials\PageHeader.cshtml" />
     <Content Include="Views\Venue.cshtml" />
+    <Content Include="Views\Testimonials.cshtml" />
+    <Content Include="Views\Sponsors.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

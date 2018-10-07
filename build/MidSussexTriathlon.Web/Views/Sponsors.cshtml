@@ -1,0 +1,78 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Sponsors>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "Master.cshtml";
+    var sponsors = Model.Content;
+}
+
+@{ Html.RenderPartial("~/Views/Partials/PageHeader.cshtml");}
+
+<!-- Sponsors Section Start -->
+<section id="sponsors" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="section-title wow fadeInUp" data-wow-delay="0s">@sponsors.Heading</h2>
+            </div>
+            @foreach (var logoItem in sponsors.Logos.Take(8).Cast<Sponsor>())
+            {
+                if (logoItem.Link != null)
+                {
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
+                            <a href="@logoItem.Link.First().Link" target="_blank">
+                                <img src="@logoItem.Logo.Url" alt="@logoItem.Logo.GetPropertyValue("alt")">
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+</section>
+<!-- Sponsors Section End -->
+<!-- Intro Section Start -->
+<section id="intro" class="section-small">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="content-text">
+                    <h2>@sponsors.CallToActionHeading</h2>
+                    <p class="text">
+                        @sponsors.CallToActionContent
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 text-right">
+                <a href="/contact" class="btn-cta btn btn-inverse">
+                    <i class="icon-paper-plane"></i>Get in touch
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Intro Section End -->
+<!-- Sponsors Section Start -->
+<section id="sponsors" class="section">
+    <div class="container">
+        <div class="row">
+            @foreach (var logoItem in sponsors.Logos.Skip(8).Cast<Sponsor>())
+            {
+                if (logoItem.Link != null)
+                {
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
+                            <a href="@logoItem.Link.FirstOrDefault()?.Link" target="_blank">
+                                <img src="@logoItem.Logo.Url" alt="@logoItem.Logo.GetPropertyValue("alt")">
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>        
+    </div>
+</section>
+<!-- Sponsors Section End -->
