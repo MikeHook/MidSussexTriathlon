@@ -1,7 +1,73 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Venue>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
+    /**/
+
     Layout = "Master.cshtml";
+    var venue = Model.Content;
 }
 
 @{ Html.RenderPartial("~/Views/Partials/PageHeader.cshtml");}
+
+
+<!-- Map Section Start -->
+<section id="map">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="map_canvas"></div>
+        </div>
+    </div>
+</section>
+<!-- Map Section End -->
+<!-- Start Directions Section -->
+<section id="contact" class="gray-bg">
+    <div class="container">
+        <div class="row match-my-cols wow fadeInDown" data-wow-delay="0.3s">
+            <div class="col-md-8 col-sm-7 contact-form">
+                <form role="form" id="contactForm" data-toggle="validator">
+                    <div class="title-header">
+                        <h3 class="title-medium pull-left">Directions</h3>
+                        <div class="icon pull-right">
+                            <i class="fa fa-crosshairs"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @venue.Directions
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 col-sm-5 information">
+                <div class="contact-datails">
+                    <div class="icon">
+                        <i class="fa fa-map-marker"></i>
+                    </div>
+                    <div class="info">
+                        <span class="detail">
+                            @venue.Address
+                        </span>
+                    </div>
+                </div>
+                <div class="contact-datails">
+                    <div class="icon">
+                        <i class="fa fa-car"></i>
+                    </div>
+                    <div class="info">
+                        <span class="detail">
+                            @venue.ParkingInstructions
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Directions Section  -->
+
+@section Foot {
+<!-- Map JS -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIEQKLGctHiCPP5T2sKs3pSqC6pT2wWPs" ></script>
+<script type="text/javascript" src="~/assets/js/jquery.mapit.min.js"></script>
+<script src="~/assets/js/mapitInitializers.js"></script>
+}

@@ -352,7 +352,7 @@
     <Content Include="assets\js\contact-form-script.js" />
     <Content Include="assets\js\entry.js" />
     <Content Include="assets\js\form-validator.min.js" />
-    <Content Include="assets\js\initializers.js" />
+    <Content Include="assets\js\mapitInitializers.js" />
     <Content Include="assets\js\jquery-loader.js" />
     <Content Include="assets\js\jquery.classycountdown.min.js" />
     <Content Include="assets\js\jquery.knob.js" />

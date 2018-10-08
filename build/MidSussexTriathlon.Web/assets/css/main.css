@@ -1986,6 +1986,11 @@ h1 {
 #contact .information .contact-datails {
   margin: 15px 0px 48px;
 }
+
+#contact .information .contact-datails p {
+    color: #fff;
+}
+
 #contact .information .contact-datails .icon {
   float: left;
   font-size: 38px;
