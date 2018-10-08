@@ -469,6 +469,7 @@
     <Content Include="Views\Venue.cshtml" />
     <Content Include="Views\Testimonials.cshtml" />
     <Content Include="Views\Sponsors.cshtml" />
+    <Content Include="Views\CourseDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
