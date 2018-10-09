@@ -350,6 +350,7 @@
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\color-switcher.js" />
     <Content Include="assets\js\contact-form-script.js" />
+    <Content Include="assets\js\contact.js" />
     <Content Include="assets\js\entry.js" />
     <Content Include="assets\js\form-validator.min.js" />
     <Content Include="assets\js\mapitInitializers.js" />
@@ -392,14 +393,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\EnquiryController.cs" />
     <Compile Include="Controllers\EntryUmbracoController.cs" />
     <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Logger\TraceExceptionLogger.cs" />
-    <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -457,10 +457,8 @@
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
-    <Content Include="Views\Partials\Contact.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Contact.cshtml" />
-    <Content Include="Views\Partials\Entry.cshtml" />
     <Content Include="Views\Entry.cshtml" />
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\GenericContent.cshtml" />
@@ -483,6 +481,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
     <Folder Include="Views\Contact\" />
   </ItemGroup>
   <ItemGroup>

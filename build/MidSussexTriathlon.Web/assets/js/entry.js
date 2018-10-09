@@ -61,7 +61,6 @@ function submitEntry(tokenId) {
 		success: function (response) {
 			$.loader.close(true); 
 			if (response !== '') {
-				console.log("Payment error!");
 				var displayError = document.getElementById('card-errors');
 				displayError.textContent = response;
 			} else {

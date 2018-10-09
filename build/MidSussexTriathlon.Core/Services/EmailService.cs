@@ -1,4 +1,5 @@
 ﻿using MidSussexTriathlon.Core.Domain;
+using MidSussexTriathlon.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,6 +14,7 @@ namespace MidSussexTriathlon.Core.Services
     {
         void SendConfirmationEmail(Entry entry, string subject, string body);
         void SendAdminConfirmationEmail(Entry entry);
+        void SendEnquiryEmail(Contact contact);
     }
 
     public class EmailService : IEmailService
@@ -41,10 +43,36 @@ namespace MidSussexTriathlon.Core.Services
             SendEmail(toAddress, fromAddress, password, subject, content);
         }
 
-        private void SendEmail(string toAddress, string fromAddress, string password, string subject, string htmlContent)
+        public void SendEnquiryEmail(Contact contact)
+        {
+            string fromAddress = ConfigurationManager.AppSettings["emailUserName"];
+            string password = ConfigurationManager.AppSettings["emailPassword"];
+
+            //TODO - Update this to switch based on drop down
+            string toAddress = ConfigurationManager.AppSettings["entryEmailUserName"];
+
+            if (TestMode)
+            {
+                toAddress = ConfigurationManager.AppSettings["emailTestAddress"];
+            }
+
+            string subject = "Mid Sussex Triathlon - Enquiry";
+            string content = $"<p>Name: {contact.Name}</p>" +
+                $"<p>Email: {contact.Email}</p>" +
+                $"<p>Message: {contact.Message}</p>";
+
+            var replyTo = new MailAddress(contact.Email);
+
+            SendEmail(toAddress, fromAddress, password, subject, content, replyTo);
+        }
+
+        private void SendEmail(string toAddress, string fromAddress, string password, string subject, string htmlContent, MailAddress replyTo = null)
         { 
             var message = new MailMessage();
             message.To.Add(toAddress);
+            if (replyTo != null) {
+                message.ReplyToList.Add(replyTo);
+            }
             message.From = new MailAddress(fromAddress, "Mid Sussex Triathlon");
             message.Subject = subject;
             message.IsBodyHtml = true;

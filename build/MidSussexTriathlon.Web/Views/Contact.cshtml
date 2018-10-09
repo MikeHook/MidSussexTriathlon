@@ -1,15 +1,164 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Contact>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
-@using MidSussexTriathlon.Web.Models
 @{
     Layout = "Master.cshtml";
 }
 
 @{ Html.RenderPartial("~/Views/Partials/PageHeader.cshtml");}
 
-<h1>This is the contact page, yo!</h1>
+<!-- Main contetn Start -->
+<div class="contact-main-content">
+    <!-- Start Contact Us Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row match-my-cols wow fadeInDown" data-wow-delay="0.3s">
+                <div class="col-md-8 col-sm-7 contact-form">
+                    <div id="contact-container">
+                        <form role="form" id="contactForm" data-toggle="validator">
+                            <div class="title-header">
+                                <h3 class="title-medium pull-left">Send us a message</h3>
+                                <div class="icon pull-right">
+                                    <i class="icon-envelope"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Name</label>
+                                        <input type="text" class="input" id="name" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Email</label>
+                                        <input type="email" class="input" id="email" required data-error="Please enter your email">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="label-line textarea">
+                                        <span class="span"></span>
+                                        <label class="label transition">Message</label>
+                                        <textarea id="message" class="input" required data-error="Write your message"></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
 
-@{
-    Html.RenderPartial("~/Views/Partials/Contact.cshtml", new ContactModel());
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="label-line">
+                                        <span class="span"></span>
+                                        <label class="label transition">Send To*</label>
+                                        <select class="input" id="recipient" name="recipient" required>
+                                            <option value=""></option>
+                                            <option value="jo">Jo Fleming (Race Director)</option>
+                                            <option value="emma">Emma Smith (Sponsorship)</option>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 button-container">
+                                    <button type="submit" id="form-submit" class="btn btn-common">
+                                        Send
+                                        <i class="icon-paper-plane" aria-hidden="true"></i>
+                                    </button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="contact-confirmed" class="hidden">
+                        <div class="title-header">
+                            <h3 class="title-medium">Enquiry sent</h3>
+                        </div>
+                        <div>
+                            <form class="entry-form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="title-medium pull-left">Your enquiry has been sent, we will get back to you soon.</h5>
+                                    </div>
+                                </div>                      
+                            </form>
+                        </div>
+                    </div>
+                    <div id="contact-error" class="hidden">
+                        <div class="title-header">
+                            <h3 class="title-medium">Enquiry not sent</h3>
+                        </div>
+                        <div>
+                            <form class="entry-form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="title-medium pull-left">Sorry, there has been a problem sending your enquiry</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Please try contacting the <a href="https://midsussextriclub.com/the-club/contact-us">Mid Sussex Tri Club</a> instead, letting them know your issue.
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-5 information">
+                    <div class="info-container">
+                        <div class="icon">
+                            <i class="fa fa-bullhorn"></i>
+                        </div>
+                        <div class="info">
+                            <h3>Race Officials</h3>
+                            <p>
+                                Jo Fleming - Race Director / Entries
+                                <br />Emma Smith - Sponsorship
+                                <br />Roger Smith - Publicity
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-datails">
+                        <div class="icon">
+                            <a class="social facebook" href="https://www.facebook.com/MidSussexTriathlonRace/" target="_blank">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <a class="social facebook" href="https://www.facebook.com/MidSussexTriathlonRace/" target="_blank">
+                                <span class="detail">Facebook Community page</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-datails">
+                        <div class="icon">
+                            <a class="social twitter" href="https://twitter.com/midsussextri" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <a class="social twitter" href="https://twitter.com/midsussextri" target="_blank">
+                                <span class="detail">Follow us on Twitter</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Us Section  -->
+
+</div>
+<!-- Main contetn End -->
+
+@section Foot {
+    <script type="text/javascript" src="~/assets/js/form-validator.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/jquery-loader.js"></script>
+    <script type="text/javascript" src="~/assets/js/contact.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initContactForm();
+        });
+    </script>
 }
-
