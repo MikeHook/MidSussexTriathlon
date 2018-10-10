@@ -2,6 +2,7 @@
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
     Layout = "Master.cshtml";
+    var contact = Model.Content;
 }
 
 @{ Html.RenderPartial("~/Views/Partials/PageHeader.cshtml");}
@@ -23,38 +24,39 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="label-line">
+                                    <div class="form-group label-line">
                                         <span class="span"></span>
-                                        <label class="label transition">Name</label>
+                                        <label class="label transition">Name*</label>
                                         <input type="text" class="input" id="name" required data-error="Please enter your name">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="label-line">
+                                    <div class="form-group label-line">
                                         <span class="span"></span>
-                                        <label class="label transition">Email</label>
+                                        <label class="label transition">Email*</label>
                                         <input type="email" class="input" id="email" required data-error="Please enter your email">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="label-line textarea">
+                                    <div class="form-group label-line textarea">
                                         <span class="span"></span>
-                                        <label class="label transition">Message</label>
+                                        <label class="label transition">Message*</label>
                                         <textarea id="message" class="input" required data-error="Write your message"></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
 
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="label-line">
+                                    <div class="form-group label-line">
                                         <span class="span"></span>
-                                        <label class="label transition">Send To*</label>
-                                        <select class="input" id="recipient" name="recipient" required>
+                                        <label class="label transition">Enquiry Type*</label>
+                                        <select class="input" id="recipient" name="recipient" required data-error="Please select the enquiry type">
                                             <option value=""></option>
-                                            <option value="jo">Jo Fleming (Race Director)</option>
-                                            <option value="emma">Emma Smith (Sponsorship)</option>
+                                            <option value="race">Race entry</option>
+                                            <option value="question">General questions</option>
+                                            <option value="sponsor">Sponsorship</option>
                                         </select>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -71,37 +73,16 @@
                         </form>
                     </div>
                     <div id="contact-confirmed" class="hidden">
-                        <div class="title-header">
-                            <h3 class="title-medium">Enquiry sent</h3>
-                        </div>
-                        <div>
-                            <form class="entry-form">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h5 class="title-medium pull-left">Your enquiry has been sent, we will get back to you soon.</h5>
-                                    </div>
-                                </div>                      
-                            </form>
-                        </div>
+                        <h3 class="title-medium">Enquiry sent</h3>
+                        <h5 class="title-medium pull-left">Your enquiry has been sent, we will get back to you soon.</h5>
                     </div>
                     <div id="contact-error" class="hidden">
-                        <div class="title-header">
-                            <h3 class="title-medium">Enquiry not sent</h3>
-                        </div>
-                        <div>
-                            <form class="entry-form">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h5 class="title-medium pull-left">Sorry, there has been a problem sending your enquiry</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Please try contacting the <a href="https://midsussextriclub.com/the-club/contact-us">Mid Sussex Tri Club</a> instead, letting them know your issue.
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        <h3 class="title-medium">Enquiry not sent</h3>
+                        <h5 class="title-medium">Sorry, there has been a problem sending your enquiry</h5>
+                        <br/>
+                        <p>
+                            Please try contacting the <a href="https://midsussextriclub.com/the-club/contact-us">Mid Sussex Tri Club</a> instead, letting them know your issue.
+                        </p>                     
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-5 information">
@@ -110,12 +91,8 @@
                             <i class="fa fa-bullhorn"></i>
                         </div>
                         <div class="info">
-                            <h3>Race Officials</h3>
-                            <p>
-                                Jo Fleming - Race Director / Entries
-                                <br />Emma Smith - Sponsorship
-                                <br />Roger Smith - Publicity
-                            </p>
+                            <h3>Race Officials</h3>                            
+                            @contact.RaceOfficials
                         </div>
                     </div>
                     <div class="contact-datails">
@@ -155,10 +132,4 @@
     <script type="text/javascript" src="~/assets/js/form-validator.min.js"></script>
     <script type="text/javascript" src="~/assets/js/jquery-loader.js"></script>
     <script type="text/javascript" src="~/assets/js/contact.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            initContactForm();
-        });
-    </script>
 }

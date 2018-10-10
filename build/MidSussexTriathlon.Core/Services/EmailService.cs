@@ -19,6 +19,13 @@ namespace MidSussexTriathlon.Core.Services
 
     public class EmailService : IEmailService
     {
+        public Dictionary<string, string> EmailLookup = new Dictionary<string, string>()
+        {
+            {"race", "race@midsussextriathlon.com"},
+            {"question", "questions@midsussextriathlon.com"},
+            {"sponsor", "sponsorship@midsussextriclub.com"},
+        };
+
         bool TestMode => bool.Parse(ConfigurationManager.AppSettings["emailTestMode"]);
 
         public void SendConfirmationEmail(Entry entry, string subject, string body)
@@ -47,9 +54,12 @@ namespace MidSussexTriathlon.Core.Services
         {
             string fromAddress = ConfigurationManager.AppSettings["emailUserName"];
             string password = ConfigurationManager.AppSettings["emailPassword"];
-
-            //TODO - Update this to switch based on drop down
-            string toAddress = ConfigurationManager.AppSettings["entryEmailUserName"];
+   
+            string toAddress;
+            if (EmailLookup.TryGetValue(contact.Recipient, out toAddress) == false)
+            {
+                toAddress = ConfigurationManager.AppSettings["entryEmailUserName"];
+            }      
 
             if (TestMode)
             {

@@ -1793,6 +1793,7 @@ h1 {
     font-weight: 400;
     padding-top: 15px;
   }
+
   #entry select:focus {
     outline: none;
   }
@@ -1921,12 +1922,15 @@ h1 {
   padding: 30px 40px;
   margin-top: 40px;
 }
-
-#contact .information {
-  background: #777777;
-  padding: 65px 30px;
-  margin-top: 40px;
+#contact .contact-form #contact-container {
+    margin-bottom: 20px;
 }
+
+    #contact .information {
+        background: #777777;
+        padding: 65px 30px;
+        margin-top: 40px;
+    }
 
 #contact .row.match-my-cols {
   overflow: hidden; 
@@ -2156,7 +2160,7 @@ h1 {
 #contact .label-line {
   position: relative;
   height: 50px;
-  margin: 0px 0 30px;
+  margin: 0px 0 35px;
 }
 #contact .transition {
   -webkit-transition: .5s;
@@ -2169,16 +2173,20 @@ h1 {
 #contact .label-line.textarea {
   height: 160px;
 }
+#contact .label-line.textarea div.help-block.with-errors {
+    padding-top: 0;
+}
+
 #contact .span:before {
-  content: "";
-  width: 0;
-  left: 50%;
-  height: 2px;
-  background: #e91e63;
-  position: absolute;
-  -webkit-transition: .5s;
-  -moz-transition: .5s;
-  transition: .5s;
+    content: "";
+    width: 0;
+    left: 50%;
+    height: 2px;
+    background: #e91e63;
+    position: absolute;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    transition: .5s;
 }
 #contact .label-line.active .span:before {
   width: 100%;
