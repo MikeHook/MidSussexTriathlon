@@ -1636,14 +1636,19 @@ h1 {
   height: 800px;
   width: 100%;
 }
-/* ==========================================================================
-   Entry Form 
-   ========================================================================== */
 
-   .entry-main-content {
+#entrants select.input-sm {
+    height: 40px;
+}
+
+
+/* ==========================================================================
+Entry Form 
+========================================================================== */
+.entry-main-content {
     background: url(../img/background/entry2-tri-bg.jpg) center;
     background-size: cover;
-  }
+}
 
 #entry .entry-left-col {
     margin-top: 40px;

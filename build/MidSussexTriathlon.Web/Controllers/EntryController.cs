@@ -9,6 +9,7 @@ using System;
 using System.Globalization;
 using MidSussexTriathlon.Core.Services;
 using System.Web;
+using System.Collections.Generic;
 
 namespace MidSussexTriathlon.Web.Controllers
 {
@@ -37,6 +38,13 @@ namespace MidSussexTriathlon.Web.Controllers
             int entered = _entryRepository.Entered();
 
             return totalPlaces - entered;
+        }
+
+        // GET: /umbraco/api/entry/entered
+        [HttpGet]
+        public IEnumerable<Entry> Entered()
+        {
+            return _entryRepository.GetEntered();
         }
 
         // POST: /umbraco/api/entry/new

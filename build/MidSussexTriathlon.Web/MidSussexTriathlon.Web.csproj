@@ -290,6 +290,8 @@
     <Content Include="assets\css\colors\yellow.css" />
     <Content Include="assets\css\custom-components.css" />
     <Content Include="assets\css\bootstrap-datepicker3.min.css" />
+    <Content Include="assets\css\datatables.css" />
+    <Content Include="assets\css\datatables.min.css" />
     <Content Include="assets\css\global.css" />
     <Content Include="assets\css\jquery.classycountdown.css" />
     <Content Include="assets\css\main.css" />
@@ -351,6 +353,8 @@
     <Content Include="assets\js\color-switcher.js" />
     <Content Include="assets\js\contact-form-script.js" />
     <Content Include="assets\js\contact.js" />
+    <Content Include="assets\js\datatables.js" />
+    <Content Include="assets\js\datatables.min.js" />
     <Content Include="assets\js\entry.js" />
     <Content Include="assets\js\form-validator.min.js" />
     <Content Include="assets\js\mapitInitializers.js" />
