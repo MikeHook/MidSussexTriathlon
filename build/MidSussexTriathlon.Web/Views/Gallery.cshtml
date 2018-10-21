@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Gallery>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "Master.cshtml";
+    var gallery = Model.Content;
+}
+
+@{ Html.RenderPartial("~/Views/Partials/PageHeader.cshtml");}
+
+<section id="flickr-gallery" class="section">
+    <div class="container">
+        <div class="col-md-12">
+            <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Our Gallery</h2>
+            Mine: 72157645312614552
+            Jo1: 72157697320550344
+            Jo2: 72157697866954585
+        </div>
+
+        @if (!string.IsNullOrEmpty(gallery.Gallery1FlickrId))
+        {
+            <h3>@gallery.Gallery1Heading</h3>
+            <div id="flickrembed_54"></div>
+        }
+
+        <small style="display: block; text-align: center; margin: 0 auto;">
+            Powered by
+            <a href="https://flickrembed.com">flickr embed</a>.
+        </small>
+    </div>
+</section>
+
+@section Foot {
+    <script src='https://flickrembed.com/embed_v2.js.rand.php?container=flickrembed_54&source=flickr&layout=responsive&input=@gallery.Gallery1FlickrId&sort=0&by=album&theme=tiles_justified&scale=fill&limit=50&skin=default&autoplay=true'></script>
+    <script type="text/javascript">function showpics() { var a = $("#box").val(); $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=" + a + "&tagmode=any&format=json&jsoncallback=?", function (a) { $("#images").hide().html(a).fadeIn("fast"), $.each(a.items, function (a, e) { $("<img/>").attr("src", e.media.m).appendTo("#images") }) }) }</script>
+
+
+}

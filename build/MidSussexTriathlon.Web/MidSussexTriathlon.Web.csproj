@@ -473,6 +473,7 @@
     <Content Include="Views\Sponsors.cshtml" />
     <Content Include="Views\CourseDetails.cshtml" />
     <Content Include="Views\Entrants.cshtml" />
+    <Content Include="Views\Gallery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
