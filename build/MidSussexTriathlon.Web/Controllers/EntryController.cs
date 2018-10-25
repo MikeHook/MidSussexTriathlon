@@ -72,6 +72,7 @@ namespace MidSussexTriathlon.Web.Controllers
                 Currency = "gbp",
                 SourceTokenOrExistingSourceId = entry.TokenId,
                 ReceiptEmail = entry.Email,
+                Description = $"{entry.RaceType} Entry",
             };
             var service = new StripeChargeService();
             StripeCharge charge = service.Create(options);
