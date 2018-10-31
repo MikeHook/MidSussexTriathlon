@@ -11,34 +11,14 @@
 
 
 <!-- Map Section Start -->
-<section id="map">
+<section id="contact" class="map">
     <div class="container-fluid">
         <div class="row">
-            <div id="map_canvas"></div>
-        </div>
-    </div>
-</section>
-<!-- Map Section End -->
-<!-- Start Directions Section -->
-<section id="contact" class="gray-bg">
-    <div class="container">
-        <div class="row match-my-cols wow fadeInDown" data-wow-delay="0.3s">
-            <div class="col-md-8 col-sm-7 contact-form">
-                <form role="form" id="contactForm" data-toggle="validator">
-                    <div class="title-header">
-                        <h3 class="title-medium pull-left">Directions</h3>
-                        <div class="icon pull-right">
-                            <i class="fa fa-crosshairs"></i>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            @venue.Directions
-                        </div>
-                    </div>
-                </form>
+            <div class="col-md-8">
+                <div id="map_canvas"></div>
             </div>
-            <div class="col-md-4 col-sm-5 information">
+            <div class="col-md-4 information">
+
                 <div class="contact-datails">
                     <div class="icon">
                         <i class="fa fa-map-marker"></i>
@@ -63,11 +43,34 @@
         </div>
     </div>
 </section>
+<!-- Map Section End -->
+<!-- Start Directions Section -->
+<section id="contact" class="gray-bg">
+    <div class="container">
+        <div class="row match-my-cols wow fadeInDown" data-wow-delay="0.3s">
+            <div class="col-md-12 contact-form">
+                <form role="form" id="contactForm" data-toggle="validator">
+                    <div class="title-header">
+                        <h3 class="title-medium pull-left">Directions</h3>
+                        <div class="icon pull-right">
+                            <i class="fa fa-crosshairs"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @venue.Directions
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- End Directions Section  -->
 
 @section Foot {
-<!-- Map JS -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2_ohTMXW8A65jQmY-0pOYulfyJ6zs6o0" ></script>
-<script type="text/javascript" src="~/assets/js/jquery.mapit.min.js"></script>
-<script src="~/assets/js/mapitInitializers.js"></script>
+    <!-- Map JS -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2_ohTMXW8A65jQmY-0pOYulfyJ6zs6o0"></script>
+    <script type="text/javascript" src="~/assets/js/jquery.mapit.min.js"></script>
+    <script src="~/assets/js/mapitInitializers.js"></script>
 }

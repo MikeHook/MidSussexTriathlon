@@ -6,7 +6,7 @@ $(document).ready(function () {
 	$('#map_canvas').mapit({
 		latitude: 50.9649764,
 		longitude: -0.153036,
-		zoom: 16,
+		zoom: 10,
 		type: 'ROADMAP',
 		scrollwheel: false,
 		marker: {

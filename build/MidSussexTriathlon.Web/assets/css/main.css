@@ -1640,9 +1640,16 @@ h1 {
 /* ==========================================================================
    Map Section
    ========================================================================== */
+#contact.map {
+    padding: 0;
+}
+.map .col-md-8, .map .col-md-4 {
+    padding: 0;
+}
+
 #map_canvas {
-  height: 800px;
-  width: 100%;
+    height: 600px;
+    width: 100%;
 }
 
 #entrants select.input-sm {
@@ -1942,7 +1949,7 @@ Entry Form
     #contact .information {
         background: #777777;
         padding: 65px 30px;
-        margin-top: 40px;
+        height: 600px;
     }
 
 #contact .row.match-my-cols {
