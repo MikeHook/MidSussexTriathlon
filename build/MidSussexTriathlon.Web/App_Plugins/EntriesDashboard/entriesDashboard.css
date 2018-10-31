@@ -23,6 +23,7 @@ caption {
 
 th {
     text-align: left;
+    cursor: pointer;
 }
 
 .table {
@@ -231,6 +232,16 @@ table th[class*="col-"] {
 .table-responsive {
     min-height: .01%;
     overflow-x: auto;
+}
+
+.st-sort-ascent:before {
+    content: '\25B2';
+}
+
+
+
+.st-sort-descent:before {
+    content: '\25BC';
 }
 
 @media screen and (max-width: 767px) {

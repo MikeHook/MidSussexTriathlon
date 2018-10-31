@@ -274,6 +274,8 @@
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog3.css" />
     <Content Include="App_Plugins\DiploTraceLogViewer\readme.txt" />
     <Content Include="App_Plugins\EntriesDashboard\entriesDashboardController.js" />
+    <Content Include="App_Plugins\EntriesDashboard\pagination.html" />
+    <Content Include="App_Plugins\EntriesDashboard\smart-table.min.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />

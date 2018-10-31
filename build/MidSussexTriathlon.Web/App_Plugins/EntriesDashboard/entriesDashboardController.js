@@ -1,16 +1,22 @@
-﻿angular.module("umbraco").controller("EntriesDashboardController", function ($scope, userService, entryResource) {
-	var vm = this;
-	vm.UserName = 'guest';
-	vm.LogEntries = [];
-	vm.Entries = [];
+﻿app.requires.push('smart-table');
+
+angular.module("umbraco").controller("EntriesDashboardController", function ($scope, userService, entryResource) {
+
+	$scope.itemsPerPage = [20, 50, 100, 200, 500, 1000];
+	$scope.pageSize = 20;
+
+	$scope.UserName = 'guest';
+	$scope.LogEntries = [];
+	$scope.Entries = [];
 
 	var user = userService.getCurrentUser().then(function (user) {
-		console.log(user);
-		vm.UserName = user.name;
+		//console.log(user);
+		$scope.UserName = user.name;
 	});
 
 	entryResource.getAll().then(function (response) {
-		vm.Entries = response;
+		$scope.Entries = response;
+		$scope.pageSize = 20;
 	});
 
 	/*
