@@ -12,10 +12,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="wow fadeInUp animated" data-wow-delay="0s">@testimonials.Heading</h3>
-                <br />
-                <h4>@testimonials.SubHeading</h4>
-            </div>
+                @if (string.IsNullOrWhiteSpace(testimonials.Heading) == false)
+                {
+                    <h3 class="wow fadeInUp animated" data-wow-delay="0s">@testimonials.Heading</h3>
+                }
+                @if (string.IsNullOrWhiteSpace(testimonials.SubHeading) == false)
+                {
+                    <h4>@testimonials.SubHeading</h4>
+                }
+                @if (string.IsNullOrWhiteSpace(testimonials.MainContent.ToString()) == false)
+                {
+                    <div class="main-content">
+                        @testimonials.MainContent
+                    </div>
+                }
+                </div>
             @{
                 var items = testimonials.TestimonialsList.Cast<Testimonial>();
 
@@ -24,8 +35,14 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="single-member wow fadeInRight animated" data-wow-delay="0.2s">
                             <div class="team-header">
+                                @if (string.IsNullOrWhiteSpace(item.Title) == false)
+                                {
                                 <h3>@item.Title</h3>
+                                }
+                                @if (string.IsNullOrWhiteSpace(item.Subtitle) == false)
+                                {
                                 <h5>@item.Subtitle</h5>
+                                }
                             </div>
                             <div class="team-desc">
                                 @item.Quote
