@@ -37,17 +37,20 @@
                             <div class="team-header">
                                 @if (string.IsNullOrWhiteSpace(item.Title) == false)
                                 {
-                                <h3>@item.Title</h3>
+                                    <h3>@item.Title</h3>
                                 }
                                 @if (string.IsNullOrWhiteSpace(item.Subtitle) == false)
                                 {
-                                <h5>@item.Subtitle</h5>
+                                    <h5>@item.Subtitle</h5>
                                 }
                             </div>
-                            <div class="team-desc">
-                                @item.Quote
+                            @if (string.IsNullOrWhiteSpace(item.Quote.ToString()) == false)
+                            {
+                                <div class="team-desc">
+                                    @item.Quote
+                                </div>
+                            }
                             </div>
-                        </div>
                     </div>
                 }
             }
