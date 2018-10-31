@@ -1423,7 +1423,7 @@ h1 {
 }
 #team .single-member {
   background: #fff;
-  margin-top: 30px;
+  margin-top: 20px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   display: inline-block;
   overflow: hidden;
@@ -1465,6 +1465,8 @@ h1 {
 
 #team .team-header h3 {
   margin-top: 0;
+  margin-bottom: 15px;
+  line-height: normal;
 }
 
 #team .team-desc {
