@@ -2269,9 +2269,22 @@ footer ul li a {
   padding: 14px;
   margin: 0;
 }
+
+#copyright p.socials a {
+    padding-right: 20px;
+}
+
+#copyright i.fa-twitter {
+    color: #1DA1F2;
+}
+
+#copyright i.fa-facebook  {
+    color: #3B5998;
+}
+
 /* ==========================================================================
-   Subscribe Section 
-   ========================================================================== */
+Subscribe Section 
+========================================================================== */
 #subscribe-section {
   background: url(../img/background/header-bg.jpg);
   background-size: cover;
@@ -2362,6 +2375,7 @@ footer ul li a {
   /*background: url(../img/background/header-bg.jpg); */
   background-size: cover;
   position: relative;
+  padding-bottom: 20px;
 }
 #intro:before {
   content: '';
@@ -2399,6 +2413,8 @@ footer ul li a {
 #intro .btn-cta i {
   margin-right: 5px;
 }
+
+
 /* ==========================================================================
    Blog Componet
    ========================================================================== */
