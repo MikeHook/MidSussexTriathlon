@@ -97,9 +97,12 @@
 
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="@Html.Raw(Model.Content.Id == site.Id ? "active" : "")">
-                                <a href="@site.Url">@site.Name</a>
+                            @if (!home.HideInNavigation)
+                            {
+                            <li class="@Html.Raw(Model.Content.Id == home.Id ? "active" : "")">
+                                <a href="@home.Url">@home.Name</a>
                             </li>
+                            }
                             @foreach (var item in selection)
                             {
                                 if (item.DocumentTypeAlias == "siteSection")
