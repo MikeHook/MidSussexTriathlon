@@ -89,8 +89,9 @@ namespace MidSussexTriathlon.Web.Controllers
             _entryRepository.Update(entry);
 
             var subject = (string)entryPage?.GetProperty("confirmationEmailSubject")?.Value;
-            var body = entryPage?.GetProperty("confirmationEmailBody")?.Value as HtmlString;
-            _emailService.SendConfirmationEmail(entry, subject, body.ToHtmlString());
+            var bodyProp = entryPage?.GetProperty("confirmationEmailBody")?.Value as HtmlString;
+            var body = bodyProp.ToHtmlString().Replace("/{{Domain}}", "https://midsussextriathlon.com");
+            _emailService.SendConfirmationEmail(entry, subject, body);
             _emailService.SendAdminConfirmationEmail(entry);
             return "";
         }  
