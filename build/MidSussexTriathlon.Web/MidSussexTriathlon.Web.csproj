@@ -63,6 +63,15 @@
     <Reference Include="cms, Version=1.0.6750.39772, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.11.1\lib\net45\cms.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net.Universal, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Log4Net.Universal.1.2.0\lib\net461\Common.Logging.Log4Net.Universal.dll</HintPath>
+    </Reference>
     <Reference Include="controls, Version=1.0.6750.39773, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.11.1\lib\net45\controls.dll</HintPath>
     </Reference>
@@ -86,6 +95,9 @@
     </Reference>
     <Reference Include="interfaces, Version=1.0.6750.39762, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.11.1\lib\net45\interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="jsnlog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=742e180f6c5ccd0d, processorArchitecture=MSIL">
+      <HintPath>..\packages\JSNLog.2.27.1\lib\net452\jsnlog.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.11.1\lib\net45\log4net.dll</HintPath>
@@ -254,6 +266,9 @@
     <Reference Include="UmbracoExamine, Version=0.7.0.39772, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.11.1\lib\net45\UmbracoExamine.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -395,10 +410,14 @@
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\jsnlog.js" />
+    <Content Include="Scripts\jsnlog.min.js" />
+    <Content Include="Scripts\readme.txt" />
     <Content Include="Views\MacroPartials\DoNotDelete.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\JSNLogConfig.cs" />
     <Compile Include="Controllers\EnquiryController.cs" />
     <Compile Include="Controllers\EntryUmbracoController.cs" />
     <Compile Include="Controllers\EntryController.cs" />
@@ -476,6 +495,7 @@
     <Content Include="Views\CourseDetails.cshtml" />
     <Content Include="Views\Entrants.cshtml" />
     <Content Include="Views\Gallery.cshtml" />
+    <Content Include="Scripts\jsnlog.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

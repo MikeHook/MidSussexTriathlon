@@ -71,16 +71,20 @@ function submitEntry(tokenId) {
 			}
 
 		},
-		error: function () {
+		error: function (message) {
 			$.loader.close(true); 
 			$('#entry-container').addClass('hidden');
 			$('#entry-error').removeClass('hidden');
+
+			JL().error('Call to /umbraco/api/entry/new returned error');
+			JL().error(message);
 		}
 	});
 
 };
 
 function initStripe(pkStripe) {
+
 	var stripe = Stripe(pkStripe);
 
 	var elements = stripe.elements();
@@ -121,26 +125,29 @@ function initStripe(pkStripe) {
 				address_country: 'UK'
 			};
 
-			stripe.createToken(card, tokenData).then(function (result) {
-				if (result.error) {
-					// Inform the customer that there was an error.
-					var errorElement = document.getElementById('card-errors');
-					errorElement.textContent = result.error.message;
-				} else {
-					// Send the token to your server.
-					submitEntry(result.token.id);
-				}
-			});
+			stripe.createToken(card, tokenData)
+				.then(function (result) {
+					if (result.error) {
+						// Inform the customer that there was an error.
+						var errorElement = document.getElementById('card-errors');
+						errorElement.textContent = result.error.message;
+
+						JL().warn('stripe.createToken function call returned error');
+						JL().warn(result.error);
+					} else {
+						// Send the token to your server.
+						submitEntry(result.token.id);
+					}
+				});
 		}
 	});
 }
 
 $(document).ready(function () {	
 
-	$('#dob').datepicker({})
-		.on('changeDate', function (e) {
-			onFieldBlur('#dob');
-		});;
+	$('#dob').datepicker({}).on('changeDate', function (e) {
+		onFieldBlur('#dob');
+	});
 
 	$('#entryForm .input').blur(function () {
 		onFieldBlur(this);

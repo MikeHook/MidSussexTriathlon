@@ -65,7 +65,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="quick-contacts">
                         <span>
-                             <a href="@(home.VenuePage != null ? home.VenuePage.Url : "")">The Triangle, Burgess Hill, RH15 8WA <i class="icon-location-pin"></i></a>
+                            <a href="@(home.VenuePage != null ? home.VenuePage.Url : "")">The Triangle, Burgess Hill, RH15 8WA <i class="icon-location-pin"></i></a>
                         </span>
                     </div>
                 </div>
@@ -99,9 +99,9 @@
                         <ul class="nav navbar-nav navbar-right">
                             @if (!home.HideInNavigation)
                             {
-                            <li class="@Html.Raw(Model.Content.Id == home.Id ? "active" : "")">
-                                <a href="@home.Url">@home.Name</a>
-                            </li>
+                                <li class="@Html.Raw(Model.Content.Id == home.Id ? "active" : "")">
+                                    <a href="@home.Url">@home.Name</a>
+                                </li>
                             }
                             @foreach (var item in selection)
                             {
@@ -203,7 +203,7 @@
                             facebook
                         </a>
                     </p>
-                </div>           
+                </div>
             </div>
         </div>
     </section>
@@ -240,6 +240,8 @@
 
     <!-- Stripe payment library, should be included on every page -->
     <script src="https://js.stripe.com/v3/"></script>
+
+    <script src="/Scripts/jsnlog.min.js"></script>
 
     @RenderSection("Foot", false)
 
