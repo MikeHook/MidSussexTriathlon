@@ -70,7 +70,10 @@ namespace MidSussexTriathlon.Core.Data
            ,[ClubName]
            ,[TermsAccepted]
            ,[Paid]            
-           ,[OrderReference])
+           ,[OrderReference]
+           ,[EntryDate]
+           ,[NewToSport]
+           ,[HowHeardAboutUs])
         OUTPUT Inserted.Id
         VALUES
            (@FirstName
@@ -90,7 +93,12 @@ namespace MidSussexTriathlon.Core.Data
            ,@ClubName
            ,@TermsAccepted
            ,@Paid
-           ,@OrderReference)";
+           ,@OrderReference
+           ,@EntryDate
+           ,@NewToSport
+           ,@HowHeardAboutUs)";
+
+            entry.EntryDate = DateTime.Now;
 
             using (IDbConnection connection = _dataConnection.SqlConnection)
             {

@@ -50,6 +50,8 @@ function submitEntry(tokenId) {
 		btfNumber: $("#btfNumber").val(),
 		clubName: $("#clubName").val(),
 		termsAccepted: $("#terms").val(),
+		newToSport: $("input[name='newToSport']:checked").val(),
+		howHeardAboutUs: $("#howHeardAboutUs").val(),
 		tokenId: tokenId
 	};
 

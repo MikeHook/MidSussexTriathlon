@@ -34,7 +34,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">First name*</label>
-                                            <input type="text" class="input" id="firstName" required data-error="Please enter first name">
+                                            <input type="text" class="input" id="firstName" required data-error="Please enter first name" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -42,7 +42,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Last name*</label>
-                                            <input type="text" class="input" id="lastName" required data-error="Please enter last name">
+                                            <input type="text" class="input" id="lastName" required data-error="Please enter last name" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Phone number</label>
-                                            <input type="text" class="input" id="phone">
+                                            <input type="text" class="input" id="phone" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Email*</label>
-                                            <input type="email" class="input" id="email" required data-error="Please enter email address in correct format">
+                                            <input type="email" class="input" id="email" required data-error="Please enter email address in correct format" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -97,7 +97,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Address line 1*</label>
-                                            <input type="text" class="input" id="address1" required data-error="Please enter address line 1">
+                                            <input type="text" class="input" id="address1" required data-error="Please enter address line 1" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Address line 2</label>
-                                            <input type="text" class="input" id="address2">
+                                            <input type="text" class="input" id="address2" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Town / City*</label>
-                                            <input type="text" class="input" id="city" required data-error="Please enter town / city">
+                                            <input type="text" class="input" id="city" required data-error="Please enter town / city" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -133,7 +133,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Postcode*</label>
-                                            <input type="text" class="input" id="postcode" required data-error="Please enter postcode">
+                                            <input type="text" class="input" id="postcode" required data-error="Please enter postcode" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -171,7 +171,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">BTF Number (required for BTF discount)</label>
-                                            <input type="text" class="input" id="btfNumber">
+                                            <input type="text" class="input" id="btfNumber" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -179,7 +179,31 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Club name</label>
-                                            <input type="text" class="input" id="clubName">
+                                            <input type="text" class="input" id="clubName" maxlength="255">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line label-line-radio">
+                                            <span class="span"></span>
+                                            <label class="label transition">Are you new to the sport?</label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="newToSport" id="newToSport1" value="Yes"> Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="newToSport" id="newToSport2" value="No"> No
+                                            </label>
+                                            <div class="help-block with-errors"></div>
+                                        </div>                                   
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Where did you hear about us?</label>
+                                            <input type="text" class="input" id="howHeardAboutUs" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
