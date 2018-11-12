@@ -41,6 +41,9 @@ namespace MidSussexTriathlon.Core.Data
                                       ,[Paid]
                                       ,[PaymentFailureMessage]
                                       ,[OrderReference]
+                                      ,[EntryDate]
+                                      ,[NewToSport]
+                                      ,[HowHeardAboutUs]
                                   FROM [dbo].[Entry] ";
 
         private readonly IDataConnection _dataConnection;
@@ -130,6 +133,9 @@ namespace MidSussexTriathlon.Core.Data
                                     ,[Paid] = @Paid
                                     ,[PaymentFailureMessage] = @PaymentFailureMessage
                                     ,[OrderReference] = @OrderReference
+                                    ,[EntryDate] = @EntryDate
+                                    ,[NewToSport] = @NewToSport
+                                    ,[HowHeardAboutUs] = @HowHeardAboutUs
                                 WHERE Id = @Id";
 
             using (IDbConnection connection = _dataConnection.SqlConnection)

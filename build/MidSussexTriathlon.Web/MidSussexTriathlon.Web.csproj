@@ -440,7 +440,9 @@
     <Content Include="config\tinyMceConfig.config" />
     <Content Include="config\scripting.config" />
     <Content Include="config\metablogConfig.config" />
-    <Content Include="config\log4net.config" />
+    <Content Include="config\log4net.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="config\HealthChecks.config" />
     <Content Include="config\FileSystemProviders.config" />
     <Content Include="config\feedProxy.config" />

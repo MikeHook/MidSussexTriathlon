@@ -28,7 +28,7 @@ namespace MidSussexTriathlon.Core.Domain
         public string ClubName { get; set; }
         public bool TermsAccepted { get; set; }
         public DateTime EntryDate { get; set; }
-        public bool NewToSport { get; set; }
+        public bool? NewToSport { get; set; }
         public string HowHeardAboutUs { get; set; }
         public bool Paid { get; set; }
         public string PaymentFailureMessage { get; set; }

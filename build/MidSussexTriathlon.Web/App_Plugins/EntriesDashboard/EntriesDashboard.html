@@ -1,24 +1,23 @@
 ﻿<div class="welcome-dashboard" ng-controller="EntriesDashboardController">
-    <h1>Hello {{UserName}}</h1>
-    <p>
-        We hope you find the experience of editing your content with Umbraco enjoyable and delightful. <br />
-        If you discover any problems with the site please report them to the support team at <a href="mailto:support@midsussextriclub.com">support@midsussextriclub.com</a>
+     <p>
+        Hello <b>{{UserName}}</b>. We hope you find the experience of editing your content with Umbraco enjoyable and delightful. If you discover any problems with the site please report them to the <a href="mailto:support@midsussextriclub.com">support team</a>.
     </p>
 
-    <h2>Race entries</h2>
+    <h3>Race entries</h3>
 
     <div class="table-responsive">
         <table class="table table-striped table-condensed" st-table="displayedCollection" st-safe-src="Entries">
             <thead>
                 <tr>
+                    <th st-sort="EntryDate" st-sort-default="reverse">Date entered</th>
                     <th st-sort="FirstName">First Name</th>
-                    <th st-sort="LastName" st-sort-default="true">Last Name</th>
+                    <th st-sort="LastName">Last Name</th>
                     <th st-sort="DateOfBirth">Date of birth</th>
                     <th st-sort="PhoneNumber">Phone</th>
                     <th st-sort="Email">Email</th>
                     <th st-sort="Gender">Gender</th>
                     <th st-sort="AddressLine1">Address Line 1</th>
-                    <th st-sort="AddressLine2">Address Line 2</th>
+                    <th st-sort="AddressLine2">Line 2</th>
                     <th st-sort="City">City</th>
                     <th st-sort="County">County</th>
                     <th st-sort="Postcode">Postcode</th>
@@ -29,11 +28,14 @@
                     <th st-sort="TermsAccepted">Terms Accepted?</th>
                     <th st-sort="Paid">Paid?</th>
                     <th st-sort="PaymentFailureMessage">Payment Failure Message</th>
-                    <th st-sort="OrderReference">Payment Reference</th>
+                    <th st-sort="OrderReference">Order Reference</th>
+                    <th st-sort="NewToSport">New To Sport</th>
+                    <th st-sort="HowHeardAboutUs">How Heard About Us</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="entry in displayedCollection">
+                    <td>{{entry.EntryDate  | date:'dd/MM/yyyy'}}</td>
                     <td>{{entry.FirstName}}</td>
                     <td>{{entry.LastName}}</td>
                     <td>{{entry.DateOfBirth  | date:'dd/MM/yyyy'}}</td>
@@ -53,6 +55,8 @@
                     <td>{{entry.Paid ? 'Yes' : 'No'}}</td>
                     <td>{{entry.PaymentFailureMessage}}</td>
                     <td>{{entry.OrderReference}}</td>
+                    <td>{{entry.NewToSport === null ? '' : entry.NewToSport ? 'Yes' : 'No'}}</td>
+                    <td>{{entry.HowHeardAboutUs}}</td>
                 </tr>
             </tbody>
             <tfoot>

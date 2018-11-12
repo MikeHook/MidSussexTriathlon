@@ -1,6 +1,10 @@
-﻿.welcome-dashboard h1 {
-    font-size: 2em;
+﻿.welcome-dashboard h2 {    
     color: purple;
+}
+
+.welcome-dashboard a {
+    color: blue;
+    text-decoration: underline;
 }
 
 table {
@@ -12,6 +16,7 @@ table {
 td,
 th {
     padding: 0;
+    white-space: nowrap;
 }
 
 caption {
