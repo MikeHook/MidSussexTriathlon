@@ -154,6 +154,9 @@
                                             <label class="radio-inline">
                                                 <input type="radio" name="raceType" id="raceType2" value="Aquabike" required> Aquabike
                                             </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="raceType" id="raceType3" value="RelayTriathlon" required> Relay Triathlon
+                                            </label>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -185,7 +188,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-
                                     <div class="col-md-6">
                                         <div class="form-group label-line label-line-radio">
                                             <span class="span"></span>
@@ -197,7 +199,7 @@
                                                 <input type="radio" name="newToSport" id="newToSport2" value="No"> No
                                             </label>
                                             <div class="help-block with-errors"></div>
-                                        </div>                                   
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
@@ -208,6 +210,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div id="relayFieldsContainer"></div>   
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5 class="title-medium pull-left">Credit or debit card</h5>
@@ -249,7 +252,7 @@
                                     <div class="col-md-12">
                                         <div class="buttons">
                                             <button type="submit" id="form-submit" class="btn btn-common">
-                                                Complete entry at <span id="cost"></span>
+                                                Complete entry at £<span id="cost"></span>
                                             </button>
                                             <div id="msgSubmit" class="h3 text-center hidden"></div>
                                             <div class="clearfix"></div>
@@ -316,7 +319,7 @@
                         </div>
                         <div class="info">
                             <h5>BTF Members</h5>
-                            <h3 id="btfCost">£@Umbraco.Field("bTFCost")</h3>
+                            <h3>£<span id="btfCost">@Umbraco.Field("bTFCost")</span></h3>
                         </div>
                     </div>
 
@@ -326,7 +329,7 @@
                         </div>
                         <div class="info">
                             <h5>Non BTF Members</h5>
-                            <h3 id="nonBtfCost">£@Umbraco.Field("nonBTFCost")</h3>
+                            <h3>£<span id="nonBtfCost">@Umbraco.Field("nonBTFCost")</span></h3>
                         </div>
                     </div>
                     <div class="info-container">
@@ -358,6 +361,66 @@
         $(document).ready(function () {
             initStripe(pkStripe);
         });
+    </script>
+
+    <script id="relayFields" type="template">
+        <div class="row">
+            <div class="col-md-12">
+                <h5 class="title-medium pull-left">Relay details</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Relay entrant 1 First name*</label>
+                    <input type="text" class="input" id="relay1FirstName" required data-error="Please enter first name" maxlength="255">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Second entrant 1 Last name*</label>
+                    <input type="text" class="input" id="relay1LastName" required data-error="Please enter last name" maxlength="255">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Relay entrant 1 BTF number</label>
+                    <input type="text" class="input" id="relay1BtfNumber" maxlength="255">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Relay entrant 2 First name</label>
+                    <input type="text" class="input" id="relay2FirstName" data-error="Please enter first name" maxlength="255">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Second entrant 2 Last name</label>
+                    <input type="text" class="input" id="relay2LastName" data-error="Please enter last name" maxlength="255">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Relay entrant 2 BTF number</label>
+                    <input type="text" class="input" id="relay2BtfNumber" maxlength="255">
+                </div>
+            </div>
+        </div>
     </script>
 }
 

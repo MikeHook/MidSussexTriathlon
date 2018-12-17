@@ -34,7 +34,6 @@ namespace MidSussexTriathlon.Core.Domain
         public string PaymentFailureMessage { get; set; }
         public string OrderReference { get; set; }
         public string TokenId { get; set; }
-
-
+        public int Cost { get; set; }
     }
 }

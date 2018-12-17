@@ -15,9 +15,38 @@ function onFieldBlur(field) {
 	}
 }
 
-function btfChanged() {
+function btfChanged() {	
 	var costSpan = document.getElementById('cost');
-	costSpan.textContent = $("#btfNumber").val().length > 0 ? $("#btfCost")[0].innerHTML : $("#nonBtfCost")[0].innerHTML;	
+	var raceType = $("input[name='raceType']:checked").val();
+	if (raceType === 'RelayTriathlon') {
+		var btfCost = parseInt($("#btfCost")[0].innerHTML, 10);
+		if ($("#btfNumber").val().length === 0) {
+			btfCost += 5;
+		}
+		if ($("#relay1BtfNumber").val().length === 0) {
+			btfCost += 5;
+		}
+		if ($("#relay2BtfNumber").val().length === 0) {
+			btfCost += 5;
+		}
+		costSpan.textContent = btfCost;
+	} else {		
+		costSpan.textContent = $("#btfNumber").val().length > 0 ? $("#btfCost")[0].innerHTML : $("#nonBtfCost")[0].innerHTML;
+	}
+}
+
+function raceTypeChanged() {
+	var raceType = $("input[name='raceType']:checked").val();
+	if (raceType === 'RelayTriathlon') {
+		var relayHtml = $('#relayFields').html();
+		$('#relayFieldsContainer').append(relayHtml);
+
+		bindEvents();
+
+	} else {
+		$('#relayFieldsContainer').html('');
+	}
+	btfChanged();
 }
 
 function submitEntry(tokenId) {
@@ -32,6 +61,8 @@ function submitEntry(tokenId) {
 	};
 
 	$.loader.open($loaderData);   
+
+	var costSpan = document.getElementById('cost');
 
 	var entryModel = {
 		firstName: $("#firstName").val(),
@@ -52,6 +83,7 @@ function submitEntry(tokenId) {
 		termsAccepted: $("#terms").val(),
 		newToSport: $("input[name='newToSport']:checked").val(),
 		howHeardAboutUs: $("#howHeardAboutUs").val(),
+		cost: costSpan.textContent, 
 		tokenId: tokenId
 	};
 
@@ -81,7 +113,7 @@ function submitEntry(tokenId) {
 		}
 	});
 
-};
+}
 
 function initStripe(pkStripe) {
 
@@ -143,31 +175,66 @@ function initStripe(pkStripe) {
 	});
 }
 
-$(document).ready(function () {	
-
+function bindEvents() {
+	$('#dob').datepicker({}).off('changeDate');
 	$('#dob').datepicker({}).on('changeDate', function (e) {
 		onFieldBlur('#dob');
 	});
 
-	$('#entryForm .input').blur(function () {
+	$('#entryForm .input').off('blur');
+	$('#entryForm .input').on('blur', function () {
 		onFieldBlur(this);
 	});
 
-	$('#entryForm .select').blur(function () {
+	$('#entryForm .select').off('blur');
+	$('#entryForm .select').on('blur', function () {
 		onFieldBlur(this);
 	});
 
-	$('#entryForm .input').focus(function () {
+	$('#entryForm .input').off('focus');
+	$('#entryForm .input').on('focus', function () {
 		onFieldFocus(this);
 	});
 
-	$('#entryForm .select').focus(function () {
+	$('#entryForm .select').off('focus');
+	$('#entryForm .select').on('focus', function () {
 		onFieldFocus(this);
 	});
 
+	$('#btfNumber').off("change keyup paste");
 	$("#btfNumber").on("change keyup paste", function () {
 		btfChanged();
 	});
+
+	$('#raceType1').off("click");
+	$('#raceType1').on("click", function () {
+		raceTypeChanged();
+	});
+
+	$('#raceType2').off("click");
+	$('#raceType2').on("click", function () {
+		raceTypeChanged();
+	});
+
+	$('#raceType3').off("click");
+	$('#raceType3').on("click", function () {
+		raceTypeChanged();
+	});
+
+	$('#relay1BtfNumber').off("change keyup paste"); 
+	$("#relay1BtfNumber").on("change keyup paste", function () {
+		btfChanged();
+	});
+
+	$('#relay2BtfNumber').off("change keyup paste"); 
+	$("#relay2BtfNumber").on("change keyup paste", function () {
+		btfChanged();
+	});
+}
+
+$(document).ready(function () {	
+
+	bindEvents();
 
 	btfChanged();
 
