@@ -18,26 +18,28 @@ function onFieldBlur(field) {
 function btfChanged() {	
 	var costSpan = document.getElementById('cost');
 	var raceType = $("input[name='raceType']:checked").val();
-	if (raceType === 'RelayTriathlon') {
-		var btfCost = parseInt($("#btfCost")[0].innerHTML, 10);
+	var licenseCost = parseInt($("#btfLicenseCost")[0].innerHTML, 10);		
+	if (raceType === 'Relay Triathlon') {
+		var relayEventCost = parseInt($("#relayEventCost")[0].innerHTML, 10);
 		if ($("#btfNumber").val().length === 0) {
-			btfCost += 5;
+			relayEventCost += licenseCost;
 		}
 		if ($("#relay1BtfNumber").val().length === 0) {
-			btfCost += 5;
+			relayEventCost += licenseCost;
 		}
 		if ($("#relay2BtfNumber").val().length === 0) {
-			btfCost += 5;
+			relayEventCost += licenseCost;
 		}
-		costSpan.textContent = btfCost;
+		costSpan.textContent = relayEventCost;
 	} else {		
-		costSpan.textContent = $("#btfNumber").val().length > 0 ? $("#btfCost")[0].innerHTML : $("#nonBtfCost")[0].innerHTML;
+		var eventCost = parseInt($("#eventCost")[0].innerHTML, 10);
+		costSpan.textContent = $("#btfNumber").val().length > 0 ? eventCost : eventCost + licenseCost;
 	}
 }
 
 function raceTypeChanged() {
 	var raceType = $("input[name='raceType']:checked").val();
-	if (raceType === 'RelayTriathlon') {
+	if (raceType === 'Relay Triathlon') {
 		var relayHtml = $('#relayFields').html();
 		$('#relayFieldsContainer').append(relayHtml);
 
