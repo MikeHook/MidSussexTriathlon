@@ -83,6 +83,12 @@ function submitEntry(tokenId) {
 		termsAccepted: $("#terms").val(),
 		newToSport: $("input[name='newToSport']:checked").val(),
 		howHeardAboutUs: $("#howHeardAboutUs").val(),
+		relay1FirstName: $("#relay1FirstName").val(),
+		relay1LastName: $("#relay1LastName").val(),
+		relay1BtfNumber: $("#relay1BtfNumber").val(),
+		relay2FirstName: $("#relay2FirstName").val(),
+		relay2LastName: $("#relay2LastName").val(),
+		relay2BtfNumber: $("#relay2BtfNumber").val(),
 		cost: costSpan.textContent, 
 		tokenId: tokenId
 	};
@@ -176,11 +182,6 @@ function initStripe(pkStripe) {
 }
 
 function bindEvents() {
-	$('#dob').datepicker({}).off('changeDate');
-	$('#dob').datepicker({}).on('changeDate', function (e) {
-		onFieldBlur('#dob');
-	});
-
 	$('#entryForm .input').off('blur');
 	$('#entryForm .input').on('blur', function () {
 		onFieldBlur(this);
@@ -229,6 +230,10 @@ function bindEvents() {
 	$('#relay2BtfNumber').off("change keyup paste"); 
 	$("#relay2BtfNumber").on("change keyup paste", function () {
 		btfChanged();
+	});
+
+	$('#dob').datepicker({}).on('changeDate', function (e) {
+		onFieldBlur('#dob');
 	});
 }
 

@@ -51,6 +51,11 @@ namespace MidSussexTriathlon.Web.Controllers
         [HttpPost]
         public string New(Entry entry)
         {
+            if (entry.Cost == 0)
+            {
+                return "Unable to complete entry as cost can not be calculated, please contact support.";
+            }
+
             entry.Paid = false;
             entry.DateOfBirth = DateTime.ParseExact(entry.DateOfBirthString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             entry = _entryRepository.Create(entry);
@@ -58,14 +63,7 @@ namespace MidSussexTriathlon.Web.Controllers
             string apiKey = ConfigurationManager.AppSettings["stripeSecretKey"];
             StripeConfiguration.SetApiKey(apiKey);
 
-            int cost = 4000;
-            var entryPage = Umbraco.TypedContentAtRoot().First().Children.FirstOrDefault(c => c.DocumentTypeAlias == "entry");
-            if (entryPage != null) {
-                var btfCost = (decimal)entryPage?.GetProperty("bTFCost")?.Value;
-                var nonBtfCost = (decimal)entryPage?.GetProperty("nonBTFCost")?.Value;
-                cost = string.IsNullOrEmpty(entry.BtfNumber) ? (int)(nonBtfCost * 100) : (int)(btfCost * 100);
-            }
-
+            int cost = entry.Cost * 100; 
             var options = new StripeChargeCreateOptions
             {
                 Amount = cost,
@@ -88,6 +86,7 @@ namespace MidSussexTriathlon.Web.Controllers
        
             _entryRepository.Update(entry);
 
+            var entryPage = Umbraco.TypedContentAtRoot().First().Children.FirstOrDefault(c => c.DocumentTypeAlias == "entry");
             var subject = (string)entryPage?.GetProperty("confirmationEmailSubject")?.Value;
             var bodyProp = entryPage?.GetProperty("confirmationEmailBody")?.Value as HtmlString;
             var body = bodyProp.ToHtmlString().Replace("/{{Domain}}", "https://midsussextriathlon.com");

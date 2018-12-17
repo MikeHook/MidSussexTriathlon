@@ -31,6 +31,12 @@
                     <th st-sort="OrderReference">Order Reference</th>
                     <th st-sort="NewToSport">New To Sport?</th>
                     <th st-sort="HowHeardAboutUs">How Heard About Us</th>
+                    <th st-sort="Relay1FirstName">Relay 1 First Name</th>
+                    <th st-sort="Relay1LastName">Relay 1 Last Name</th>
+                    <th st-sort="Relay1BtfNumber">Relay 1 Btf Number</th>
+                    <th st-sort="Relay2FirstName">Relay 2 First Name</th>
+                    <th st-sort="Relay2LastName">Relay 2 Last Name</th>
+                    <th st-sort="Relay2BtfNumber">Relay 2 Btf Number</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +63,12 @@
                     <td>{{entry.OrderReference}}</td>
                     <td>{{entry.NewToSport === null ? '' : entry.NewToSport ? 'Yes' : 'No'}}</td>
                     <td>{{entry.HowHeardAboutUs}}</td>
+                    <td>{{entry.Relay1FirstName}}</td>
+                    <td>{{entry.Relay1LastName}}</td>
+                    <td>{{entry.Relay1BtfNumber}}</td>
+                    <td>{{entry.Relay2FirstName}}</td>
+                    <td>{{entry.Relay2LastName}}</td>
+                    <td>{{entry.Relay2BtfNumber}}</td>
                 </tr>
             </tbody>
             <tfoot>
