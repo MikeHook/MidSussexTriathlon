@@ -24,10 +24,10 @@ function btfChanged() {
 		if ($("#btfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 		}
-		if ($("#relay1BtfNumber").val().length === 0) {
+		if ($("#relay1LastName").val().length > 0 && $("#relay1BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 		}
-		if ($("#relay2BtfNumber").val().length === 0) {
+		if ($("#relay2LastName").val().length > 0 && $("#relay2BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 		}
 		costSpan.textContent = relayEventCost;
