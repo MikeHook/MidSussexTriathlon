@@ -24,10 +24,10 @@ function btfChanged() {
 		if ($("#btfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 		}
-		if ($("#relay1LastName").val().length > 0 && $("#relay1BtfNumber").val().length === 0) {
+		if ($("#relay2LastName").val().length > 0 && $("#relay2BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 		}
-		if ($("#relay2LastName").val().length > 0 && $("#relay2BtfNumber").val().length === 0) {
+		if ($("#relay3LastName").val().length > 0 && $("#relay3BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 		}
 		costSpan.textContent = relayEventCost;
@@ -85,12 +85,12 @@ function submitEntry(tokenId) {
 		termsAccepted: $("#terms").val(),
 		newToSport: $("input[name='newToSport']:checked").val(),
 		howHeardAboutUs: $("#howHeardAboutUs").val(),
-		relay1FirstName: $("#relay1FirstName").val(),
-		relay1LastName: $("#relay1LastName").val(),
-		relay1BtfNumber: $("#relay1BtfNumber").val(),
 		relay2FirstName: $("#relay2FirstName").val(),
 		relay2LastName: $("#relay2LastName").val(),
 		relay2BtfNumber: $("#relay2BtfNumber").val(),
+		relay3FirstName: $("#relay3FirstName").val(),
+		relay3LastName: $("#relay3LastName").val(),
+		relay3BtfNumber: $("#relay3BtfNumber").val(),
 		cost: costSpan.textContent, 
 		tokenId: tokenId
 	};

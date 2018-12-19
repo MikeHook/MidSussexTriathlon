@@ -204,8 +204,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
                                             <span class="span"></span>
-                                            <label class="label transition">Where did you hear about us?</label>
-                                            <input type="text" class="input" id="howHeardAboutUs" maxlength="255">
+                                            <label class="label transition">Where did you hear about us?*</label>
+                                            <input type="text" class="input" id="howHeardAboutUs" maxlength="255" required data-error="Please enter where you heard about us">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -368,49 +368,24 @@
     <script id="relayFields" type="template">
         <div class="row">
             <div class="col-md-12">
-                <h5 class="title-medium pull-left">Relay details</h5>
+                <h5 class="title-medium pull-left">Second / Third Person Details for Relay</h5>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group label-line">
                     <span class="span"></span>
-                    <label class="label transition">Relay entrant 1 First name*</label>
-                    <input type="text" class="input" id="relay1FirstName" required data-error="Please enter first name" maxlength="255">
+                    <label class="label transition">Relay entrant 2 First name*</label>
+                    <input type="text" class="input" id="relay2FirstName" required data-error="Please enter first name" maxlength="255">
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group label-line">
                     <span class="span"></span>
-                    <label class="label transition">Second entrant 1 Last name*</label>
-                    <input type="text" class="input" id="relay1LastName" required data-error="Please enter last name" maxlength="255">
+                    <label class="label transition">Second entrant 2 Last name*</label>
+                    <input type="text" class="input" id="relay2LastName" required data-error="Please enter last name" maxlength="255">
                     <div class="help-block with-errors"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group label-line">
-                    <span class="span"></span>
-                    <label class="label transition">Relay entrant 1 BTF number</label>
-                    <input type="text" class="input" id="relay1BtfNumber" maxlength="255">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group label-line">
-                    <span class="span"></span>
-                    <label class="label transition">Relay entrant 2 First name</label>
-                    <input type="text" class="input" id="relay2FirstName" data-error="Please enter first name" maxlength="255">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group label-line">
-                    <span class="span"></span>
-                    <label class="label transition">Second entrant 2 Last name</label>
-                    <input type="text" class="input" id="relay2LastName" data-error="Please enter last name" maxlength="255">
                 </div>
             </div>
         </div>
@@ -420,6 +395,31 @@
                     <span class="span"></span>
                     <label class="label transition">Relay entrant 2 BTF number</label>
                     <input type="text" class="input" id="relay2BtfNumber" maxlength="255">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Relay entrant 3 First name</label>
+                    <input type="text" class="input" id="relay3FirstName" data-error="Please enter first name" maxlength="255">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Second entrant 3 Last name</label>
+                    <input type="text" class="input" id="relay3LastName" data-error="Please enter last name" maxlength="255">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Relay entrant 3 BTF number</label>
+                    <input type="text" class="input" id="relay3BtfNumber" maxlength="255">
                 </div>
             </div>
         </div>

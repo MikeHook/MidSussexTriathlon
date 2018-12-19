@@ -44,12 +44,12 @@ namespace MidSussexTriathlon.Core.Data
                                       ,[EntryDate]
                                       ,[NewToSport]
                                       ,[HowHeardAboutUs]
-                                      ,[Relay1FirstName]
-                                      ,[Relay1LastName]
-                                      ,[Relay1BtfNumber]
                                       ,[Relay2FirstName]
                                       ,[Relay2LastName]
                                       ,[Relay2BtfNumber]
+                                      ,[Relay3FirstName]
+                                      ,[Relay3LastName]
+                                      ,[Relay3BtfNumber]
                                   FROM [dbo].[Entry] ";
 
         private readonly IDataConnection _dataConnection;
@@ -83,12 +83,12 @@ namespace MidSussexTriathlon.Core.Data
            ,[EntryDate]
            ,[NewToSport]
            ,[HowHeardAboutUs]
-           ,[Relay1FirstName]
-           ,[Relay1LastName]
-           ,[Relay1BtfNumber]
            ,[Relay2FirstName]
            ,[Relay2LastName]
-           ,[Relay2BtfNumber])
+           ,[Relay2BtfNumber]
+           ,[Relay3FirstName]
+           ,[Relay3LastName]
+           ,[Relay3BtfNumber])
         OUTPUT Inserted.Id
         VALUES
            (@FirstName
@@ -112,12 +112,12 @@ namespace MidSussexTriathlon.Core.Data
            ,@EntryDate
            ,@NewToSport
            ,@HowHeardAboutUs
-           ,@Relay1FirstName
-           ,@Relay1LastName
-           ,@Relay1BtfNumber
            ,@Relay2FirstName
            ,@Relay2LastName
-           ,@Relay2BtfNumber)";
+           ,@Relay2BtfNumber
+           ,@Relay3FirstName
+           ,@Relay3LastName
+           ,@Relay3BtfNumber)";
 
             entry.EntryDate = DateTime.Now;
 
@@ -154,12 +154,12 @@ namespace MidSussexTriathlon.Core.Data
                                     ,[EntryDate] = @EntryDate
                                     ,[NewToSport] = @NewToSport
                                     ,[HowHeardAboutUs] = @HowHeardAboutUs
-                                    ,[Relay1FirstName] = @Relay1FirstName
-                                    ,[Relay1LastName] = @Relay1LastName
-                                    ,[Relay1BtfNumber] = @Relay1BtfNumber
                                     ,[Relay2FirstName] = @Relay2FirstName
                                     ,[Relay2LastName] = @Relay2LastName
                                     ,[Relay2BtfNumber] = @Relay2BtfNumber
+                                    ,[Relay3FirstName] = @Relay3FirstName
+                                    ,[Relay3LastName] = @Relay3LastName
+                                    ,[Relay3BtfNumber] = @Relay3BtfNumber
                                 WHERE Id = @Id";
 
             using (IDbConnection connection = _dataConnection.SqlConnection)

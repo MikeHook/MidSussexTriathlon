@@ -36,11 +36,11 @@ namespace MidSussexTriathlon.Core.Domain
         public string TokenId { get; set; }
         public int Cost { get; set; }
 
-        public string Relay1FirstName { get; set; }
-        public string Relay1LastName { get; set; }
-        public string Relay1BtfNumber { get; set; }
         public string Relay2FirstName { get; set; }
         public string Relay2LastName { get; set; }
         public string Relay2BtfNumber { get; set; }
+        public string Relay3FirstName { get; set; }
+        public string Relay3LastName { get; set; }
+        public string Relay3BtfNumber { get; set; }
     }
 }
