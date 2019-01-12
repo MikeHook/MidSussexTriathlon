@@ -224,8 +224,8 @@ function bindEvents() {
 		raceTypeChanged();
 	});
 
-	$('#relay1BtfNumber').off("change keyup paste"); 
-	$("#relay1BtfNumber").on("change keyup paste", function () {
+	$('#relay3BtfNumber').off("change keyup paste"); 
+	$("#relay3BtfNumber").on("change keyup paste", function () {
 		btfChanged();
 	});
 
