@@ -1,4 +1,5 @@
-﻿using MidSussexTriathlon.Web.Logger;
+﻿using MidSussexTriathlon.Web.App_Start;
+using MidSussexTriathlon.Web.Logger;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace MidSussexTriathlon.Web
             base.OnApplicationStarted(sender, e);
 
             GlobalConfiguration.Configuration.Services.Add(typeof(IExceptionLogger), new TraceExceptionLogger());
+
+            GlobalConfiguration.Configuration.Formatters.Add(new CSVMediaTypeFormatter());
         }
     }
 }

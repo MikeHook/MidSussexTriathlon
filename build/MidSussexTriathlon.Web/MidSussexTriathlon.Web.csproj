@@ -417,6 +417,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\CSVMediaTypeFormatter.cs" />
     <Compile Include="App_Start\JSNLogConfig.cs" />
     <Compile Include="Controllers\EnquiryController.cs" />
     <Compile Include="Controllers\EntryUmbracoController.cs" />

@@ -24,7 +24,7 @@ namespace MidSussexTriathlon.Web.Controllers
 
         public IEnumerable<Entry> GetAll()
         {
-            return _entryRepository.GetAll();
+            return _entryRepository.GetAll().ToList();
         }      
     }
 }

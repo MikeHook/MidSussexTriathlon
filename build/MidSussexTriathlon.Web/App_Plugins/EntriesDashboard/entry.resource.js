@@ -22,7 +22,15 @@ angular.module('umbraco.resources')
 				return umbRequestHelper.resourcePromise(
 					$http.get("backoffice/EntriesDashboard/EntryUmbraco/GetAll"),
 					"Failed to retrieve all Entries data");
+			},
+			// this calls the ApiController we setup earlier
+			getCsv: function () {
+				$http.defaults.headers.common = { 'Accept': 'text/csv' };
+				return umbRequestHelper.resourcePromise(					
+					$http.get("backoffice/EntriesDashboard/EntryUmbraco/GetAll"),
+					"Failed to retrieve all Entries data");
 			}
+
 		};
 	}
 ); 
