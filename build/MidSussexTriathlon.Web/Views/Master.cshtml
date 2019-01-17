@@ -2,6 +2,7 @@
 @{
     Layout = null;
     var home = (Home)Model.Content.Site();
+    var isHome = Model.Content.Id == home.Id;
 }
 
 
@@ -15,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@Umbraco.Field("metaDescription", recursive: true)">
 
-    <title>@Umbraco.Field("pageTitle", recursive: true) - Mid Sussex Triathlon</title>
+    <title>@(isHome ? Umbraco.Field("pageTitle", recursive: true).ToHtmlString() : string.Format("{0} - Mid Sussex Triathlon", Umbraco.Field("pageTitle", recursive: true)))</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
