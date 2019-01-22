@@ -328,8 +328,6 @@
     <Content Include="assets\img\background\entry-tri-bg.jpg" />
     <Content Include="assets\img\background\entry2-tri-bg.jpg" />
     <Content Include="assets\img\background\tri_icons_background.png" />
-    <Content Include="assets\img\loading16x16.gif" />
-    <Content Include="assets\img\loading32x32.gif" />
     <Content Include="assets\img\marker.png" />
     <Content Include="assets\img\routes\BikeRoute2.jpg" />
     <Content Include="assets\img\routes\MSTC_RunRoute.jpg" />
@@ -374,8 +372,8 @@
     <Content Include="assets\js\datatables.min.js" />
     <Content Include="assets\js\entry.js" />
     <Content Include="assets\js\form-validator.min.js" />
+    <Content Include="assets\js\jquery.toast.js" />
     <Content Include="assets\js\mapitInitializers.js" />
-    <Content Include="assets\js\jquery-loader.js" />
     <Content Include="assets\js\jquery.classycountdown.min.js" />
     <Content Include="assets\js\jquery.knob.js" />
     <Content Include="assets\js\jquery.mapit.min.js" />
