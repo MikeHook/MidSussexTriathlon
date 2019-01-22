@@ -51,18 +51,7 @@ function raceTypeChanged() {
 	btfChanged();
 }
 
-function submitEntry(tokenId) {
-
-	$loaderData = {	
-		size: 32,  
-		bgColor: '#FFF',  
-		bgOpacity: '0.5',   
-	
-		title: 'Processing entry, please wait...', 	
-		imgUrl: '/assets/img/loading32x32.gif'
-	};
-
-	$.loader.open($loaderData);   
+function submitEntry(tokenId) {  
 
 	var costSpan = document.getElementById('cost');
 
@@ -101,7 +90,7 @@ function submitEntry(tokenId) {
 		method: 'POST',// jQuery > 1.9
 		type: 'POST', //jQuery < 1.9
 		success: function (response) {
-			$.loader.close(true); 
+			$.Toast.hideToast();
 			if (response !== '') {
 				var displayError = document.getElementById('card-errors');
 				displayError.textContent = response;
@@ -112,7 +101,7 @@ function submitEntry(tokenId) {
 
 		},
 		error: function (message) {
-			$.loader.close(true); 
+			$.Toast.hideToast();
 			$('#entry-container').addClass('hidden');
 			$('#entry-error').removeClass('hidden');
 
@@ -124,7 +113,6 @@ function submitEntry(tokenId) {
 }
 
 function initStripe(pkStripe) {
-
 	var stripe = Stripe(pkStripe);
 
 	var elements = stripe.elements();
@@ -154,6 +142,11 @@ function initStripe(pkStripe) {
 		if (!event.isDefaultPrevented()) {
 			event.preventDefault();
 
+			$.Toast.showToast({
+				"title": "Processing entry, please wait.",
+				"duration": 0
+			});
+
 			var tokenData = {
 				name: $("#email").val(),
 				currency: 'gbp',
@@ -174,9 +167,11 @@ function initStripe(pkStripe) {
 
 						JL().warn('stripe.createToken function call returned error');
 						JL().warn(result.error);
+
+						$.Toast.hideToast();
 					} else {
 						// Send the token to your server.
-						submitEntry(result.token.id);
+						submitEntry(result.token.id);						
 					}
 				});
 		}

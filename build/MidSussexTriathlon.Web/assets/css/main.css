@@ -2978,3 +2978,7 @@ blockquote .quote-text {
         height: 32px;
     }
 
+.toast-wrap p {
+    color: #fff;
+}
+

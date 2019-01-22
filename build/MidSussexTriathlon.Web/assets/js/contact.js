@@ -16,16 +16,10 @@ function onFieldBlur(field) {
 
 function submitForm() {
 
-	$loaderData = {	
-		size: 32,  
-		bgColor: '#FFF',  
-		bgOpacity: '0.5',   
-	
-		title: 'Sending enquiry, please wait...', 	
-		imgUrl: '/assets/img/loading32x32.gif'
-	};
-
-	$.loader.open($loaderData);   
+	$.Toast.showToast({
+		"title": "Sending enquiry, please wait.",
+		"duration": 0
+	});  
 
 	var contactModel = {
 		name: $("#name").val(),
@@ -40,12 +34,12 @@ function submitForm() {
 		method: 'POST',// jQuery > 1.9
 		type: 'POST', //jQuery < 1.9
 		success: function () {
-			$.loader.close(true); 			
+			$.Toast.hideToast();	
 			$('#contact-container').addClass('hidden');
 			$('#contact-confirmed').removeClass('hidden');
 		},
 		error: function () {
-			$.loader.close(true); 
+			$.Toast.hideToast();
 			$('#contact-container').addClass('hidden');
 			$('#contact-error').removeClass('hidden');
 		}
