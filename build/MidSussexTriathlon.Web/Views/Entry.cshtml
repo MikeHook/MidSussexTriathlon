@@ -52,7 +52,8 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Date of birth*</label>
-                                            <input type="text" class="input" id="dob" required data-error="Please enter date of birth" data-date-format="dd/mm/yyyy">
+                                            <input type="text" class="input" id="dob" required data-error="Please enter date of birth in format dd/mm/yyyy" data-date-format="dd/mm/yyyy" 
+                                                   pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
