@@ -9,6 +9,7 @@
         <table class="table table-striped table-condensed" st-table="displayedCollection" st-safe-src="Entries">
             <thead>
                 <tr>
+                    <th></th>
                     <th st-sort="EntryDate" st-sort-default="reverse">Date entered</th>
                     <th st-sort="FirstName">First Name</th>
                     <th st-sort="LastName">Last Name</th>
@@ -41,6 +42,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="entry in displayedCollection">
+                    <td class="edit" ng-click="openDetail(entry, displayedCollection)">Edit</td>
                     <td>{{entry.EntryDate  | date:'dd/MM/yyyy'}}</td>
                     <td>{{entry.FirstName}}</td>
                     <td>{{entry.LastName}}</td>

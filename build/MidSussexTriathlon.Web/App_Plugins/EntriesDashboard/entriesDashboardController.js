@@ -1,6 +1,6 @@
 ﻿app.requires.push('smart-table');
 
-angular.module("umbraco").controller("EntriesDashboardController", function ($scope, userService, entryResource) {
+angular.module("umbraco").controller("EntriesDashboardController", function ($scope, dialogService, userService, entryResource) {
 
 	$scope.itemsPerPage = [15, 30, 50, 100, 200, 500, 1000];
 	$scope.pageSize = 15;
@@ -36,6 +36,15 @@ angular.module("umbraco").controller("EntriesDashboardController", function ($sc
 				})[0].click();
 				anchor.remove();
 			}				
+		});
+	};
+
+	// Open detail modal
+	$scope.openDetail = function (entry, data) {
+
+		var dialog = dialogService.open({
+			template: '/App_Plugins/EntriesDashboard/detail.html',
+			dialogData: { entry: Object.assign({}, entry), items: data }, show: true, width: 800
 		});
 	};
 });

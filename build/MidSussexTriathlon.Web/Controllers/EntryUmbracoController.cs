@@ -25,6 +25,12 @@ namespace MidSussexTriathlon.Web.Controllers
         public IEnumerable<Entry> GetAll()
         {
             return _entryRepository.GetAll().ToList();
-        }      
+        }
+
+        public Entry Update(Entry entry)
+        {
+            _entryRepository.Update(entry);
+            return _entryRepository.Get(entry.Id);
+        }
     }
 }

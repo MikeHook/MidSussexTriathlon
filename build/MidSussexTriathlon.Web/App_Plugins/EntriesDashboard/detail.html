@@ -1,0 +1,143 @@
+﻿<div class="umb-panel" ng-controller="EntryDetailController" id="diplo-logdetail">
+
+    <div class="umb-panel-header">
+        <div class="row-fluid">
+            <div class="span6">
+                <h3>Race entry<br /><small>{{dialogData.entry.Id}}</small></h3>
+            </div>
+            <div class="span6">
+                <div class="btn-toolbar pull-right">
+                    <a ng-click="save()" class="btn">Save</a>
+                    <a ng-click="previousItem()" class="btn" ng-show="hasPrevious()"><i class="icon-previous"></i>Previous</a>
+                    <a ng-click="nextItem()" class="btn" ng-show="hasNext()">Next <i class="icon-next"></i></a>
+                    <a ng-click="close()" class="btn"><localize key="general_close">Close</localize></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="umb-panel-body umb-scrollable">
+
+        <table class="table">
+            <tr>
+                <th>Date entered</th>
+                <td>{{ dialogData.entry.EntryDate | date:'EEE, dd MMM yyyy, HH:mm:ss' }}</td>
+            </tr>
+            <tr>
+                <th>First name</th>
+                <td><input type="text" ng-model="dialogData.entry.FirstName" /></td>
+            </tr>
+            <tr>
+                <th>Last name</th>
+                <td><input type="text" ng-model="dialogData.entry.LastName" /></td>
+            </tr>
+            <tr>
+                <th>Date of Birth</th>
+                <td><input type="text" ng-model="dialogData.entry.DateOfBirth" /></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td><input type="text" ng-model="dialogData.entry.PhoneNumber" /></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="email" ng-model="dialogData.entry.Email" /></td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>
+                    <select class="input" id="gender" name="gender" required ng-model="dialogData.entry.Gender">                 
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Address Line 1</th>
+                <td><input type="text" ng-model="dialogData.entry.AddressLine1" /></td>
+            </tr>
+            <tr>
+                <th>Address Line 2</th>
+                <td><input type="text" ng-model="dialogData.entry.AddressLine2" /></td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td><input type="text" ng-model="dialogData.entry.City" /></td>
+            </tr>
+            <tr>
+                <th>County</th>
+                <td><input type="text" ng-model="dialogData.entry.County" /></td>
+            </tr>
+            <tr>
+                <th>Postcode</th>
+                <td><input type="text" ng-model="dialogData.entry.Postcode" /></td>
+            </tr>
+            <tr>
+                <th>Race Type</th>
+                <td>
+                    <select class="input" id="gender" name="gender" required ng-model="dialogData.entry.RaceType">
+                        <option value="Full Triathlon">Full Triathlon</option>
+                        <option value="Aquabike">Aquabike</option>
+                        <option value="Relay Triathlon">Relay Triathlon</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Swim Time</th>
+                <td><input type="text" ng-model="dialogData.entry.SwimTime" /></td>
+            </tr>
+            <tr>
+                <th>BTF Number</th>
+                <td><input type="text" ng-model="dialogData.entry.BtfNumber" /></td>
+            </tr>
+            <tr>
+                <th>Club Name</th>
+                <td><input type="text" ng-model="dialogData.entry.ClubName" /></td>
+            </tr>
+            <tr>
+                <th>Relay2 FirstName</th>
+                <td><input type="text" ng-model="dialogData.entry.Relay2FirstName" /></td>
+            </tr>
+            <tr>
+                <th>Relay2 LastName</th>
+                <td><input type="text" ng-model="dialogData.entry.Relay2LastName" /></td>
+            </tr>
+            <tr>
+                <th>Relay2 BTF Number</th>
+                <td><input type="text" ng-model="dialogData.entry.Relay2BtfNumber" /></td>
+            </tr>
+            <tr>
+                <th>Relay3 FirstName</th>
+                <td><input type="text" ng-model="dialogData.entry.Relay3FirstName" /></td>
+            </tr>
+            <tr>
+                <th>Relay3 LastName</th>
+                <td><input type="text" ng-model="dialogData.entry.Relay3LastName" /></td>
+            </tr>
+            <tr>
+                <th>Relay3 BTF Number</th>
+                <td><input type="text" ng-model="dialogData.entry.Relay3BtfNumber" /></td>
+            </tr>
+            <tr>
+                <th>New To Sport</th>
+                <td><input type="checkbox" ng-model="dialogData.entry.NewToSport" /></td>
+            </tr>
+            <tr>
+                <th>How Heard About Us</th>
+                <td><input type="text" ng-model="dialogData.entry.HowHeardAboutUs" /></td>
+            </tr>
+            <tr>
+                <th>Paid?</th>
+                <td><input type="checkbox" ng-model="dialogData.entry.Paid" /></td>
+            </tr>
+            <tr>
+                <th>Payment Failure Message</th>
+                <td>{{dialogData.entry.PaymentFailureMessage}}</td>
+            </tr>
+            <tr>
+                <th>Order Reference</th>
+                <td>{{dialogData.entry.OrderReference}}</td>
+            </tr>          
+        </table>
+    </div>
+</div>

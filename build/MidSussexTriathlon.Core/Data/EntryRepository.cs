@@ -13,6 +13,8 @@ namespace MidSussexTriathlon.Core.Data
     {
         Entry Create(Entry entry);
         void Update(Entry entry);
+
+        Entry Get(int id);
         IEnumerable<Entry> GetAll();
         IEnumerable<Entry> GetEntered();
 
@@ -193,6 +195,16 @@ namespace MidSussexTriathlon.Core.Data
             using (IDbConnection connection = _dataConnection.SqlConnection)
             {
                 return connection.Query<int>(query).Single();
+            }
+        }
+
+        public Entry Get(int id)
+        {
+            string query = $"{baseGet} Where Id = @Id";
+
+            using (IDbConnection connection = _dataConnection.SqlConnection)
+            {
+                return connection.QueryFirst<Entry>(query, new { Id = id });
             }
         }
     }

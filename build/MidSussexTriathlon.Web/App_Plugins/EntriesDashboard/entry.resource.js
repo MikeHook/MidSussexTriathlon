@@ -29,6 +29,11 @@ angular.module('umbraco.resources')
 				return umbRequestHelper.resourcePromise(					
 					$http.get("backoffice/EntriesDashboard/EntryUmbraco/GetAll"),
 					"Failed to retrieve all Entries data");
+			},
+			update: function (entry) {
+				return umbRequestHelper.resourcePromise(
+					$http.post("backoffice/EntriesDashboard/EntryUmbraco/Update", entry),
+					"Failed to update Entry");
 			}
 
 		};

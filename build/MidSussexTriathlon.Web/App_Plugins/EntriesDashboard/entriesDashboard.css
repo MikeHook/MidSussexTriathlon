@@ -19,6 +19,11 @@ th {
     white-space: nowrap;
 }
 
+td.edit:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 caption {
     padding-top: 8px;
     padding-bottom: 8px;
