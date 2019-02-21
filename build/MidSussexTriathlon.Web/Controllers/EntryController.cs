@@ -10,6 +10,7 @@ using System.Globalization;
 using MidSussexTriathlon.Core.Services;
 using System.Web;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace MidSussexTriathlon.Web.Controllers
 {
@@ -58,6 +59,10 @@ namespace MidSussexTriathlon.Web.Controllers
 
             entry.Paid = false;
             entry.DateOfBirth = DateTime.ParseExact(entry.DateOfBirthString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+            string entryString = JsonConvert.SerializeObject(entry);
+            Logger.Info(this.GetType(), "New entry request: {0}", () => entryString);
+
             entry = _entryRepository.Create(entry);
 
             string apiKey = ConfigurationManager.AppSettings["stripeSecretKey"];
