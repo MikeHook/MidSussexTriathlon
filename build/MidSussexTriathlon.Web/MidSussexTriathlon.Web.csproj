@@ -383,6 +383,8 @@
     <Content Include="assets\js\jquery.slicknav.js" />
     <Content Include="assets\js\jquery.throttle.js" />
     <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\moment.js" />
+    <Content Include="assets\js\moment.min.js" />
     <Content Include="assets\js\nivo-lightbox.js" />
     <Content Include="assets\js\nivo-lightbox.min.js" />
     <Content Include="assets\js\owl.carousel.min.js" />

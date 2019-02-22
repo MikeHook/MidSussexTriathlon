@@ -23,24 +23,60 @@
                 }
 
                 @entrants.MainContent
-                
+
+                <h4>Full Triathlon</h4>
+
                 <table id="entrants-table" class="table table-striped table-condensed">
                     <thead>
                         <tr>
+                            <th>Date Entered</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Estimated Swim Time (400m)</th>
-                            <th>Event entered</th>
+                            <th>Estimated Swim Time (400m)</th>                         
                         </tr>
                     </thead>
                     <tbody></tbody>
                 </table>
-              </div>
+                <br />
+
+                <h4>Aquabike</h4>
+
+                <table id="aquabike-table" class="table table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Date Entered</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Estimated Swim Time (400m)</th>                 
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <br />
+
+                <h4>Relay Triathlon</h4>
+
+                <table id="relay-table" class="table table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Date Entered</th>
+                            <th>Relay Entrant 1</th>
+                            <th>Relay Entrant 2</th>
+                            <th>Relay Entrant 3</th>                            
+                            <th>Estimated Swim Time (400m)</th>         
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <br />
+
+            </div>
         </div>
     </div>
 </section>
 
 @section Foot {
+    <script type="text/javascript" src="~/assets/js/moment.min.js"></script>
     <script type="text/javascript" src="~/assets/js/datatables.min.js"></script>
 
     <script type="text/javascript">
@@ -49,16 +85,93 @@
         $(document).ready(function () {
             $('#entrants-table').DataTable({
                 ajax: {
-                    url: '/umbraco/api/entry/entered',
+                    url: '/umbraco/api/entry/entered?eventType=Full Triathlon',
                     dataSrc: ''
                 },
                 columns: [
+                    {
+                        data: 'EntryDate',
+                        render: function (data, type, row) {
+                            if (type === "sort" || type === "type") {
+                                return data;
+                            }
+                            return moment(data).format("DD MMM YYYY HH:mm");
+                        }
+                    },
                     { data: 'FirstName' },
                     { data: 'LastName' },
-                    { data: 'SwimTime' },
-                    { data: 'RaceType' },
+                    { data: 'SwimTime' }                   
                 ],
-                //responsive: true
+                'order': [[0, 'desc']]
+            });
+
+            $('#aquabike-table').DataTable({
+                ajax: {
+                    url: '/umbraco/api/entry/entered?eventType=Aquabike',
+                    dataSrc: ''
+                },
+                columns: [
+                    {
+                        data: 'EntryDate',
+                        render: function (data, type, row) {
+                            if (type === "sort" || type === "type") {
+                                return data;
+                            }
+                            return moment(data).format("DD MMM YYYY HH:mm");
+                        }
+                    },
+                    { data: 'FirstName' },
+                    { data: 'LastName' },
+                    { data: 'SwimTime' }                 
+                ],
+                'order': [[0, 'desc']]
+            });
+
+            $('#relay-table').DataTable({
+                ajax: {
+                    url: '/umbraco/api/entry/entered?eventType=Relay Triathlon',
+                    dataSrc: ''
+                },
+                columns: [
+                    {
+                        data: 'EntryDate',
+                        render: function (data, type, row) {
+                            if (type === "sort" || type === "type") {
+                                return data;
+                            }
+                            return moment(data).format("DD MMM YYYY HH:mm");
+                        }
+                    },                               
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            if (type === "sort" || type === "type") {
+                                return data.FirstName;
+                            }
+                            return data.FirstName + ' ' + data.LastName;
+                        }
+                    },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            if (type === "sort" || type === "type") {
+                                return data.Relay2FirstName;
+                            }
+                            return data.Relay2FirstName + ' ' + data.Relay2LastName;
+                        }
+                    },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            if (type === "sort" || type === "type") {
+                                return data.Relay3FirstName;
+                            }
+                            return data.Relay3FirstName + ' ' + data.Relay3LastName;
+                        }
+                    },
+                    { data: 'SwimTime' }
+                ],
+                'order': [[0, 'desc']]
             });
         });
     </script>

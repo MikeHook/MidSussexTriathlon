@@ -180,7 +180,7 @@ namespace MidSussexTriathlon.Core.Data
 
         public IEnumerable<Entry> GetEntered()
         {
-            string query = $"{baseGet} Where Paid = 1";
+            string query = $"{baseGet} Where Paid = 1 order By EntryDate DESC";
 
             using (IDbConnection connection = _dataConnection.SqlConnection)
             {

@@ -43,9 +43,9 @@ namespace MidSussexTriathlon.Web.Controllers
 
         // GET: /umbraco/api/entry/entered
         [HttpGet]
-        public IEnumerable<Entry> Entered()
+        public IEnumerable<Entry> Entered(string eventType)
         {
-            return _entryRepository.GetEntered();
+            return _entryRepository.GetEntered().Where(e => e.RaceType == eventType);
         }
 
         // POST: /umbraco/api/entry/new
