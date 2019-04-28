@@ -97,6 +97,8 @@ function submitEntry(tokenId) {
 			} else {
 				$('#entry-container').addClass('hidden');
 				$('#entry-confirmed').removeClass('hidden');
+
+				fbq('track', 'CompleteRegistration');
 			}
 
 		},
