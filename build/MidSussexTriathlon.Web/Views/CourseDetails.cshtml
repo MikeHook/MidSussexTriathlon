@@ -25,19 +25,22 @@
                 @courseDetail.Content
             </div>
             <div class="col-md-4">
-                <div class="gallery-item">
-                    <a href="#">
-                        <img src="@courseDetail.Image.Url" alt="@courseDetail.Image.GetPropertyValue("alt")">                       
-                    </a>
-                    <div class="overlay">
-                        <div class="icons">
-                            <a class="preview lightbox" href="@courseDetail.Image.Url">
-                                <i class="icon-eye"></i>
-                            </a>
+                @if (courseDetail.Image != null)
+                {
+                    <div class="gallery-item">
+                        <a href="#">
+                            <img src="@courseDetail.Image.Url" alt="@courseDetail.Image.GetPropertyValue(" alt")">
+                        </a>
+                        <div class="overlay">
+                            <div class="icons">
+                                <a class="preview lightbox" href="@courseDetail.Image.Url">
+                                    <i class="icon-eye"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                }
                 </div>
-            </div>
         </div>
         }
     </div>
