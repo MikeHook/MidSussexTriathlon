@@ -730,7 +730,8 @@ fieldset[disabled] .btn {
 }
 
 .counter-wrapper { background: #222222; text-align: center; padding-top: 10px; padding-bottom: 10px; }
-.counter-title { display: inline-block; font-size: 28px; font-weight: 400; color: #fff; margin-right: 26px; line-height: 46px; vertical-align: top; margin-top: 25px; }
+.counter-title { display: inline-block; font-size: 28px; font-weight: 400; color: #fff; margin-right: 26px; line-height: 46px; vertical-align: top; margin-top: 0; }
+.counter-subtitle { color: #FFC107; }
 .counters-block { display: inline-block; margin-top: 2px; margin-right: 39px; }
 .counters-entry { float: left; border-left: 1px solid #4e4e4e; width: 106px; }
 .counters-entry:last-child { border-right: 1px solid #4e4e4e; }
