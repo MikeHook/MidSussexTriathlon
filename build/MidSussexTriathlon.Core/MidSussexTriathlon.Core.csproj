@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Data\DataConnection.cs" />
     <Compile Include="Data\EntryRepository.cs" />
+    <Compile Include="Model\EntryReport.cs" />
     <Compile Include="Domain\Entry.cs" />
     <Compile Include="Model\ContactModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

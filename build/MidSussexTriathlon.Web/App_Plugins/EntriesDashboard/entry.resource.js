@@ -27,7 +27,7 @@ angular.module('umbraco.resources')
 			getCsv: function () {
 				$http.defaults.headers.common = { 'Accept': 'text/csv' };
 				return umbRequestHelper.resourcePromise(					
-					$http.get("backoffice/EntriesDashboard/EntryUmbraco/GetAll"),
+					$http.get("backoffice/EntriesDashboard/EntryUmbraco/GetAllForCsv"),
 					"Failed to retrieve all Entries data");
 			},
 			update: function (entry) {
