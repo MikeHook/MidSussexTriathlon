@@ -140,6 +140,21 @@ function initStripe(pkStripe) {
 		}
 	});
 
+	//Example of validatorOptions, need to include the data-minimumage attribute on the input to apply
+	var validatorOptions = {
+		custom: {
+			minimumage: function ($el) {
+				var matchValue = $el.data("minimumage");
+				console.log('Minimum Age:', matchValue);
+				console.log('Date of Birth:', $el.val());
+				if ($el.val() !== matchValue) {
+					//return "Hey, that's not valid! It's gotta be " + matchValue
+				}
+				return "";
+			}
+		}
+	};
+
 	$("#entryForm").validator().on("submit", function (event) {
 		if (!event.isDefaultPrevented()) {
 			event.preventDefault();
@@ -231,7 +246,16 @@ function bindEvents() {
 		btfChanged();
 	});
 
-	$('#dob').datepicker({}).on('changeDate', function (e) {
+	var d = new Date();
+	var year = d.getFullYear();
+	var month = d.getMonth();
+	var day = d.getDate();
+	var endDate = new Date(year - 16, month, day);
+
+	$('#dob').datepicker({
+		autoclose: true,
+		endDate: endDate
+	}).on('changeDate', function (e) {
 		onFieldBlur('#dob');
 	});
 }
