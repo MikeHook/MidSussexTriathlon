@@ -150,7 +150,7 @@
                                             <span class="span"></span>
                                             <label class="label transition">Race type*</label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="raceType" id="raceType1" value="Full Triathlon" required> Full Triathlon
+                                                <input type="radio" name="raceType" id="raceType1" value="Full Triathlon" required> Triathlon
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" name="raceType" id="raceType2" value="Aquabike" required> Aquabike
@@ -165,7 +165,8 @@
                                         <div class="form-group label-line label-line-time">
                                             <span class="span"></span>
                                             <label class="label transition">Swim time* (4-20 minutes)</label>
-                                            <input type="time" class="input" id="swimTime" min="04:00" max="20:00" required data-error="Please enter a swim time between 4 and 20 minutes">
+                                            <input type="time" class="input" id="swimTime" min="04:00" max="20:00" required data-error="Please enter a swim time in format mm:ss between 04:00 and 20:00 minutes"
+                                                   pattern="^[0-2][0-9]:[0-6][0-9]$">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -206,7 +207,18 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Where did you hear about us?*</label>
-                                            <input type="text" class="input" id="howHeardAboutUs" maxlength="255" required data-error="Please enter where you heard about us">
+                                            <select class="input" id="howHeardAboutUs" name="howHeardAboutUs" required data-error="Please select where you heard about us">
+                                                <option value=""></option>
+                                                <option value="BTF listing">BTF listing</option>
+                                                <option value="Email from MSTC">Email from Mid Sussex Tri Club</option>
+                                                <option value="Facebook">Facebook</option>
+                                                <option value="Friend recommended">Friend recommended</option>
+                                                <option value="I've done it before">I've done it before</option>
+                                                <option value="Local press or flyer">Local press or flyer</option>
+                                                <option value="My Club">My Club</option>
+                                                <option value="Web search">Web search</option>
+                                                <option value="Other">Other</option>
+                                            </select>                                            
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>

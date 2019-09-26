@@ -33,7 +33,7 @@ namespace MidSussexTriathlon.Web.Controllers
                 FirstName = e.FirstName,
                 LastName =  e.LastName,
                 DateOfBirth = e.DateOfBirth.ToString("yyyy/MM/dd"),
-                PhoneNumber = e.PhoneNumber,
+                PhoneNumber = string.IsNullOrEmpty(e.PhoneNumber) ? "" : $"'{e.PhoneNumber}'", //Add quotes to stop excel mucking up the formatting
                 Email = e.Email,
                 Gender = e.Gender,
                 AddressLine1 = e.AddressLine1,
