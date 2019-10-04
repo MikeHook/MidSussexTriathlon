@@ -2240,6 +2240,7 @@ div.checkbox-field div.help-block.with-errors {
 
 div.help-block.with-errors {
     padding-top: 55px;
+    font-weight:900;
 }
 
 div.payment-errors {
