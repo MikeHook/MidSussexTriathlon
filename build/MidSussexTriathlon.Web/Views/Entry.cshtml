@@ -4,6 +4,7 @@
 @{
     Layout = "Master.cshtml";
     var entry = Model.Content;
+    var home = (Home)Model.Content.Site();
 }
 
 @section Head {
@@ -20,7 +21,7 @@
                 <div class="col-md-8 col-sm-7 entry-left-col">
                     <div id="entry-container">
                         <div class="title-header">
-                            <h3 class="title-medium">Enter the Mid Sussex Triathlon on Sunday 9th June 2019</h3>
+                            <h3 class="title-medium">Enter the Mid Sussex Triathlon on @home.RaceDate.ToString("dddd dd MMMM yyyy")</h3>
                         </div>
                         <div>
                             <form role="form" id="entryForm" data-toggle="validator" class="entry-form">
