@@ -588,6 +588,7 @@ fieldset[disabled] .btn {
 }
 #carousel-area .carousel-caption.enter {
   top: 58%;
+  padding: 155px 0 0 348px;
 }
 #carousel-area .carousel-caption h2 {
   font-size: 45px;
@@ -598,6 +599,7 @@ fieldset[disabled] .btn {
 }
 #carousel-area .carousel-caption .btn {
   margin: 0 15px;
+  border-radius: 0;
 }
 #carousel-area .carousel-control {
   z-index: 10;
