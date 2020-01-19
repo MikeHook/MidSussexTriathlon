@@ -347,6 +347,7 @@
     <Content Include="assets\img\slider\WebsiteBanner-1920x600.png" />
     <Content Include="assets\img\slider\WebsiteBanner-2.png" />
     <Content Include="assets\img\slider\WebsiteBanner-2020.png" />
+    <Content Include="assets\img\slider\WebsiteBanner-2020v2.png" />
     <Content Include="assets\img\slider\WebsiteBanner-3.png" />
     <Content Include="assets\img\slider\WebsiteBanner-600.png" />
     <Content Include="assets\img\slider\WebsiteBanner-900.png" />
@@ -367,6 +368,7 @@
     <Content Include="assets\img\sponsors\waitrose.gif" />
     <Content Include="assets\img\sponsors\WisdomSportsLogo.png" />
     <Content Include="assets\img\tri-logo-200.png" />
+    <Content Include="assets\img\trilogo2020-80.png" />
     <Content Include="assets\js\bootstrap-datepicker.min.js" />
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\color-switcher.js" />
