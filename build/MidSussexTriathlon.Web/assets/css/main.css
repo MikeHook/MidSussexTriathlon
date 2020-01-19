@@ -588,7 +588,7 @@ fieldset[disabled] .btn {
 }
 #carousel-area .carousel-caption.enter {
   top: 58%;
-  padding: 160px 0 0 422px;
+  padding: 155px 0 0 350px;
 }
 #carousel-area .carousel-caption h2 {
   font-size: 45px;
@@ -600,6 +600,11 @@ fieldset[disabled] .btn {
 #carousel-area .carousel-caption .btn {
   margin: 0 15px;
   border-radius: 0;
+  border-color: black;
+  border-width: 6px;
+  color: black;
+  padding: 15px 30px;
+  font-weight: 900;
 }
 #carousel-area .carousel-control {
   z-index: 10;

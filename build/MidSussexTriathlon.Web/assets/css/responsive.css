@@ -78,8 +78,15 @@
     line-height: 36px;
     margin: 20px;
   }
+
+  #carousel-area .carousel-caption .btn {
+    padding: 5px 3px;
+  }
+
   #carousel-area .carousel-caption.enter {
-    top: 54%;
+    top: 82%;
+    left: 59%;
+    padding: 0;
   }
 
   #carousel-area .banner-image {
