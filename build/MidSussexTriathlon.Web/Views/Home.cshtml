@@ -24,13 +24,13 @@
         <img class="banner-image" src="assets/img/slider/WebsiteBanner-2020v2.png" alt="">
         <div class="carousel-caption enter">
             <div class="buttons wow fadeInDown" data-wow-delay="0.2s">
-                @if (home.EntriesDisabled)
-                {
-                    <a class="btn btn-lg btn-common" href="/apres-race/race-results">Race Results</a>
-                }
-                else
+                @if (!home.EntriesDisabled)
                 {
                     <a class="btn btn-lg btn-common" href="/enter-race">Enter Now</a>
+                }
+                else if (home.DisabledEntryLink != null && home.DisabledEntryLink.Any())
+                {
+                    <a class="btn btn-lg btn-common" href="@home.DisabledEntryLink.First().Link">@home.DisabledEntryLink.First().Caption</a>
                 }
             </div>
         </div>
