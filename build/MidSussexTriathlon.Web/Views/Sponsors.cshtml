@@ -65,7 +65,7 @@
                 {
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
-                            <a href="@logoItem.Link.FirstOrDefault()?.Link" target="_blank">
+                            <a href="@logoItem.Link.First().Link" target="_blank">
                                 <img src="@logoItem.Logo.Url" alt="@logoItem.Logo.GetPropertyValue("alt")">
                             </a>
                         </div>
