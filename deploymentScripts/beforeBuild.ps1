@@ -34,6 +34,10 @@ if ($env:stripeSecretKey)
 {
     $webconfig = ReplaceAppSetting $webconfig "stripeSecretKey" $env:stripeSecretKey
 }
+if ($env:stripeEndpointSecret)
+{
+    $webconfig = ReplaceAppSetting $webconfig "stripeEndpointSecret" $env:stripeEndpointSecret
+}
 if ($env:emailTestMode)
 {
     $webconfig = ReplaceAppSetting $webconfig "emailTestMode" $env:emailTestMode
