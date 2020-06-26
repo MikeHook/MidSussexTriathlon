@@ -52,7 +52,7 @@ namespace MidSussexTriathlon.Web.Controllers
                 Paid = e.Paid,
                 PaymentFailureMessage = e.PaymentFailureMessage,
                 OrderReference = e.OrderReference,
-                TokenId = e.TokenId,
+                ClientSecret = e.ClientSecret,
                 Cost = e.Cost,
                 Relay2FirstName = e.Relay2FirstName,
                 Relay2LastName = e.Relay2LastName,

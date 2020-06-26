@@ -11,18 +11,17 @@ using MidSussexTriathlon.Core.Services;
 using System.Web;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace MidSussexTriathlon.Web.Controllers
 {
     public class EntryController : UmbracoApiController
     {
         IEntryRepository _entryRepository;
-        IEmailService _emailService;
 
         public EntryController()
         {
             _entryRepository = new EntryRepository(new DataConnection());
-            _emailService = new EmailService();
         }
 
         // GET: /umbraco/api/entry/placesleft
@@ -48,9 +47,9 @@ namespace MidSussexTriathlon.Web.Controllers
             return _entryRepository.GetEntered().Where(e => e.RaceType == eventType);
         }
 
-        // POST: /umbraco/api/entry/new
+        // POST: /umbraco/api/entry/init
         [HttpPost]
-        public string New(Entry entry)
+        public string Init(Entry entry)
         {
             if (entry.Cost == 0)
             {
@@ -58,46 +57,36 @@ namespace MidSussexTriathlon.Web.Controllers
             }
 
             entry.Paid = false;
-            entry.DateOfBirth = DateTime.ParseExact(entry.DateOfBirthString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            entry.DateOfBirth = DateTime.ParseExact(entry.DateOfBirthString, "dd/MM/yyyy", CultureInfo.InvariantCulture);        
 
+            string apiKey = ConfigurationManager.AppSettings["stripeSecretKey"];
+            StripeConfiguration.ApiKey = apiKey;
+
+            int cost = entry.Cost * 100;
+
+            var options = new PaymentIntentCreateOptions
+            {
+                Amount = cost,
+                Currency = "gbp",
+                ReceiptEmail = entry.Email,
+                Description = $"{entry.RaceType} Entry",
+                // Verify your integration in this guide by including this parameter
+                Metadata = new Dictionary<string, string>
+                {
+                  { "integration_check", "accept_a_payment" },
+                },
+            };
+            
+            var service = new PaymentIntentService();
+            PaymentIntent paymentIntent = service.Create(options);
+
+            entry.ClientSecret = paymentIntent.ClientSecret;
             string entryString = JsonConvert.SerializeObject(entry);
             Logger.Info(this.GetType(), "New entry request: {0}", () => entryString);
 
             entry = _entryRepository.Create(entry);
 
-            string apiKey = ConfigurationManager.AppSettings["stripeSecretKey"];
-            StripeConfiguration.SetApiKey(apiKey);
-
-            int cost = entry.Cost * 100; 
-            var options = new StripeChargeCreateOptions
-            {
-                Amount = cost,
-                Currency = "gbp",
-                SourceTokenOrExistingSourceId = entry.TokenId,
-                ReceiptEmail = entry.Email,
-                Description = $"{entry.RaceType} Entry",
-            };
-            var service = new StripeChargeService();
-            StripeCharge charge = service.Create(options);
-            entry.OrderReference = charge.Id;
-            entry.Paid = charge.Paid;
-
-            if (!entry.Paid)
-            {
-                entry.PaymentFailureMessage = charge.FailureMessage;
-                _entryRepository.Update(entry);
-                return charge.FailureMessage;
-            }
-       
-            _entryRepository.Update(entry);
-
-            var entryPage = Umbraco.TypedContentAtRoot().First().Children.FirstOrDefault(c => c.DocumentTypeAlias == "entry");
-            var subject = (string)entryPage?.GetProperty("confirmationEmailSubject")?.Value;
-            var bodyProp = entryPage?.GetProperty("confirmationEmailBody")?.Value as HtmlString;
-            var body = bodyProp.ToHtmlString().Replace("/{{Domain}}", "https://midsussextriathlon.com");
-            _emailService.SendConfirmationEmail(entry, subject, body);
-            _emailService.SendAdminConfirmationEmail(entry);
-            return "";
-        }  
+            return paymentIntent.ClientSecret;
+        }        
     }
 }

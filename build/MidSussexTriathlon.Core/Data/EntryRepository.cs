@@ -14,6 +14,7 @@ namespace MidSussexTriathlon.Core.Data
         Entry Create(Entry entry);
         void Update(Entry entry);
 
+        Entry Get(string clientSecret);
         Entry Get(int id);
         IEnumerable<Entry> GetAll();
         IEnumerable<Entry> GetEntered();
@@ -43,6 +44,7 @@ namespace MidSussexTriathlon.Core.Data
                                       ,[Paid]
                                       ,[PaymentFailureMessage]
                                       ,[OrderReference]
+                                      ,[ClientSecret]
                                       ,[EntryDate]
                                       ,[NewToSport]
                                       ,[HowHeardAboutUs]
@@ -82,6 +84,7 @@ namespace MidSussexTriathlon.Core.Data
            ,[TermsAccepted]
            ,[Paid]            
            ,[OrderReference]
+           ,[ClientSecret]
            ,[EntryDate]
            ,[NewToSport]
            ,[HowHeardAboutUs]
@@ -111,6 +114,7 @@ namespace MidSussexTriathlon.Core.Data
            ,@TermsAccepted
            ,@Paid
            ,@OrderReference
+           ,@ClientSecret
            ,@EntryDate
            ,@NewToSport
            ,@HowHeardAboutUs
@@ -205,6 +209,16 @@ namespace MidSussexTriathlon.Core.Data
             using (IDbConnection connection = _dataConnection.SqlConnection)
             {
                 return connection.QueryFirst<Entry>(query, new { Id = id });
+            }
+        }
+
+        public Entry Get(string clientSecret)
+        {
+            string query = $"{baseGet} Where ClientSecret = @ClientSecret";
+
+            using (IDbConnection connection = _dataConnection.SqlConnection)
+            {
+                return connection.QueryFirst<Entry>(query, new { ClientSecret = clientSecret });
             }
         }
     }

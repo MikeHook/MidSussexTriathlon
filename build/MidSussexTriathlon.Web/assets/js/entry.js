@@ -51,7 +51,7 @@ function raceTypeChanged() {
 	btfChanged();
 }
 
-function submitEntry(tokenId) {  
+function submitEntry(stripe, card) {  
 
 	var costSpan = document.getElementById('cost');
 
@@ -80,34 +80,59 @@ function submitEntry(tokenId) {
 		relay3FirstName: $("#relay3FirstName").val(),
 		relay3LastName: $("#relay3LastName").val(),
 		relay3BtfNumber: $("#relay3BtfNumber").val(),
-		cost: costSpan.textContent, 
-		tokenId: tokenId
+		cost: costSpan.textContent
 	};
 
 	$.ajax({
-		url: '/umbraco/api/entry/new',
+		url: '/umbraco/api/entry/init',
 		data: entryModel,
 		method: 'POST',// jQuery > 1.9
 		type: 'POST', //jQuery < 1.9
 		success: function (response) {
-			$.Toast.hideToast();
-			if (response !== '') {
-				var displayError = document.getElementById('card-errors');
-				displayError.textContent = response;
-			} else {
-				$('#entry-container').addClass('hidden');
-				$('#entry-confirmed').removeClass('hidden');
+	
+				var clientSecret = response;
+				stripe.confirmCardPayment(clientSecret, {
+					payment_method: {
+						card: card,
+						billing_details: {
+							email: $("#email").val(),
+							name: $("#firstName").val() + ' ' + $("#lastName").val(),
+							address: {
+								line1: $("#address1").val(),
+								line2: $("#address2").val(),
+								city: $("#city").val(),
+								postal_code: $("#postcode").val(),
+								state: $("#county").val(),
+								country: 'GB'
+							}							
+						}
+					}
+				}).then(function (result) {
+					if (result.error) {
+						// Inform the customer that there was an error.
+						var errorElement = document.getElementById('card-errors');
+						errorElement.textContent = result.error.message;	
+						JL().error('Unable to confirmCardPayment with Stripe');
+						JL().error(result.error.message);								
+					} else {
+						// The payment has been processed!
+						if (result.paymentIntent.status === 'succeeded') {
+							// The StripeWebHookController webhook will complete the payment
+							$('#entry-container').addClass('hidden');
+							$('#entry-confirmed').removeClass('hidden');
 
-				fbq('track', 'CompleteRegistration');
-			}
-
+							fbq('track', 'CompleteRegistration');
+						}
+					}
+					$.Toast.hideToast();
+				});
 		},
 		error: function (message) {
 			$.Toast.hideToast();
 			$('#entry-container').addClass('hidden');
 			$('#entry-error').removeClass('hidden');
 
-			JL().error('Call to /umbraco/api/entry/new returned error');
+			JL().error('Call to /umbraco/api/entry/init returned error');
 			JL().error(message);
 		}
 	});
@@ -164,33 +189,7 @@ function initStripe(pkStripe) {
 				"duration": 0
 			});
 
-			var tokenData = {
-				name: $("#email").val(),
-				currency: 'gbp',
-				address_line1: $("#address1").val(),
-				address_line2: $("#address2").val(),
-				address_city: $("#city").val(),
-				address_state: $("#county").val(),
-				address_zip: $("#postcode").val(),
-				address_country: 'UK'
-			};
-
-			stripe.createToken(card, tokenData)
-				.then(function (result) {
-					if (result.error) {
-						// Inform the customer that there was an error.
-						var errorElement = document.getElementById('card-errors');
-						errorElement.textContent = result.error.message;
-
-						JL().warn('stripe.createToken function call returned error');
-						JL().warn(result.error);
-
-						$.Toast.hideToast();
-					} else {
-						// Send the token to your server.
-						submitEntry(result.token.id);						
-					}
-				});
+			submitEntry(stripe, card);			
 		}
 	});
 }

@@ -31,7 +31,7 @@ namespace MidSussexTriathlon.Core.Model
         public bool Paid { get; set; }
         public string PaymentFailureMessage { get; set; }
         public string OrderReference { get; set; }
-        public string TokenId { get; set; }
+        public string ClientSecret { get; set; }
         public int Cost { get; set; }
 
         public string Relay2FirstName { get; set; }
