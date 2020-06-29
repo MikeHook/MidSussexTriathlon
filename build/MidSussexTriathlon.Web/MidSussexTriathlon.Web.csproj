@@ -348,6 +348,7 @@
     <Content Include="assets\img\routes\MSTC_RunRoute.jpg" />
     <Content Include="assets\img\routes\mst_swim_map.gif" />
     <Content Include="assets\img\routes\transition-aerialview.jpg" />
+    <Content Include="assets\img\slider\Banner-2021.png" />
     <Content Include="assets\img\slider\FinishBanner2-1920x600.jpg" />
     <Content Include="assets\img\slider\FinishBanner3-1920x600.jpg" />
     <Content Include="assets\img\slider\triathlon-bike1920x600.jpg" />
