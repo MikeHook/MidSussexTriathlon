@@ -48,7 +48,7 @@ namespace MidSussexTriathlon.Web.Controllers
                 if (stripeEvent.Type == Events.PaymentIntentSucceeded)
                 {
                     var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
-                    Logger.Info(this.GetType(), $"PaymentIntent was successful! {json}");
+                    Logger.Info(this.GetType(), "PaymentIntent was successful! {0}", () => json);            
                     return ConfirmEntry(paymentIntent);
                 }
                 else
