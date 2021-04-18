@@ -22,6 +22,7 @@ namespace MidSussexTriathlon.Core.Model
         public string Postcode { get; set; }
         public string RaceType { get; set; }
         public string SwimTime { get; set; }
+        public string SwimDistance { get; set; }
         public string BtfNumber { get; set; }
         public string ClubName { get; set; }
         public bool TermsAccepted { get; set; }
@@ -40,5 +41,6 @@ namespace MidSussexTriathlon.Core.Model
         public string Relay3FirstName { get; set; }
         public string Relay3LastName { get; set; }
         public string Relay3BtfNumber { get; set; }
+        public int? Wave { get; set; }
     }
 }

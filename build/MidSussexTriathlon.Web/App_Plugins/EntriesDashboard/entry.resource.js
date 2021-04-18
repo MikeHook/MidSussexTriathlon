@@ -17,13 +17,12 @@ angular.module('umbraco.resources')
 	function ($q, $http, umbRequestHelper) {
 		// the factory object returned
 		return {
-			// this calls the ApiController we setup earlier
+			// ApiController Calls
 			getAll: function () {
 				return umbRequestHelper.resourcePromise(
 					$http.get("backoffice/EntriesDashboard/EntryUmbraco/GetAll"),
 					"Failed to retrieve all Entries data");
 			},
-			// this calls the ApiController we setup earlier
 			getCsv: function () {
 				$http.defaults.headers.common = { 'Accept': 'text/csv' };
 				return umbRequestHelper.resourcePromise(					
@@ -34,6 +33,12 @@ angular.module('umbraco.resources')
 				return umbRequestHelper.resourcePromise(
 					$http.post("backoffice/EntriesDashboard/EntryUmbraco/Update", entry),
 					"Failed to update Entry");
+			},
+			setWaves: function (waveSize) {
+				var model = { 'waveSize': waveSize };
+				return umbRequestHelper.resourcePromise(
+					$http.post("backoffice/EntriesDashboard/EntryUmbraco/SetWaves", model),
+					"Failed to Set Waves");
 			}
 
 		};

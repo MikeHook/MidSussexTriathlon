@@ -53,7 +53,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Date of birth*</label>
-                                            <input type="text" class="input" id="dob" required data-error="Please enter date of birth in format dd/mm/yyyy. You must be at least 16 years old." 
+                                            <input type="text" class="input" id="dob" required data-error="Please enter date of birth in format dd/mm/yyyy. You must be at least 16 years old."
                                                    data-date-format="dd/mm/yyyy" pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -157,15 +157,30 @@
                                                 <input type="radio" name="raceType" id="raceType2" value="Aquabike" required> Aquabike
                                             </label>
                                             @*<label class="radio-inline">
-                                                <input type="radio" name="raceType" id="raceType3" value="Relay Triathlon" required> Relay Triathlon
-                                            </label>*@
+                                        <input type="radio" name="raceType" id="raceType3" value="Relay Triathlon" required> Relay Triathlon
+                                    </label>*@
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line label-line-radio">
+                                            <span class="span"></span>
+                                            <label class="label transition">Swim Distance*</label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="swimDistance" id="swimDistance1" value="200 metres" required> 200 metres
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="swimDistance" id="swimDistance2" value="400 metres" required> 400 metres
+                                            </label>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group label-line label-line-time">
                                             <span class="span"></span>
-                                            <label class="label transition">Swim time* (4-20 minutes)</label>
+                                            <label class="label transition">Swim time* (for 400 metres)</label>
                                             <input type="time" class="input" id="swimTime" min="04:00" max="20:00" required data-error="Please enter a swim time in format mm:ss between 04:00 and 20:00 minutes"
                                                    pattern="^[0-2][0-9]:[0-6][0-9]$">
                                             <div class="help-block with-errors"></div>
@@ -219,12 +234,12 @@
                                                 <option value="My Club">My Club</option>
                                                 <option value="Web search">Web search</option>
                                                 <option value="Other">Other</option>
-                                            </select>                                            
+                                            </select>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="relayFieldsContainer"></div>   
+                                <div id="relayFieldsContainer"></div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5 class="title-medium pull-left">Credit or debit card</h5>
@@ -369,7 +384,7 @@
     <script type="text/javascript" src="~/assets/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="~/assets/js/form-validator.min.js"></script>
     <script type="text/javascript" src="~/assets/js/jquery.toast.js"></script>
-    <script type="text/javascript" src="~/assets/js/entry.js?v=4"></script>
+    <script type="text/javascript" src="~/assets/js/entry.js?v=5"></script>
 
     <script type="text/javascript">
         var pkStripe = '@ConfigurationManager.AppSettings["stripePublicKey"]';

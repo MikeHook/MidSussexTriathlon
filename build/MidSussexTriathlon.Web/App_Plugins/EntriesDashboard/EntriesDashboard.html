@@ -1,5 +1,5 @@
 ﻿<div class="welcome-dashboard" ng-controller="EntriesDashboardController">
-     <p>
+    <p>
         Hello <b>{{UserName}}</b>. We hope you find the experience of editing your content with Umbraco enjoyable and delightful. If you discover any problems with the site please report them to the <a href="mailto:support@midsussextriclub.com">support team</a>.
     </p>
 
@@ -24,6 +24,7 @@
                     <th st-sort="Postcode">Postcode</th>
                     <th st-sort="RaceType">Race Type</th>
                     <th st-sort="SwimTime">Swim Time</th>
+                    <th st-sort="SwimDistance">Swim Distance</th>
                     <th st-sort="BtfNumber">BTF Number</th>
                     <th st-sort="ClubName">Club Name</th>
                     <th st-sort="TermsAccepted">Terms Accepted?</th>
@@ -38,6 +39,7 @@
                     <th st-sort="Relay3FirstName">Relay 3 First Name</th>
                     <th st-sort="Relay3LastName">Relay 3 Last Name</th>
                     <th st-sort="Relay3BtfNumber">Relay 3 Btf Number</th>
+                    <th st-sort="Wave">Start Wave</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +59,7 @@
                     <td>{{entry.Postcode}}</td>
                     <td>{{entry.RaceType}}</td>
                     <td>{{entry.SwimTime}}</td>
+                    <td>{{entry.SwimDistance}}</td>
                     <td>{{entry.BtfNumber}}</td>
                     <td>{{entry.ClubName}}</td>
                     <td>{{entry.TermsAccepted ? 'Yes' : 'No'}}</td>
@@ -71,6 +74,7 @@
                     <td>{{entry.Relay3FirstName}}</td>
                     <td>{{entry.Relay3LastName}}</td>
                     <td>{{entry.Relay3BtfNumber}}</td>
+                    <td>{{entry.Wave}}</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -100,9 +104,26 @@
         </button>
     </div>
 
+    <hr/>
 
+    <div class="control-group umb-control-group">
 
+        <div class="umb-el-wrap">
 
+            <label class="control-label">
+                Wave Size
+            </label>
 
+            <div class="controls">
+
+                <div class="umb-property-editor">
+                    <input type="number" name="waveSize" ng-model="waveSize" id="waveSize" />
+                </div>
+                <div class="umb-property-editor">
+                    <button class="btn btn-success" ng-click="assignWaves()">Assign waves</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>

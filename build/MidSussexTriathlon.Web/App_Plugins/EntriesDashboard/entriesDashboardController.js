@@ -1,9 +1,10 @@
 ﻿app.requires.push('smart-table');
 
-angular.module("umbraco").controller("EntriesDashboardController", function ($scope, dialogService, userService, entryResource) {
+angular.module("umbraco").controller("EntriesDashboardController", function ($scope, notificationsService, dialogService, userService, entryResource) {
 
 	$scope.itemsPerPage = [15, 30, 50, 100, 200, 500, 1000];
 	$scope.pageSize = 15;
+	$scope.waveSize = 45;
 
 	$scope.UserName = 'guest';
 	$scope.Entries = [];
@@ -45,6 +46,15 @@ angular.module("umbraco").controller("EntriesDashboardController", function ($sc
 		var dialog = dialogService.open({
 			template: '/App_Plugins/EntriesDashboard/detail.html',
 			dialogData: { entry: Object.assign({}, entry), items: data }, show: true, width: 800
+		});
+	};
+
+	$scope.assignWaves = function () {
+		entryResource.setWaves($scope.waveSize).then(function (response) {
+			entryResource.getAll().then(function (response) {
+				$scope.Entries = response;
+				notificationsService.success("Entrant waves assigned", "Boom.");
+			});			
 		});
 	};
 });

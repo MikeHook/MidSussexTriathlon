@@ -32,7 +32,9 @@
                             <th>Date Entered</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Estimated Swim Time (400m)</th>                         
+                            <th>Estimated Swim Time (for 400m)</th>
+                            <th>Swim Distance</th>
+                            <th>Start Wave</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -47,7 +49,9 @@
                             <th>Date Entered</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Estimated Swim Time (400m)</th>                 
+                            <th>Estimated Swim Time (for 400m)</th> 
+                            <th>Swim Distance</th>
+                            <th>Start Wave</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -62,8 +66,10 @@
                             <th>Date Entered</th>
                             <th>Relay Entrant 1</th>
                             <th>Relay Entrant 2</th>
-                            <th>Relay Entrant 3</th>                            
-                            <th>Estimated Swim Time (400m)</th>         
+                            <th>Relay Entrant 3</th>
+                            <th>Estimated Swim Time (for 400m)</th>
+                            <th>Swim Distance</th>
+                            <th>Start Wave</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -100,7 +106,10 @@
                     },
                     { data: 'FirstName' },
                     { data: 'LastName' },
-                    { data: 'SwimTime' }                   
+                    { data: 'SwimTime' },
+                    { data: 'SwimDistance' },
+                    { data: 'Wave' }
+                    
                 ],
                 'order': [[0, 'desc']]
             });
@@ -122,7 +131,9 @@
                     },
                     { data: 'FirstName' },
                     { data: 'LastName' },
-                    { data: 'SwimTime' }                 
+                    { data: 'SwimTime' },
+                    { data: 'SwimDistance' },
+                    { data: 'Wave' }
                 ],
                 'order': [[0, 'desc']]
             });
@@ -169,7 +180,9 @@
                             return data.Relay3FirstName + ' ' + data.Relay3LastName;
                         }
                     },
-                    { data: 'SwimTime' }
+                    { data: 'SwimTime' },
+                    { data: 'SwimDistance' },
+                    { data: 'Wave' }
                 ],
                 'order': [[0, 'desc']]
             });

@@ -69,6 +69,7 @@ function submitEntry(stripe, card) {
 		email: $("#email").val(),
 		raceType: $("input[name='raceType']:checked").val(),
 		swimTime: $("#swimTime").val(),
+		swimDistance: $("input[name='swimDistance']:checked").val(),
 		btfNumber: $("#btfNumber").val(),
 		clubName: $("#clubName").val(),
 		termsAccepted: $("#terms").val(),

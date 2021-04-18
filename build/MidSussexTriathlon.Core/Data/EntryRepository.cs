@@ -38,6 +38,7 @@ namespace MidSussexTriathlon.Core.Data
                                       ,[Postcode]
                                       ,[RaceType]
                                       ,[SwimTime]
+                                      ,[SwimDistance]
                                       ,[BtfNumber]
                                       ,[ClubName]
                                       ,[TermsAccepted]
@@ -54,6 +55,7 @@ namespace MidSussexTriathlon.Core.Data
                                       ,[Relay3FirstName]
                                       ,[Relay3LastName]
                                       ,[Relay3BtfNumber]
+                                      ,[Wave]
                                   FROM [dbo].[Entry] ";
 
         private readonly IDataConnection _dataConnection;
@@ -79,6 +81,7 @@ namespace MidSussexTriathlon.Core.Data
            ,[Email]
            ,[RaceType]
            ,[SwimTime]
+           ,[SwimDistance]
            ,[BtfNumber]
            ,[ClubName]
            ,[TermsAccepted]
@@ -93,7 +96,8 @@ namespace MidSussexTriathlon.Core.Data
            ,[Relay2BtfNumber]
            ,[Relay3FirstName]
            ,[Relay3LastName]
-           ,[Relay3BtfNumber])
+           ,[Relay3BtfNumber]
+           ,[Wave])
         OUTPUT Inserted.Id
         VALUES
            (@FirstName
@@ -109,6 +113,7 @@ namespace MidSussexTriathlon.Core.Data
            ,@Email
            ,@RaceType
            ,@SwimTime
+           ,@SwimDistance
            ,@BtfNumber
            ,@ClubName
            ,@TermsAccepted
@@ -123,7 +128,8 @@ namespace MidSussexTriathlon.Core.Data
            ,@Relay2BtfNumber
            ,@Relay3FirstName
            ,@Relay3LastName
-           ,@Relay3BtfNumber)";
+           ,@Relay3BtfNumber
+           ,@Wave)";
 
             entry.EntryDate = DateTime.Now;
 
@@ -151,6 +157,7 @@ namespace MidSussexTriathlon.Core.Data
                                     ,[Email] = @Email
                                     ,[RaceType] = @RaceType
                                     ,[SwimTime] = @SwimTime
+                                    ,[SwimDistance] = @SwimDistance
                                     ,[BtfNumber] = @BtfNumber
                                     ,[ClubName] = @ClubName
                                     ,[TermsAccepted] = @TermsAccepted
@@ -166,6 +173,7 @@ namespace MidSussexTriathlon.Core.Data
                                     ,[Relay3FirstName] = @Relay3FirstName
                                     ,[Relay3LastName] = @Relay3LastName
                                     ,[Relay3BtfNumber] = @Relay3BtfNumber
+                                    ,[Wave] = @Wave
                                 WHERE Id = @Id";
 
             using (IDbConnection connection = _dataConnection.SqlConnection)

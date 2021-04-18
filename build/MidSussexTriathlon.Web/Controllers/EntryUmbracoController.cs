@@ -43,6 +43,7 @@ namespace MidSussexTriathlon.Web.Controllers
                 Postcode = e.Postcode,
                 RaceType = e.RaceType,
                 SwimTime = e.SwimTime,
+                SwimDistance = e.SwimDistance,
                 BtfNumber = e.BtfNumber,
                 ClubName = e.ClubName,
                 TermsAccepted = e.TermsAccepted,
@@ -59,7 +60,8 @@ namespace MidSussexTriathlon.Web.Controllers
                 Relay2BtfNumber = e.Relay2BtfNumber,
                 Relay3FirstName = e.Relay3FirstName,
                 Relay3LastName = e.Relay3LastName,
-                Relay3BtfNumber = e.Relay3BtfNumber
+                Relay3BtfNumber = e.Relay3BtfNumber,
+                Wave = e.Wave
             }
                );
             return entriesReport;
@@ -69,6 +71,29 @@ namespace MidSussexTriathlon.Web.Controllers
         {
             _entryRepository.Update(entry);
             return _entryRepository.Get(entry.Id);
+        }
+
+        public void SetWaves(WaveModel model)
+        {
+            var entrants = _entryRepository.GetEntered();
+            entrants.OrderBy(e => e.EntryDate);
+
+            int wave = 1;
+            int waveCount = 1;
+            foreach(var entrant in entrants)
+            {
+                entrant.Wave = wave;
+                _entryRepository.Update(entrant);
+                if (waveCount == model.WaveSize)
+                {
+                    wave++;
+                    waveCount = 1;
+                }
+                else
+                {
+                    waveCount++;
+                }
+            }
         }
     }
 }

@@ -77,7 +77,7 @@ namespace MidSussexTriathlon.Web.Controllers
             }
 
             entry.OrderReference = paymentIntent.Id;
-            entry.Paid = true;           
+            entry.Paid = true; 
 
             _entryRepository.Update(entry);
 

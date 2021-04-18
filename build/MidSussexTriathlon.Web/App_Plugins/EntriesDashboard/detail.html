@@ -46,7 +46,7 @@
             <tr>
                 <th>Gender</th>
                 <td>
-                    <select class="input" id="gender" name="gender" required ng-model="dialogData.entry.Gender">                 
+                    <select class="input" id="gender" name="gender" required ng-model="dialogData.entry.Gender">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
@@ -87,6 +87,15 @@
                 <td><input type="text" ng-model="dialogData.entry.SwimTime" /></td>
             </tr>
             <tr>
+                <th>Swim Distance</th>
+                <td>
+                    <select class="input" id="swimDistance" name="swimDistance" required ng-model="dialogData.entry.SwimDistance">
+                        <option value="200 metres">200 metres</option>
+                        <option value="400 metres">400 metres</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <th>BTF Number</th>
                 <td><input type="text" ng-model="dialogData.entry.BtfNumber" /></td>
             </tr>
@@ -119,6 +128,10 @@
                 <td><input type="text" ng-model="dialogData.entry.Relay3BtfNumber" /></td>
             </tr>
             <tr>
+                <th>Wave</th>
+                <td><input type="number" ng-model="dialogData.entry.Wave" /></td>
+            </tr>
+            <tr>
                 <th>New To Sport</th>
                 <td><input type="checkbox" ng-model="dialogData.entry.NewToSport" /></td>
             </tr>
@@ -137,7 +150,7 @@
             <tr>
                 <th>Order Reference</th>
                 <td>{{dialogData.entry.OrderReference}}</td>
-            </tr>          
+            </tr>
         </table>
     </div>
 </div>
