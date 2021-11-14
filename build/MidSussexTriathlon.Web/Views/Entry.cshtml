@@ -156,9 +156,12 @@
                                             <label class="radio-inline">
                                                 <input type="radio" name="raceType" id="raceType2" value="Aquabike" required> Aquabike
                                             </label>
-                                            @*<label class="radio-inline">
-                                        <input type="radio" name="raceType" id="raceType3" value="Relay Triathlon" required> Relay Triathlon
-                                    </label>*@
+                                            @if(entry.EnableRelay == true)
+                                            {
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="raceType" id="raceType3" value="Relay Triathlon" required> Relay Triathlon
+                                                </label>
+                                            }
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>                                    
