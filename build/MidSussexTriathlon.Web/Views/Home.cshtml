@@ -136,13 +136,16 @@
                 {
                     if (logoItem.Link != null)
                     {
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
-                                <a href="@logoItem.Link" target="_blank">
-                                    <img src="@logoItem.Logo.Url">
-                                </a>
+                        foreach (var item in logoItem.Link)
+                        { 
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
+                                    <a href="@item.Link" target="_blank">
+                                        <img src="@logoItem.Logo.Url">
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        }
                     }
                 }
             </div>
