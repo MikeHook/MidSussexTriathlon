@@ -3,6 +3,7 @@
 @{
     Layout = "Master.cshtml";
     var home = Model.Content;
+    var sponsors = Umbraco.Content(Guid.Parse("c83fddaf-6ce9-41ea-bdc9-68d6bd7195bc"));
 }
 
 <!-- Main Slider Section Start -->
@@ -11,8 +12,8 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            <div class="item active">                
-                <img class="banner-background" src="@(home.BannerImage1 != null ? home.BannerImage1.Url : "/assets/img/slider/FinishBanner3-1920x600.jpg")" />                 
+            <div class="item active">
+                <img class="banner-background" src="@(home.BannerImage1 != null ? home.BannerImage1.Url : "/assets/img/slider/FinishBanner3-1920x600.jpg")" />
             </div>
             <div class="item">
                 <img class="banner-background" src="@(home.BannerImage2 != null ? home.BannerImage2.Url : "/assets/img/slider/triathlon-swim1920x600.jpg")" />
@@ -53,7 +54,7 @@
                 <h4 class="counter-subtitle">20th Anniversary Race!</h4>
                 <h4 class="counter-title" title="Race day">@home.RaceDate.ToString("dddd dd MMMM yyyy")</h4>
             </div>
-            <div class="counters-block clearfix">               
+            <div class="counters-block clearfix">
                 <div id="countdown-container" title="Time left">
                 </div>
             </div>
@@ -101,79 +102,58 @@
 <!-- Call to action Section -->
 @if (!home.EntriesDisabled)
 {
-<section id="intro" class="section-small">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h2 class="wow animated slideInRight" data-wow-delay=".4s">
-                    @home.EntryCallToActionText
-                </h2>
-                <a rel="nofollow" href="/enter-race" class="wow animated fadeInUp btn btn-inverse mt-50" data-wow-delay=".6s">
-                    <i class="fa fa-check-circle"></i> Enter now!
-                    <div class="ripple-container"></div>
-                </a>
+    <section id="intro" class="section-small">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="wow animated slideInRight" data-wow-delay=".4s">
+                        @home.EntryCallToActionText
+                    </h2>
+                    <a rel="nofollow" href="/enter-race" class="wow animated fadeInUp btn btn-inverse mt-50" data-wow-delay=".6s">
+                        <i class="fa fa-check-circle"></i> Enter now!
+                        <div class="ripple-container"></div>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 }
 <!-- Call to action Section End -->
 <!-- Sponsors Section Start -->
 <section id="sponsors" class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="section-title wow fadeInUp" data-wow-delay="0s">
-                    Our Sponsors
-                </h2>
-                <div class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">
-                    @home.SponsorsIntro
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                @if (home.Sponsor1Link.Any())
-                {
-                    <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
-
-                        <a href="@home.Sponsor1Link.First().Link" target="_blank">
-                            <img src="@home.Sponsor1Logo.Url" alt="@home.Sponsor1Logo.GetPropertyValue("alt")">
-                        </a>
-                    </div>
-                }
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                @if (home.Sponsor2Link.Any())
-                {
-                    <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="@home.Sponsor2Link.First().Link" target="_blank">
-                            <img src="@home.Sponsor2Logo.Url" alt="@home.Sponsor2Logo.GetPropertyValue("alt")">
-                        </a>
-                    </div>
-                }
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                @if (home.Sponsor3Link.Any())
-                {
-                    <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.3s">
-                        <a href="@home.Sponsor3Link.First().Link" target="_blank">
-                            <img src="@home.Sponsor3Logo.Url" alt="@home.Sponsor3Logo.GetPropertyValue("alt")">
-                        </a>
-                    </div>
-                }
-            </div>
-
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                @if (home.Sponsor4Link.Any())
-                {
-                    <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.4s">
-                        <a href="@home.Sponsor4Link.First().Link" target="_blank">
-                            <img src="@home.Sponsor4Logo.Url" alt="@home.Sponsor4Logo.GetPropertyValue("alt")">
-                        </a>
-                    </div>
-                }
-            </div>
+    <div class="col-md-12">
+        <h2 class="section-title wow fadeInUp" data-wow-delay="0s">
+            Our Sponsors
+        </h2>
+        <div class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">
+            @home.SponsorsIntro
         </div>
     </div>
+    <marquee behavior="alternate" scrollamount="3" >
+        <div class="container">
+            <div class="row" style="display: flex; flex-wrap: nowrap; justify-content: center;">
+                @foreach (var logoItem in sponsors.Logos)
+                {
+                    if (logoItem.Link != null)
+                    {
+                        foreach (var item in logoItem.Link)
+                        { 
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
+                                    <a href="@item.Link" target="_blank">
+                                        <img src="@logoItem.Logo.Url">
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </marquee>
 </section>
 <!-- Sponsors Section End -->
 
