@@ -56,6 +56,9 @@ namespace MidSussexTriathlon.Core.Data
                                       ,[Relay3LastName]
                                       ,[Relay3BtfNumber]
                                       ,[Wave]
+                                      ,[EmergencyContactFirstName]
+                                      ,[EmergencyContactLastName]
+                                      ,[EmergencyContactPhone]
                                   FROM [dbo].[Entry] ";
 
         private readonly IDataConnection _dataConnection;
@@ -97,7 +100,10 @@ namespace MidSussexTriathlon.Core.Data
            ,[Relay3FirstName]
            ,[Relay3LastName]
            ,[Relay3BtfNumber]
-           ,[Wave])
+           ,[Wave]
+           ,[EmergencyContactFirstName]
+           ,[EmergencyContactLastName]
+           ,[EmergencyContactPhone])
         OUTPUT Inserted.Id
         VALUES
            (@FirstName
@@ -129,7 +135,10 @@ namespace MidSussexTriathlon.Core.Data
            ,@Relay3FirstName
            ,@Relay3LastName
            ,@Relay3BtfNumber
-           ,@Wave)";
+           ,@Wave
+           ,@EmergencyContactFirstName
+           ,@EmergencyContactLastName
+           ,@EmergencyContactPhone)";
 
             entry.EntryDate = DateTime.Now;
 
@@ -174,6 +183,9 @@ namespace MidSussexTriathlon.Core.Data
                                     ,[Relay3LastName] = @Relay3LastName
                                     ,[Relay3BtfNumber] = @Relay3BtfNumber
                                     ,[Wave] = @Wave
+                                    ,[EmergencyContactFirstName] = @EmergencyContactFirstName
+                                    ,[EmergencyContactLastName] = @EmergencyContactLastName
+                                    ,[EmergencyContactPhone] = @EmergencyContactPhone
                                 WHERE Id = @Id";
 
             using (IDbConnection connection = _dataConnection.SqlConnection)

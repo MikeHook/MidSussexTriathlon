@@ -1,6 +1,6 @@
 ﻿<div class="welcome-dashboard" ng-controller="EntriesDashboardController">
     <p>
-        Hello <b>{{UserName}}</b>. We hope you find the experience of editing your content with Umbraco enjoyable and delightful. If you discover any problems with the site please report them to the <a href="mailto:support@midsussextriclub.com">support team</a>.
+        Hello <b>{{UserName}}</b>! We hope you find the experience of editing your content with Umbraco enjoyable and delightful. If you discover any problems with the site please report them to the <a href="mailto:support@midsussextriclub.com">support team</a>.
     </p>
 
     <h3>Race entries</h3>
@@ -40,6 +40,9 @@
                     <th st-sort="Relay3LastName">Relay 3 Last Name</th>
                     <th st-sort="Relay3BtfNumber">Relay 3 Btf Number</th>
                     <th st-sort="Wave">Start Wave</th>
+                    <th st-sort="EmergencyContactFirstName">Emergency First Name</th>
+                    <th st-sort="EmergencyContactLastName">Emergency Last Name</th>
+                    <th st-sort="EmergencyContactPhone">Emergency Phone Number</th>
                 </tr>
                 <tr>
                     <th>
@@ -80,6 +83,9 @@
                     <td>{{entry.Relay3LastName}}</td>
                     <td>{{entry.Relay3BtfNumber}}</td>
                     <td>{{entry.Wave}}</td>
+                    <td>{{entry.EmergencyContactFirstName}}</td>
+                    <td>{{entry.EmergencyContactLastName}}</td>
+                    <td>{{entry.EmergencyContactPhone}}</td>
                 </tr>
             </tbody>
             <tfoot>
