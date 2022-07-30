@@ -81,7 +81,10 @@ function submitEntry(stripe, card) {
 		relay3FirstName: $("#relay3FirstName").val(),
 		relay3LastName: $("#relay3LastName").val(),
 		relay3BtfNumber: $("#relay3BtfNumber").val(),
-		cost: costSpan.textContent
+		cost: costSpan.textContent,
+		emergencyContactFirstName: $("#emergencyContactFirstName").val(),
+		emergencyContactLastName: $("#emergencyContactLastName").val(),
+		emergencyContactPhone: $("#emergencyContactPhone").val()
 	};
 
 	$.ajax({
