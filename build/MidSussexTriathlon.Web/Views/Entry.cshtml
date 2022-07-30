@@ -140,6 +140,43 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="title-medium pull-left">In Case of Emergency Contact information</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">First name*</label>
+                                            <input type="text" class="input" id="emergencyContactFirstName" required data-error="Please enter first name" maxlength="255">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Last name*</label>
+                                            <input type="text" class="input" id="emergencyContactLastName" required data-error="Please enter last name" maxlength="255">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line">
+                                            <span class="span"></span>
+                                            <label class="label transition">Phone number*</label>
+                                            <input type="text" class="input" id="emergencyContactPhone" required maxlength="255">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5 class="title-medium pull-left">Event details</h5>
@@ -156,7 +193,7 @@
                                             <label class="radio-inline">
                                                 <input type="radio" name="raceType" id="raceType2" value="Aquabike" required> Aquabike
                                             </label>
-                                            @if(entry.EnableRelay == true)
+                                            @if (entry.EnableRelay == true)
                                             {
                                                 <label class="radio-inline">
                                                     <input type="radio" name="raceType" id="raceType3" value="Relay Triathlon" required> Relay Triathlon
@@ -164,7 +201,7 @@
                                             }
                                             <div class="help-block with-errors"></div>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -387,7 +424,7 @@
     <script type="text/javascript" src="~/assets/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="~/assets/js/form-validator.min.js"></script>
     <script type="text/javascript" src="~/assets/js/jquery.toast.js"></script>
-    <script type="text/javascript" src="~/assets/js/entry.js?v=5"></script>
+    <script type="text/javascript" src="~/assets/js/entry.js?v=6"></script>
 
     <script type="text/javascript">
         var pkStripe = '@ConfigurationManager.AppSettings["stripePublicKey"]';
