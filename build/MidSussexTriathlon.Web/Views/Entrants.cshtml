@@ -49,7 +49,7 @@
                             <th>Date Entered</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Estimated Swim Time (for 400m)</th> 
+                            <th>Estimated Swim Time (for 400m)</th>
                             <th>Swim Distance</th>
                             <th>Start Wave</th>
                         </tr>
@@ -67,6 +67,23 @@
                             <th>Relay Entrant 1</th>
                             <th>Relay Entrant 2</th>
                             <th>Relay Entrant 3</th>
+                            <th>Estimated Swim Time (for 400m)</th>
+                            <th>Swim Distance</th>
+                            <th>Start Wave</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <br />
+
+                <h4>Try a Tri</h4>
+
+                <table id="tryATri-table" class="table table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Date Entered</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
                             <th>Estimated Swim Time (for 400m)</th>
                             <th>Swim Distance</th>
                             <th>Start Wave</th>
@@ -183,6 +200,31 @@
                     { data: 'SwimTime' },
                     { data: 'SwimDistance' },
                     { data: 'Wave' }
+                ],
+                'order': [[0, 'desc']]
+            });
+
+            $('#tryATri-table').DataTable({
+                ajax: {
+                    url: '/umbraco/api/entry/entered?eventType=Try a Tri',
+                    dataSrc: ''
+                },
+                columns: [
+                    {
+                        data: 'EntryDate',
+                        render: function (data, type, row) {
+                            if (type === "sort" || type === "type") {
+                                return data;
+                            }
+                            return moment(data).format("DD MMM YYYY HH:mm");
+                        }
+                    },
+                    { data: 'FirstName' },
+                    { data: 'LastName' },
+                    { data: 'SwimTime' },
+                    { data: 'SwimDistance' },
+                    { data: 'Wave' }
+
                 ],
                 'order': [[0, 'desc']]
             });
