@@ -32,7 +32,7 @@ function btfChanged() {
 		}
 		costSpan.textContent = relayEventCost;
 	} else {		
-		var eventCost = parseInt($("#eventCost")[0].innerHTML, 10);
+		var eventCost = raceType === 'Try a Tri' ? parseInt($("#tryATriCost")[0].innerHTML, 10) : parseInt($("#eventCost")[0].innerHTML, 10);
 		costSpan.textContent = $("#btfNumber").val().length > 0 ? eventCost : eventCost + licenseCost;
 	}
 }
@@ -239,6 +239,11 @@ function bindEvents() {
 		raceTypeChanged();
 	});
 
+	$('#raceType4').off("click");
+	$('#raceType4').on("click", function () {
+		raceTypeChanged();
+	});
+
 	$('#relay3BtfNumber').off("change keyup paste"); 
 	$("#relay3BtfNumber").on("change keyup paste", function () {
 		btfChanged();
@@ -246,6 +251,11 @@ function bindEvents() {
 
 	$('#relay2BtfNumber').off("change keyup paste"); 
 	$("#relay2BtfNumber").on("change keyup paste", function () {
+		btfChanged();
+	});
+
+	$('#terms').off("click");
+	$('#terms').on("click", function () {
 		btfChanged();
 	});
 
