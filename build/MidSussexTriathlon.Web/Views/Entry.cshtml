@@ -61,8 +61,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
                                             <span class="span"></span>
-                                            <label class="label transition">Gender*</label>
-                                            <select class="input" id="gender" name="gender" required data-error="Please select gender">
+                                            <label class="label transition">Category*</label>
+                                            <select class="input" id="gender" name="gender" required data-error="Please select category">
                                                 <option value=""></option>
                                                 <option value="Open">open</option>
                                                 <option value="Female">Female</option>
@@ -195,15 +195,15 @@
                                             </label>
                                             @if (entry.EnableRelay == true)
                                             {
-                                            <label class="radio-inline">
-                                                <input type="radio" name="raceType" id="raceType3" value="Relay Triathlon" required> Relay Triathlon
-                                            </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="raceType" id="raceType3" value="Relay Triathlon" required> Relay Triathlon
+                                                </label>
                                             }
                                             @if (entry.EnableTryAtri)
                                             {
-                                            <label class="radio-inline">
-                                                <input type="radio" name="raceType" id="raceType4" value="Try a Tri" required> Try a Tri
-                                            </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="raceType" id="raceType4" value="Try a Tri" required> Try a Tri
+                                                </label>
                                             }
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -432,7 +432,17 @@
                     </div>
                 </div>
 
-        </div>
+                <div class="info-container" hidden="hidden">
+                    <div class="icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="info">
+                        <h5>Discount</h5>
+                        <h3>£<span id="discountValue">@Umbraco.Field("discountValue")</span>*</h3>
+                    </div>
+                </div>
+
+            </div>
     </section>
 </div>
 <!-- Main content End -->

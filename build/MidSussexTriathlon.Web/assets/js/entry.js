@@ -30,9 +30,14 @@ function btfChanged() {
 		if ($("#relay3LastName").val().length > 0 && $("#relay3BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 		}
-		costSpan.textContent = relayEventCost;
-	} else {		
-		var eventCost = raceType === 'Try a Tri' ? parseInt($("#tryATriCost")[0].innerHTML, 10) : parseInt($("#eventCost")[0].innerHTML, 10);
+		costSpan.textContent = relayEventCost
+	} else if (raceType === 'Try a Tri') {
+		var eventCost = parseInt($("#tryATriCost")[0].innerHTML, 10);
+		costSpan.textContent = $("#btfNumber").val().length > 0 ? eventCost : eventCost + licenseCost;
+	} else {
+		var eventCost = parseInt($("#eventCost")[0].innerHTML, 10);
+		//discount for under 25
+		eventCost = ageAtEvent($("#dob")[0].value) > 24 ? eventCost : eventCost - parseInt($("#discountValue")[0].innerHTML, 10);
 		costSpan.textContent = $("#btfNumber").val().length > 0 ? eventCost : eventCost + licenseCost;
 	}
 }
