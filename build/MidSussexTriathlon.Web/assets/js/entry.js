@@ -15,10 +15,18 @@ function onFieldBlur(field) {
 	}
 }
 
-function btfChanged() {	
+function ageAtEvent(dob) {
+	var dateParts = dob.split('/')
+	var diff_ms = new Date(document.getElementsByClassName("info-bar-address")[0].innerText) - new Date(dateParts[2],dateParts[1]-1,dateParts[0]).getTime();
+	var age_dt = new Date(diff_ms);
+
+	return Math.abs(age_dt.getUTCFullYear() - 1970);
+}
+
+function btfChanged() {
 	var costSpan = document.getElementById('cost');
 	var raceType = $("input[name='raceType']:checked").val();
-	var licenseCost = parseInt($("#btfLicenseCost")[0].innerHTML, 10);		
+	var licenseCost = parseInt($("#btfLicenseCost")[0].innerHTML, 10);
 	if (raceType === 'Relay Triathlon') {
 		var relayEventCost = parseInt($("#relayEventCost")[0].innerHTML, 10);
 		if ($("#btfNumber").val().length === 0) {
@@ -31,8 +39,12 @@ function btfChanged() {
 			relayEventCost += licenseCost;
 		}
 		costSpan.textContent = relayEventCost;
-	} else {		
-		var eventCost = raceType === 'Try a Tri' ? parseInt($("#tryATriCost")[0].innerHTML, 10) : parseInt($("#eventCost")[0].innerHTML, 10);
+	} else if (raceType === 'Try a Tri') {
+		var eventCost = parseInt($("#tryATriCost")[0].innerHTML, 10);
+		costSpan.textContent = $("#btfNumber").val().length > 0 ? eventCost : eventCost + licenseCost;
+	} else {
+		var eventCost = parseInt($("#eventCost")[0].innerHTML, 10);
+		eventCost = ageAtEvent($("#dob")[0].value) > 24 ? eventCost : eventCost - 10;
 		costSpan.textContent = $("#btfNumber").val().length > 0 ? eventCost : eventCost + licenseCost;
 	}
 }
@@ -51,7 +63,7 @@ function raceTypeChanged() {
 	btfChanged();
 }
 
-function submitEntry(stripe, card) {  
+function submitEntry(stripe, card) {
 
 	var costSpan = document.getElementById('cost');
 
@@ -93,43 +105,43 @@ function submitEntry(stripe, card) {
 		method: 'POST',// jQuery > 1.9
 		type: 'POST', //jQuery < 1.9
 		success: function (response) {
-	
-				var clientSecret = response;
-				stripe.confirmCardPayment(clientSecret, {
-					payment_method: {
-						card: card,
-						billing_details: {
-							email: $("#email").val(),
-							name: $("#firstName").val() + ' ' + $("#lastName").val(),
-							address: {
-								line1: $("#address1").val(),
-								line2: $("#address2").val(),
-								city: $("#city").val(),
-								postal_code: $("#postcode").val(),
-								state: $("#county").val(),
-								country: 'GB'
-							}							
-						}
-					}
-				}).then(function (result) {
-					if (result.error) {
-						// Inform the customer that there was an error.
-						var errorElement = document.getElementById('card-errors');
-						errorElement.textContent = result.error.message;	
-						JL().error('Unable to confirmCardPayment with Stripe');
-						JL().error(result.error.message);								
-					} else {
-						// The payment has been processed!
-						if (result.paymentIntent.status === 'succeeded') {
-							// The StripeWebHookController webhook will complete the payment
-							$('#entry-container').addClass('hidden');
-							$('#entry-confirmed').removeClass('hidden');
 
-							fbq('track', 'CompleteRegistration');
+			var clientSecret = response;
+			stripe.confirmCardPayment(clientSecret, {
+				payment_method: {
+					card: card,
+					billing_details: {
+						email: $("#email").val(),
+						name: $("#firstName").val() + ' ' + $("#lastName").val(),
+						address: {
+							line1: $("#address1").val(),
+							line2: $("#address2").val(),
+							city: $("#city").val(),
+							postal_code: $("#postcode").val(),
+							state: $("#county").val(),
+							country: 'GB'
 						}
 					}
-					$.Toast.hideToast();
-				});
+				}
+			}).then(function (result) {
+				if (result.error) {
+					// Inform the customer that there was an error.
+					var errorElement = document.getElementById('card-errors');
+					errorElement.textContent = result.error.message;
+					JL().error('Unable to confirmCardPayment with Stripe');
+					JL().error(result.error.message);
+				} else {
+					// The payment has been processed!
+					if (result.paymentIntent.status === 'succeeded') {
+						// The StripeWebHookController webhook will complete the payment
+						$('#entry-container').addClass('hidden');
+						$('#entry-confirmed').removeClass('hidden');
+
+						fbq('track', 'CompleteRegistration');
+					}
+				}
+				$.Toast.hideToast();
+			});
 		},
 		error: function (message) {
 			$.Toast.hideToast();
@@ -193,7 +205,7 @@ function initStripe(pkStripe) {
 				"duration": 0
 			});
 
-			submitEntry(stripe, card);			
+			submitEntry(stripe, card);
 		}
 	});
 }
@@ -244,12 +256,12 @@ function bindEvents() {
 		raceTypeChanged();
 	});
 
-	$('#relay3BtfNumber').off("change keyup paste"); 
+	$('#relay3BtfNumber').off("change keyup paste");
 	$("#relay3BtfNumber").on("change keyup paste", function () {
 		btfChanged();
 	});
 
-	$('#relay2BtfNumber').off("change keyup paste"); 
+	$('#relay2BtfNumber').off("change keyup paste");
 	$("#relay2BtfNumber").on("change keyup paste", function () {
 		btfChanged();
 	});
@@ -273,7 +285,7 @@ function bindEvents() {
 	});
 }
 
-$(document).ready(function () {	
+$(document).ready(function () {
 
 	bindEvents();
 
@@ -285,7 +297,7 @@ $(document).ready(function () {
 		type: 'GET', //jQuery < 1.9
 		success: function (response) {
 			var placesLeft = document.getElementById('placesLeft');
-			placesLeft.textContent = response;	
+			placesLeft.textContent = response;
 		},
 		error: function () { }
 	});
