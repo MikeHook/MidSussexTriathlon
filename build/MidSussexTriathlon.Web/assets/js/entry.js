@@ -15,6 +15,14 @@ function onFieldBlur(field) {
 	}
 }
 
+function ageAtEvent(dob) {
+	var dateParts = dob.split('/')
+	var diff_ms = new Date(document.getElementsByClassName("info-bar-address")[0].innerText) - new Date(dateParts[2], dateParts[1] - 1, dateParts[0]).getTime();
+	var age_dt = new Date(diff_ms);
+
+	return Math.abs(age_dt.getUTCFullYear() - 1970);
+}
+
 function btfChanged() {	
 	var costSpan = document.getElementById('cost');
 	var raceType = $("input[name='raceType']:checked").val();
@@ -74,7 +82,7 @@ function submitEntry(stripe, card) {
 		email: $("#email").val(),
 		raceType: $("input[name='raceType']:checked").val(),
 		swimTime: $("#swimTime").val(),
-		swimDistance: $("input[name='swimDistance']:checked").val(),
+		swimDistance: "400 metres",
 		btfNumber: $("#btfNumber").val(),
 		clubName: $("#clubName").val(),
 		termsAccepted: $("#terms").val(),

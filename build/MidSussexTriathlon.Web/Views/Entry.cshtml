@@ -183,7 +183,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                         <div class="form-group label-line label-line-radio">
                                             <span class="span"></span>
                                             <label class="label transition">Race type*</label>
@@ -193,6 +193,15 @@
                                             <label class="radio-inline">
                                                 <input type="radio" name="raceType" id="raceType2" value="Aquabike" required> Aquabike
                                             </label>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-line label-line-radio">
+                                            <span class="span"></span>
+                                            <label class="label transition"> </label>
                                             @if (entry.EnableRelay == true)
                                             {
                                                 <label class="radio-inline">
@@ -205,21 +214,6 @@
                                                     <input type="radio" name="raceType" id="raceType4" value="Try a Tri" required> Try a Tri
                                                 </label>
                                             }
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group label-line label-line-radio">
-                                            <span class="span"></span>
-                                            <label class="label transition">Swim Distance*</label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="swimDistance" id="swimDistance1" value="200 metres" required> 200 metres
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="swimDistance" id="swimDistance2" value="400 metres" required> 400 metres
-                                            </label>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -451,7 +445,7 @@
     <script type="text/javascript" src="~/assets/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="~/assets/js/form-validator.min.js"></script>
     <script type="text/javascript" src="~/assets/js/jquery.toast.js"></script>
-    <script type="text/javascript" src="~/assets/js/entry.js?v=6"></script>
+    <script type="text/javascript" src="~/assets/js/entry.js?v=7"></script>
 
     <script type="text/javascript">
         var pkStripe = '@ConfigurationManager.AppSettings["stripePublicKey"]';
