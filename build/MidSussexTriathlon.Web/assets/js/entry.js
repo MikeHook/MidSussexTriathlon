@@ -44,8 +44,17 @@ function btfChanged() {
 		costSpan.textContent = $("#btfNumber").val().length > 0 ? eventCost : eventCost + licenseCost;
 	} else {
 		var eventCost = parseInt($("#eventCost")[0].innerHTML, 10);
-		//discount for under 25
-		eventCost = ageAtEvent($("#dob")[0].value) > 24 ? eventCost : eventCost - parseInt($("#discountValue")[0].innerHTML, 10);
+		var ageDiscount = parseInt($("#discountValue")[0].innerHTML, 10);
+		var codeDiscount = parseInt($("#discountAmount")[0].innerHTML, 10);
+		var age = ageAtEvent($("#dob")[0].value);
+		var disCodeObj = document.getElementById("discountCode");
+
+		if (ageDiscount > 0 && age < 25) {
+			eventCost = eventCost - ageDiscount;
+		} else if (!disCodeObj.validity.patternMismatch && disCodeObj.value.length > 0) {
+			eventCost = eventCost - codeDiscount;
+		}
+		
 		costSpan.textContent = $("#btfNumber").val().length > 0 ? eventCost : eventCost + licenseCost;
 	}
 }
