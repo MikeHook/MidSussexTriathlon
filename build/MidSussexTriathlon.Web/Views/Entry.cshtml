@@ -196,6 +196,8 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-line label-line-radio">
                                             <span class="span"></span>
@@ -206,7 +208,7 @@
                                                     <input type="radio" name="raceType" id="raceType3" value="Relay Triathlon" required> Relay Triathlon
                                                 </label>
                                             }
-                                            @if (entry.EnableTryAtri == true)
+                                            @if (entry.EnableTryAtri)
                                             {
                                                 <label class="radio-inline">
                                                     <input type="radio" name="raceType" id="raceType4" value="Try a Tri" required> Try a Tri
@@ -215,8 +217,6 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-line label-line-time">
                                             <span class="span"></span>
@@ -226,6 +226,8 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
                                             <span class="span"></span>
@@ -234,8 +236,6 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
                                             <span class="span"></span>
@@ -244,6 +244,8 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-line label-line-radio">
                                             <span class="span"></span>
@@ -257,8 +259,6 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
                                             <span class="span"></span>
@@ -275,14 +275,6 @@
                                                 <option value="Web search">Web search</option>
                                                 <option value="Other">Other</option>
                                             </select>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group label-line">
-                                            <span class="span"></span>
-                                            <label class="label transition">Discount Code</label>
-                                            <input type="text" class="input" id="discountCode" maxlength="255" pattern=@entry.DiscountCode data-pattern-error ="Please enter valid Discount code.">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -435,13 +427,12 @@
                 </div>
 
                 <div class="info-container" hidden="hidden">
-                    <div class="info">
-                        <h5>DiscountUnder25</h5>
-                        <h3>£<span id="discountValue">@Umbraco.Field("discountValue")</span>*</h3>
+                    <div class="icon">
+                        <i class="fa fa-user"></i>
                     </div>
                     <div class="info">
-                        <h5>DiscountCode</h5>
-                        <h3>£<span id="discountAmount">@Umbraco.Field("discountAmount")</span>*</h3>
+                        <h5>Discount</h5>
+                        <h3>£<span id="discountValue">@Umbraco.Field("discountValue")</span>*</h3>
                     </div>
                 </div>
 
@@ -454,7 +445,7 @@
     <script type="text/javascript" src="~/assets/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="~/assets/js/form-validator.min.js"></script>
     <script type="text/javascript" src="~/assets/js/jquery.toast.js"></script>
-    <script type="text/javascript" src="~/assets/js/entry.js?v=8"></script>
+    <script type="text/javascript" src="~/assets/js/entry.js?v=7"></script>
 
     <script type="text/javascript">
         var pkStripe = '@ConfigurationManager.AppSettings["stripePublicKey"]';
