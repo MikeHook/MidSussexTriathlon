@@ -61,7 +61,10 @@ namespace MidSussexTriathlon.Web.Controllers
                 Relay3FirstName = e.Relay3FirstName,
                 Relay3LastName = e.Relay3LastName,
                 Relay3BtfNumber = e.Relay3BtfNumber,
-                Wave = e.Wave
+                Wave = e.Wave,
+                EmergencyContactFirstName = e.EmergencyContactFirstName,
+                EmergencyContactLastName = e.EmergencyContactLastName,
+                EmergencyContactPhone = e.EmergencyContactPhone,
             }
                );
             return entriesReport;
