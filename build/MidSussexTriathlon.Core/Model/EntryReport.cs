@@ -42,5 +42,8 @@ namespace MidSussexTriathlon.Core.Model
         public string Relay3LastName { get; set; }
         public string Relay3BtfNumber { get; set; }
         public int? Wave { get; set; }
+        public string EmergencyContactFirstName { get; set; }
+        public string EmergencyContactLastName { get; set; }
+        public string EmergencyContactPhone { get; set; }
     }
 }
