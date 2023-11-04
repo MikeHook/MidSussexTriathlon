@@ -229,21 +229,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
                                             <span class="span"></span>
-                                            <label class="label transition">BTF Number (required for BTF discount)</label>
-                                            <input type="text" class="input" id="btfNumber" maxlength="255">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group label-line">
-                                            <span class="span"></span>
                                             <label class="label transition">Club name</label>
                                             <input type="text" class="input" id="clubName" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-line label-line-radio">
                                             <span class="span"></span>
@@ -257,8 +249,6 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
                                             <span class="span"></span>
@@ -278,11 +268,13 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Discount Code</label>
-                                            <input type="text" class="input" id="discountCode" maxlength="255" pattern=@entry.DiscountCode data-pattern-error ="Please enter valid Discount code.">
+                                            <input type="text" class="input" id="discountCode" maxlength="255" pattern=@entry.DiscountCode data-pattern-error="Please enter valid Discount code.">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -430,7 +422,9 @@
                         </div>
                     </div>
                     <div class="info-container">
-                        <p>*Unless you are a BTF member you will be charged £<span id="btfLicenseCost">@Umbraco.Field("btfLicenseCost")</span> per person for a race day license. Enter your BTF number to avoid the charge.</p>
+                        <p>
+                            <span style="font-weight:bold">*NEW FOR 2024*</span>. If you DO NOT HAVE BTF MEMBERSHIP from this year you will have to purchase a Race Pass for  £<span id="btfLicenseCost">@Umbraco.Field("btfLicenseCost")</span>. The information about this is here: <a href='https://www2.britishtriathlon.org/race-pass' target='_blank'> Race Pass – British Triathlon.</a>
+                        </p>
                     </div>
                 </div>
 
@@ -444,8 +438,8 @@
                         <h3>£<span id="discountAmount">@Umbraco.Field("discountAmount")</span>*</h3>
                     </div>
                 </div>
-
             </div>
+        </div>
     </section>
 </div>
 <!-- Main content End -->
