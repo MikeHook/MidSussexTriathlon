@@ -140,8 +140,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5 class="title-medium pull-left">In Case of Emergency Contact information</h5>
@@ -175,8 +173,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5 class="title-medium pull-left">Event details</h5>
@@ -229,12 +225,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
                                             <span class="span"></span>
-                                            <label class="label transition">BTF Number (required for BTF discount)</label>
+                                            <label class="label transition">BTF Number</label>
                                             <input type="text" class="input" id="btfNumber" maxlength="255">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-line">
@@ -257,6 +254,7 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -282,7 +280,7 @@
                                         <div class="form-group label-line">
                                             <span class="span"></span>
                                             <label class="label transition">Discount Code</label>
-                                            <input type="text" class="input" id="discountCode" maxlength="255" pattern=@entry.DiscountCode data-pattern-error ="Please enter valid Discount code.">
+                                            <input type="text" class="input" id="discountCode" maxlength="255" pattern=@entry.DiscountCode data-pattern-error="Please enter valid Discount code.">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -304,6 +302,7 @@
                                         <div id="card-errors" role="alert" class="payment-errors"></div>
                                     </div>
                                 </div>
+                                <div id="btfFieldsContainer"></div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group checkbox-field">
@@ -430,7 +429,7 @@
                         </div>
                     </div>
                     <div class="info-container">
-                        <p>*Unless you are a BTF member you will be charged £<span id="btfLicenseCost">@Umbraco.Field("btfLicenseCost")</span> per person for a race day license. Enter your BTF number to avoid the charge.</p>
+                        <p>*Unless you are a BTF member you will be charged £<span id="btfLicenseCost">@Umbraco.Field("btfLicenseCost")</span> per person for a race pass. Enter your BTF number to avoid the charge.</p>
                     </div>
                 </div>
 
@@ -444,8 +443,8 @@
                         <h3>£<span id="discountAmount">@Umbraco.Field("discountAmount")</span>*</h3>
                     </div>
                 </div>
-
             </div>
+        </div>
     </section>
 </div>
 <!-- Main content End -->
@@ -519,6 +518,32 @@
                     <span class="span"></span>
                     <label class="label transition">Relay entrant 3 BTF number</label>
                     <input type="text" class="input" id="relay3BtfNumber" maxlength="255">
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="btfFields" type="template">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group checkbox-field">
+                    <div class="checkbox">
+                        <label>
+                            <input id="btfterms" type="checkbox" value="true" required> I understand that by purchasing a Race Pass I am bound by the policies and rules of British Triathlon. You can see full information of this within the <a href="https://www.britishtriathlon.org/race-pass" target="_blank">Terms and Conditions</a>. Your personal information will be shared with British Triathlon for the purposes of providing your Race Pass and associated insurance product. British Triathlon will also use this information to contact you about your purchase and any information relevant to your Race Pass. You have a right to be informed about how your personal data is being used. You can see full information on how we use your personal data within our <a href="https://www.britishtriathlon.org/about-us/governance/privacy-notice" target="_blank">Privacy Policy</a>.*
+                        </label>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group checkbox-field">
+                    <div class="checkbox">
+                        <label>
+                            <input id="btfMarketing" type="checkbox" value="true"> I want to receive email, SMS and/or postal marketing communications from British Triathlon about Race Passes, including special events and promotions.
+                        </label>
+                    </div>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
         </div>
