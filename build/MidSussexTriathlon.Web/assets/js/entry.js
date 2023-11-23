@@ -23,25 +23,40 @@ function ageAtEvent(dob) {
 	return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
 
+function btfChecksAdd() {
+	var btfHtml = $('#btfFields').html();
+	if ($('#btfFieldsContainer').length == 1) {
+		$('#btfFieldsContainer').append(btfHtml);
+	}
+}
+
 function btfChanged() {	
 	var costSpan = document.getElementById('cost');
 	var raceType = $("input[name='raceType']:checked").val();
-	var licenseCost = parseInt($("#btfLicenseCost")[0].innerHTML, 10);		
+	var licenseCost = parseInt($("#btfLicenseCost")[0].innerHTML, 10);
+	$('#btfFieldsContainer').html('');
 	if (raceType === 'Relay Triathlon') {
 		var relayEventCost = parseInt($("#relayEventCost")[0].innerHTML, 10);
 		if ($("#btfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
+			btfChecksAdd();
 		}
 		if ($("#relay2LastName").val().length > 0 && $("#relay2BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
+			btfChecksAdd();
 		}
 		if ($("#relay3LastName").val().length > 0 && $("#relay3BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
+			btfChecksAdd();
 		}
 		costSpan.textContent = relayEventCost
 	} else if (raceType === 'Try a Tri') {
 		var eventCost = parseInt($("#tryATriCost")[0].innerHTML, 10);
-		costSpan.textContent = $("#btfNumber").val().length > 0 ? eventCost : eventCost + licenseCost;
+		if ($("#btfNumber").val().length == 0) {
+			eventCost += licenseCost;
+			btfChecksAdd();
+		}
+		costSpan.textContent = eventCost;
 	} else {
 		var eventCost = parseInt($("#eventCost")[0].innerHTML, 10);
 		var ageDiscount = parseInt($("#discountValue")[0].innerHTML, 10);
@@ -55,7 +70,11 @@ function btfChanged() {
 			eventCost = eventCost - codeDiscount;
 		}
 		
-		costSpan.textContent = $("#btfNumber").val().length > 0 ? eventCost : eventCost + licenseCost;
+		if ($("#btfNumber").val().length == 0) {
+			eventCost += licenseCost;
+			btfChecksAdd();
+		}
+		costSpan.textContent = eventCost;
 	}
 }
 
