@@ -34,6 +34,7 @@ function btfChanged() {
 	var costSpan = document.getElementById('cost');
 	var raceType = $("input[name='raceType']:checked").val();
 	var licenseCost = parseInt($("#btfLicenseCost")[0].innerHTML, 10);
+	$('#btfFieldsContainer').html('');
 	if (raceType === 'Relay Triathlon') {
 		var relayEventCost = parseInt($("#relayEventCost")[0].innerHTML, 10);
 		if ($("#btfNumber").val().length === 0) {
