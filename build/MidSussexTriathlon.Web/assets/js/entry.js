@@ -23,6 +23,13 @@ function ageAtEvent(dob) {
 	return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
 
+function btfChecksAdd() {
+	var btfHtml = $('#btfFields').html();
+	if ($('#btfFieldsContainer').length == 0) {
+		$('#btfFieldsContainer').append(btfHtml);
+	}
+}
+
 function btfChanged() {	
 	var costSpan = document.getElementById('cost');
 	var raceType = $("input[name='raceType']:checked").val();
@@ -67,12 +74,6 @@ function btfChanged() {
 			btfChecksAdd();
 		}
 		costSpan.textContent = eventCost;
-	}
-}
-function btfChecksAdd() {
-	var btfHtml = $('#btfFields').html();
-	if ($('#btfFieldsContainer').length == 0) {
-		$('#btfFieldsContainer').append(btfHtml);
 	}
 }
 
