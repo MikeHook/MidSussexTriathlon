@@ -38,7 +38,6 @@ function btfChanged() {
 	if (age < 25) {
 		licenseCost = licenseCost - 6;
 	}
-	$('#btfFieldsContainer').html('');
 	if (raceType === 'Relay Triathlon') {
 		var relayEventCost = parseInt($("#relayEventCost")[0].innerHTML, 10);
 		if ($("#btfNumber").val().length === 0) {
@@ -318,7 +317,7 @@ function bindEvents() {
 }
 
 $(document).ready(function () {	
-
+	$('#btfFieldsContainer').html('');
 	bindEvents();
 
 	btfChanged();
