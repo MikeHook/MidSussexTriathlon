@@ -34,6 +34,10 @@ function btfChanged() {
 	var costSpan = document.getElementById('cost');
 	var raceType = $("input[name='raceType']:checked").val();
 	var licenseCost = parseInt($("#btfLicenseCost")[0].innerHTML, 10);
+	var age = ageAtEvent($("#dob")[0].value);
+	if (age < 25) {
+		licenseCost = licenseCost - 6;
+	}
 	$('#btfFieldsContainer').html('');
 	if (raceType === 'Relay Triathlon') {
 		var relayEventCost = parseInt($("#relayEventCost")[0].innerHTML, 10);
@@ -61,7 +65,6 @@ function btfChanged() {
 		var eventCost = parseInt($("#eventCost")[0].innerHTML, 10);
 		var ageDiscount = parseInt($("#discountValue")[0].innerHTML, 10);
 		var codeDiscount = parseInt($("#discountAmount")[0].innerHTML, 10);
-		var age = ageAtEvent($("#dob")[0].value);
 		var disCodeObj = document.getElementById("discountCode");
 
 		if (ageDiscount > 0 && age < 25) {
