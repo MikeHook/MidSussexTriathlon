@@ -429,9 +429,6 @@
                         </div>
                     </div>
                     <div class="info-container">
-                        <p>*Unless you are a BTF member you will be charged £<span id="btfLicenseCost">@Umbraco.Field("btfLicenseCost")</span> per person for a race pass. Enter your BTF number to avoid the charge.</p>
-                    </div>
-                    <div class="info-container">
                         @entry.EntryInfo
                     </div>
                 </div>
@@ -445,6 +442,9 @@
                         <h5>DiscountCode</h5>
                         <h3>£<span id="discountAmount">@Umbraco.Field("discountAmount")</span>*</h3>
                     </div>
+                    <div class="info">
+                        <p>*Unless you are a BTF member you will be charged £<span id="btfLicenseCost">@Umbraco.Field("btfLicenseCost")</span> per person for a race pass. Enter your BTF number to avoid the charge.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
     <script type="text/javascript" src="~/assets/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="~/assets/js/form-validator.min.js"></script>
     <script type="text/javascript" src="~/assets/js/jquery.toast.js"></script>
-    <script type="text/javascript" src="~/assets/js/entry.js?v=8"></script>
+    <script type="text/javascript" src="~/assets/js/entry.js?v=9"></script>
 
     <script type="text/javascript">
         var pkStripe = '@ConfigurationManager.AppSettings["stripePublicKey"]';
