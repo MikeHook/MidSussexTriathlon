@@ -24,10 +24,7 @@ function ageAtEvent(dob) {
 }
 
 function btfChecksAdd() {
-	var btfHtml = $('#btfFields').html();
-	if ($('#btfFieldsContainer').val().length === 0) {
-		$('#btfFieldsContainer').append(btfHtml);
-	}
+	
 }
 
 function btfChanged() {	
@@ -317,7 +314,8 @@ function bindEvents() {
 }
 
 $(document).ready(function () {	
-	$('#btfFieldsContainer').html('');
+	var btfHtml = $('#btfFields').html();
+		$('#btfFieldsContainer').append(btfHtml);
 	bindEvents();
 
 	btfChanged();
