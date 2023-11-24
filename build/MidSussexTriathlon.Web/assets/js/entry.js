@@ -25,7 +25,7 @@ function ageAtEvent(dob) {
 
 function btfChecksAdd() {
 	var btfHtml = $('#btfFields').html();
-	if ($('#btfFieldsContainer').length == 1) {
+	if ($('#btfFieldsContainer').val().length === 0) {
 		$('#btfFieldsContainer').append(btfHtml);
 	}
 }
