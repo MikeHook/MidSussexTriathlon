@@ -29,6 +29,8 @@ function btfChecksAdd() {
 
 function btfChanged() {	
 	var costSpan = document.getElementById('cost');
+	var btfSpan = document.getElementById('btfcost');
+	var newcostSpan = document.getElementById('newcost');
 	var raceType = $("input[name='raceType']:checked").val();
 	var licenseCost = parseInt($("#btfLicenseCost")[0].innerHTML, 10);
 	var age = ageAtEvent($("#dob")[0].value);
@@ -37,24 +39,30 @@ function btfChanged() {
 	}
 	if (raceType === 'Relay Triathlon') {
 		var relayEventCost = parseInt($("#relayEventCost")[0].innerHTML, 10);
+		newcostSpan.textContent = relayEventCost;
 		if ($("#btfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 			btfChecksAdd();
+			btfSpan.textContent = licenseCost;
 		}
 		if ($("#relay2LastName").val().length > 0 && $("#relay2BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 			btfChecksAdd();
+			btfSpan.textContent = licenseCost * 2;
 		}
 		if ($("#relay3LastName").val().length > 0 && $("#relay3BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 			btfChecksAdd();
+			btfSpan.textContent = licenseCost * 3;
 		}
-		costSpan.textContent = relayEventCost
+		costSpan.textContent = relayEventCost;
 	} else if (raceType === 'Try a Tri') {
 		var eventCost = parseInt($("#tryATriCost")[0].innerHTML, 10);
+		newcostSpan.textContent = eventCost;
 		if ($("#btfNumber").val().length == 0) {
 			eventCost += licenseCost;
 			btfChecksAdd();
+			btfSpan.textContent = licenseCost;
 		}
 		costSpan.textContent = eventCost;
 	} else {
@@ -65,13 +73,16 @@ function btfChanged() {
 
 		if (ageDiscount > 0 && age < 25) {
 			eventCost = eventCost - ageDiscount;
+			newcostSpan.textContent = eventCost;
 		} else if (!disCodeObj.validity.patternMismatch && disCodeObj.value.length > 0) {
 			eventCost = eventCost - codeDiscount;
+			newcostSpan.textContent = eventCost;
 		}
 		
 		if ($("#btfNumber").val().length == 0) {
 			eventCost += licenseCost;
 			btfChecksAdd();
+			btfSpan.textContent = licenseCost;
 		}
 		costSpan.textContent = eventCost;
 	}

@@ -328,7 +328,7 @@
                                     <div class="col-md-12">
                                         <div class="buttons">
                                             <button type="submit" id="form-submit" class="btn btn-common">
-                                                Complete entry at £<span id="cost"></span>
+                                                Enter race (£<span id="newcost"></span>) with Race Pass (£<span id="btfcost"></span>)
                                             </button>
                                             <div id="msgSubmit" class="h3 text-center hidden"></div>
                                             <div class="clearfix"></div>
@@ -441,6 +441,10 @@
                     <div class="info">
                         <h5>DiscountCode</h5>
                         <h3>£<span id="discountAmount">@Umbraco.Field("discountAmount")</span>*</h3>
+                    </div>
+                    <div class="info">
+                        <h5>Racecost</h5>
+                        <h3>£<span id="cost"></span>*</h3>
                     </div>
                     <div class="info">
                         <p>*Unless you are a BTF member you will be charged £<span id="btfLicenseCost">@Umbraco.Field("btfLicenseCost")</span> per person for a race pass. Enter your BTF number to avoid the charge.</p>
