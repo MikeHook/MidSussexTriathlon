@@ -70,7 +70,7 @@ function btfChanged() {
 		var ageDiscount = parseInt($("#discountValue")[0].innerHTML, 10);
 		var codeDiscount = parseInt($("#discountAmount")[0].innerHTML, 10);
 		var disCodeObj = document.getElementById("discountCode");
-
+		newcostSpan.textContent = eventCost;
 		if (ageDiscount > 0 && age < 25) {
 			eventCost = eventCost - ageDiscount;
 			newcostSpan.textContent = eventCost;
