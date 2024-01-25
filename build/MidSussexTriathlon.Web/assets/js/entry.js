@@ -39,22 +39,24 @@ function btfChanged() {
 	}
 	if (raceType === 'Relay Triathlon') {
 		var relayEventCost = parseInt($("#relayEventCost")[0].innerHTML, 10);
+		var TotalLicensecost = 0;
 		newcostSpan.textContent = relayEventCost;
 		if ($("#btfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 			btfChecksAdd();
-			btfSpan.textContent = licenseCost;
+			TotalLicensecost += licenseCost;
 		}
 		if ($("#relay2LastName").val().length > 0 && $("#relay2BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 			btfChecksAdd();
-			btfSpan.textContent = licenseCost * 2;
+			TotalLicensecost += licenseCost;
 		}
 		if ($("#relay3LastName").val().length > 0 && $("#relay3BtfNumber").val().length === 0) {
 			relayEventCost += licenseCost;
 			btfChecksAdd();
-			btfSpan.textContent = licenseCost * 3;
+			TotalLicensecost += licenseCost;
 		}
+		btfSpan.textContent = TotalLicensecost;
 		costSpan.textContent = relayEventCost;
 	} else if (raceType === 'Try a Tri') {
 		var eventCost = parseInt($("#tryATriCost")[0].innerHTML, 10);
